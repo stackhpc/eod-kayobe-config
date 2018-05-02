@@ -4,6 +4,9 @@
 
 # List of DNS nameservers.
 #resolv_nameservers:
+resolv_nameservers:
+  - 131.111.8.42
+  - 131.111.12.20
 
 # DNS domain suffix.
 #resolv_domain:

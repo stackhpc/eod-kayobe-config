@@ -62,6 +62,7 @@
 
 # Docker namespace to use for Kolla images.
 #kolla_docker_namespace:
+kolla_docker_namespace: eod
 
 # Username to use to access a docker registry.
 #kolla_docker_registry_username:
@@ -71,6 +72,7 @@
 
 # Kolla OpenStack release version. This should be a Docker image tag.
 #kolla_openstack_release:
+kolla_openstack_release: "6.0.0.0"
 
 # Dict mapping names of sources to their definitions for
 # kolla_install_type=source. See kolla.common.config for details.

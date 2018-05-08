@@ -94,9 +94,42 @@ kolla_openstack_release: "6.0.0.0"
 # Dict mapping Jinja2 block names in kolla's Docker images to their contents.
 #kolla_build_blocks:
 kolla_build_blocks:
+  fluentd_footer: |
+    # Install a custom fluentd output plugin that forwards logs to the monasca
+    # log API.
+    ADD https://github.com/stackhpc/fluentd-monasca/archive/master.tar.gz /fluentd-monasca.tar.gz
+    RUN mkdir /fluentd-monasca \
+        && cd /fluentd-monasca \
+        && tar -zxf /fluentd-monasca.tar.gz \
+        && rm /fluentd-monasca.tar.gz
+    RUN cd /fluentd-monasca/fluentd-monasca-master \
+        && gem build fluentd-monasca-output.gemspec \
+        && gem install fluentd-monasca-output-0.0.1.gem \
+        && fluent-gem install fluentd-monasca-output-0.0.1.gem \
+        && rm -rf /fluentd-monasca
+  grafana_footer: |
+    # TODO: Re-enable the official plugin when #450868 is merged upstream. For now we will
+    # manually install it from git
+    # RUN grafana-cli plugins install monasca-datasource
+    RUN mkdir -p /var/lib/grafana/plugins/monasca-datasource \
+        && curl -Lo tmp.tgz https://github.com/stackhpc/monasca-grafana-datasource/tarball/log-query-api \
+        && tar zxvf tmp.tgz -C /var/lib/grafana/plugins/monasca-datasource --strip-components=1 \
+        && rm tmp.tgz
+    # Install plugin for Gantt charts
+    RUN grafana-cli plugins install natel-discrete-panel
+    RUN grafana-cli plugins install vonage-status-panel
   ironic_inspector_footer: |
     # Install our custom inspector plugins.
     RUN pip install stackhpc-inspector-plugins
+  kafka_version: |
+    # TODO(dszumski) This is the most recent version of Kafka that Monasca
+    # currently supports but we need to upgrade Monasca services before we
+    # can use it. Until then continue to use the same version as provided
+    # by the LXC container.
+    # ENV kafka_url=https://archive.apache.org/dist/kafka/0.9.0.1/kafka_2.11-0.9.0.1.tgz
+    # ENV kafka_pkg_sha512sum=818a821877436bbb9698a32afeb299bc569985a6b712179a9882bf1a10edfdb4992519ba39c1d7499144650b30781fc943a4d5d15b8d5916a4c1a5e542d9b956
+    ENV kafka_url=https://archive.apache.org/dist/kafka/0.8.2.2/kafka_2.10-0.8.2.2.tgz
+    ENV kafka_pkg_sha512sum=03978c4e82257eb36cc4c80c82c8e22a18a4546fd857b4fa34b089674960894321efb9c461229944b2b148c32c0cc4ec8a5d4c01ea8aee67ed9bedcf632a6b0d
   neutron_server_footer: |
     # Install a patched generic-switch plugin with support for Mellanox
     # switches.
@@ -113,6 +146,12 @@ kolla_build_blocks:
 # most commonly packages. The operation should be one of override, append or
 # remove. The value should be a list.
 #kolla_build_customizations:
+kolla_build_customizations:
+   # Use our own repo server to install the monasca-grafana fork
+   base_yum_repo_files_remove:
+     - 'grafana.repo'
+   influxdb_packages_override:
+     - 'influxdb-0.10.3-1'
 
 ###############################################################################
 # Kolla-ansible inventory configuration.

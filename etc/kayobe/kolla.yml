@@ -93,6 +93,18 @@ kolla_openstack_release: "6.0.0.0"
 
 # Dict mapping Jinja2 block names in kolla's Docker images to their contents.
 #kolla_build_blocks:
+kolla_build_blocks:
+  ironic_inspector_footer: |
+    # Install our custom inspector plugins.
+    RUN pip install stackhpc-inspector-plugins
+  neutron_server_footer: |
+    # Install a patched generic-switch plugin with support for Mellanox
+    # switches.
+    RUN pip install git+https://github.com/stackhpc/networking-generic-switch@stackhpc/queens
+    # Install a locally modified version of networking-mlnx with support for
+    # disabling the SDN controller sync mechanism in the mlnx_sdn_assist
+    # driver. This allows us to bind to flat Infiniband networks.
+    RUN pip install git+https://github.com/stackhpc/networking-mlnx@cauterise-sdn-client
 
 # Dict mapping image customization variable names to their values.
 # Each variable takes the form:

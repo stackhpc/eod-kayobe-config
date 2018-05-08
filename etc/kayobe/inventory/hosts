@@ -23,8 +23,5 @@ eod-seed
 [mgmt-switches]
 ethsw-dr6-u42
 
-[ctl-switches]
-# Add control and provisioning switches here if required.
-
-[hs-switches]
-# Add high speed switches here if required.
+[hs-eth-switches]
+ethsw-dr6-u41

@@ -18,7 +18,15 @@ eod-seed
 # OpenStack overcloud.
 
 [baremetal-compute]
-# Add baremetal compute nodes here if required.
+# C6220s:
+svn3-dr6-u10 ipmi_address=
+svn4-dr6-u9 ipmi_address=
+svn1-dr6-u10 ipmi_address=
+svn2-dr6-u9 ipmi_address=
+svn3-dr6-u8 ipmi_address=
+svn4-dr6-u7 ipmi_address=
+svn1-dr6-u8 ipmi_address=
+svn2-dr6-u7 ipmi_address=
 
 [mgmt-switches]
 ethsw-dr6-u42

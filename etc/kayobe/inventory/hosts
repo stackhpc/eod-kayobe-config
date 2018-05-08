@@ -21,7 +21,7 @@ eod-seed
 # Add baremetal compute nodes here if required.
 
 [mgmt-switches]
-# Add management network switches here if required.
+ethsw-dr6-u42
 
 [ctl-switches]
 # Add control and provisioning switches here if required.

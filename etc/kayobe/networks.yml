@@ -7,7 +7,7 @@
 # Name of the network used by the seed to manage the bare metal overcloud
 # hosts via their out-of-band management controllers.
 #oob_oc_net_name:
-oob_oc_net_name: oc_provision
+oob_oc_net_name: oc_oob
 
 # Name of the network used by the seed to provision the bare metal overcloud
 # hosts.
@@ -17,7 +17,7 @@ provision_oc_net_name: oc_provision
 # Name of the network used by the overcloud hosts to manage the bare metal
 # compute hosts via their out-of-band management controllers.
 #oob_wl_net_name:
-oob_wl_net_name: oc_provision
+oob_wl_net_name: wl_oob
 
 # Name of the network used by the overcloud hosts to provision the bare metal
 # workload hosts.
@@ -55,22 +55,18 @@ inspection_net_name: wl_inspection
 ###############################################################################
 # Network definitions.
 
-# FIXME: Will the cluster be directly attached to the ilab network?
-# FIXME: Need an IP range within this subnet for kayobe & neutron.
-
 # iLab network IP information.
 ilab_cidr: 10.60.0.0/16
 # Pool for use by kayobe.
 ilab_allocation_pool_start: 10.60.0.2
-ilab_allocation_pool_end: 10.60.0.255
+ilab_allocation_pool_end: 10.60.1.255
 # Pool for use by neutron.
-ilab_neutron_allocation_pool_start: 10.60.1.0
-ilab_neutron_allocation_pool_end: 10.60.4.255
+ilab_neutron_allocation_pool_start: 10.60.2.0
+ilab_neutron_allocation_pool_end: 10.60.5.255
 ilab_gateway: 10.60.255.1
 ilab_vlan: 60
 # VIP address for public API endpoints.
 ilab_vip_address: 10.60.0.1
-# Try without MTU limit.
 ilab_physical_network: "{{ eod_mgmt_physical_network }}"
 
 # DevOps/Admin network IP information.
@@ -80,23 +76,31 @@ devops_allocation_pool_start: 10.64.1.0
 devops_allocation_pool_end: 10.64.4.255
 devops_gateway: 10.64.0.1
 devops_vlan: 64
-# Try without MTU limit.
 devops_physical_network: "{{ eod_mgmt_physical_network }}"
 
-# FIXME: Need IP ranges within this subnet for kayobe & bifrost pools.
+# Overcloud out of band power/management network IP information.
+oc_oob_cidr: 10.62.0.0/16
+oc_oob_vlan: 62
+oc_oob_physical_network: "{{ eod_mgmt_physical_network }}"
 
-# Provisioning network IP information.
+# Overcloud provisioning network IP information.
 oc_provision_cidr: 10.61.0.0/16
-# Pool for use by kayobe.
-oc_provision_allocation_pool_start: 10.61.1.0
-oc_provision_allocation_pool_end: 10.61.1.127
+# NOTE: Don't provide a pool for Kayobe - use the DevOps network for SSH access
+# instead.
 # Pool for use by bifrost's dnsmasq service during hardware inspection and
 # provisioning.
-oc_provision_inspection_allocation_pool_start: 10.61.1.128
-oc_provision_inspection_allocation_pool_end: 10.61.1.255
-#oc_provision_net_gateway:
+oc_provision_inspection_allocation_pool_start: 10.61.1.0
+oc_provision_inspection_allocation_pool_end: 10.61.2.255
 oc_provision_vlan: 61
 oc_provision_physical_network: "{{ eod_mgmt_physical_network }}"
+
+# Workload out of band power/management network IP information.
+wl_oob_cidr: 10.68.0.0/16
+# Pool for use by kayobe.
+wl_oob_allocation_pool_start: 10.68.5.0
+wl_oob_allocation_pool_end: 10.68.5.255
+wl_oob_vlan: 68
+wl_oob_physical_network: "{{ eod_mgmt_physical_network }}"
 
 # Workload provisioning network IP information.
 wl_provision_cidr: 10.69.0.0/16
@@ -106,7 +110,7 @@ wl_provision_allocation_pool_end: 10.69.0.255
 # Pool for use by neutron during baremetal provisioning.
 wl_provision_neutron_allocation_pool_start: 10.69.1.0
 wl_provision_neutron_allocation_pool_end: 10.69.4.255
-wl_provision_internalapi_gw: 10.69.0.1
+wl_provision_neutron_gateway: 10.69.0.1
 wl_provision_vlan: 69
 wl_provision_physical_network: "{{ eod_mgmt_physical_network }}"
 
@@ -118,7 +122,7 @@ wl_cleaning_allocation_pool_end: 10.70.0.255
 # Pool for use by neutron during baremetal cleaning.
 wl_cleaning_neutron_allocation_pool_start: 10.70.1.0
 wl_cleaning_neutron_allocation_pool_end: 10.70.4.255
-wl_cleaning_internalapi_gw: 10.70.0.1
+wl_cleaning_neutron_gateway: 10.70.0.1
 wl_cleaning_vlan: 70
 wl_cleaning_physical_network: "{{ eod_mgmt_physical_network }}"
 
@@ -128,9 +132,9 @@ wl_inspection_cidr: 10.71.0.0/16
 wl_inspection_allocation_pool_start: 10.71.0.2
 wl_inspection_allocation_pool_end: 10.71.0.255
 # Pool for use by neutron during baremetal inspection.
-wl_inspection_neutron_allocation_pool_start: 10.71.1.0
-wl_inspection_neutron_allocation_pool_end: 10.71.4.255
-wl_inspection_internalapi_gw: 10.71.0.1
+wl_inspection_inspection_allocation_pool_start: 10.71.1.0
+wl_inspection_inspection_allocation_pool_end: 10.71.4.255
+wl_inspection_inspection_gateway: 10.71.0.1
 wl_inspection_vlan: 71
 wl_inspection_physical_network: "{{ eod_mgmt_physical_network }}"
 
@@ -142,9 +146,9 @@ internal_allocation_pool_end: 10.65.4.255
 internal_vlan: 65
 # VIP address for internal API endpoints.
 internal_vip_address: 10.65.0.1
-internal_wl_provision_gw: 10.65.0.2
-internal_wl_cleaning_gw: 10.65.0.3
-internal_wl_inspection_gw: 10.65.0.4
+internal_wl_provision_gateway: 10.65.0.2
+internal_wl_cleaning_gateway: 10.65.0.3
+internal_wl_inspection_gateway: 10.65.0.4
 internal_physical_network: "{{ eod_mgmt_physical_network }}"
 
 # Storage network IP information.

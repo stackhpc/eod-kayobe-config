@@ -6,9 +6,12 @@
 
 # URL of Bifrost source code repository.
 #kolla_bifrost_source_url:
+kolla_bifrost_source_url: https://github.com/stackhpc/bifrost
 
 # Version (branch, tag, etc.) of Bifrost source code repository.
 #kolla_bifrost_source_version:
+# Includes a backport of https://bugs.launchpad.net/bifrost/+bug/1685879.
+kolla_bifrost_source_version: stackhpc/queens
 
 ###############################################################################
 # Diskimage-builder configuration.

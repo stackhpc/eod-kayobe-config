@@ -48,6 +48,11 @@ ipa_build_dib_elements_extra:
 # Dictionary of additional environment variables to provide to Diskimage
 # Builder (DIB) during IPA image build.
 #ipa_build_dib_env_extra:
+ipa_build_dib_env_extra:
+  # Install a modified version of the hardware python package with a fix for
+  # Infiniband device detection. The required PR has merged, but the fix has
+  # not yet been released.  https://github.com/redhat-cip/hardware/pull/42.
+  DIB_IPA_HARDWARE_PACKAGE: git+https://github.com/redhat-cip/hardware
 
 # Dictionary of environment variables to provide to Diskimage Builder (DIB)
 # during IPA image build.

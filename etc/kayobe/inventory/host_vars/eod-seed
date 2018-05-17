@@ -1,0 +1,4 @@
+---
+# Use the ilab network to access the seed.
+# FIXME: Is this required?
+ansible_host: "{{ 'ilab' | net_ip }}"

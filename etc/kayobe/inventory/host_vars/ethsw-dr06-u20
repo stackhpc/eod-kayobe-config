@@ -1,5 +1,5 @@
 ---
-# Switch configuration for ibsw-dr6-u40.
+# Switch configuration for ethsw-dr06-u20.
 
 # This switch is a 40G Mellanox SX1036, and provides the high speed Ethernet
 # network.
@@ -8,7 +8,7 @@
 # Switch credentials.
 
 # Host/IP on which to access the switch via SSH.
-ansible_host:
+ansible_host: 10.62.250.2
 
 # The type of switch used for the control and provisioning network.
 switch_type: mellanox

@@ -14,4 +14,7 @@ ansible_ssh_pass: "{{ secrets_switch_ssh_password }}"
 # Global configuration.
 
 # Global configuration. List of global configuration lines.
-switch_config_all: []
+switch_config_all:
+  - "hostname \"{{ inventory_hostname }}\""
+  - "vlan {{ wl_oob_vlan}},{{ oc_oob_vlan }},{{ devops_vlan }},{{ ilab_vlan }}"
+

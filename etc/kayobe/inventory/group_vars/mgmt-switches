@@ -10,11 +10,108 @@ ansible_user: "{{ secrets_switch_ssh_username }}"
 # Password to access the switch via SSH.
 ansible_ssh_pass: "{{ secrets_switch_ssh_password }}"
 
+# No 'enable' password is required.
+switch_auth_pass:
+
 ###############################################################################
 # Global configuration.
 
 # Global configuration. List of global configuration lines.
 switch_config_all:
   - "hostname \"{{ inventory_hostname }}\""
-  - "vlan {{ wl_oob_vlan}},{{ oc_oob_vlan }},{{ devops_vlan }},{{ ilab_vlan }}"
+  - "vlan {{ switch_config_vlans | join(',') }}"
 
+# List of VLANs configured on these switches.
+switch_config_vlans:
+  - "{{ ilab_vlan }}"
+  - "{{ devops_vlan }}"
+  - "{{ oc_oob_vlan }}"
+  - "{{ oc_provision_vlan }}"
+  - "{{ wl_oob_vlan }}"
+  - "{{ wl_provision_vlan }}"
+  - "{{ wl_cleaning_vlan }}"
+  - "{{ wl_inspection_vlan }}"
+  - "{{ internal_vlan }}"
+  - "{{ storage_vlan }}"
+  - "{{ storagemgmt_vlan }}"
+
+###############################################################################
+# Interface configuration.
+
+# Interface config for overcloud iDRACs.
+switch_interface_config_oc_idrac:
+  - spanning-tree portfast
+  - switchport mode access
+  - "switchport access vlan {{ oc_oob_vlan }}"
+
+# Interface config for workload iDRACs.
+switch_interface_config_wl_idrac:
+  - spanning-tree portfast
+  - switchport mode access
+  - "switchport access vlan {{ wl_oob_vlan }}"
+
+# Interface config for controllers.
+switch_interface_config_controller:
+  - spanning-tree portfast
+  - switchport mode general
+  # TODO: Remove this line.
+  - "switchport general allowed vlan remove {{ oc_oob_vlan }},{{ ilab_vlan }} untagged"
+  - "switchport general allowed vlan add {{ oc_provision_vlan }} untagged"
+  - "switchport general allowed vlan add {{ switch_interface_config_controller_tagged_vlans | join(',') }} tagged"
+  - "switchport general pvid {{ oc_provision_vlan }}"
+
+# List of tagged VLANs to allow for controllers.
+# TODO: Add tenant network VLAN range.
+switch_interface_config_controller_tagged_vlans:
+  - "{{ ilab_vlan }}"
+  - "{{ devops_vlan }}"
+  - "{{ wl_oob_vlan }}"
+  - "{{ wl_provision_vlan }}"
+  - "{{ wl_cleaning_vlan }}"
+  - "{{ wl_inspection_vlan }}"
+  - "{{ internal_vlan }}"
+  - "{{ storage_vlan }}"
+
+# Interface config for Ceph storage nodes.
+switch_interface_config_ceph:
+  - spanning-tree portfast
+  - switchport mode general
+  # TODO: Remove this line.
+  - "switchport general allowed vlan remove {{ oc_oob_vlan }},{{ ilab_vlan }} untagged"
+  - "switchport general allowed vlan add {{ oc_provision_vlan }} untagged"
+  - "switchport general allowed vlan add {{ switch_interface_config_ceph_tagged_vlans | join(',') }} tagged"
+  - "switchport general pvid {{ oc_provision_vlan }}"
+
+# List of tagged VLANs to allow for Ceph storage nodes.
+# TODO: Add tenant network VLAN range.
+switch_interface_config_ceph_tagged_vlans:
+  - "{{ devops_vlan }}"
+  - "{{ internal_vlan }}"
+  - "{{ storage_vlan }}"
+  - "{{ storagemgmt_vlan }}"
+
+# Interface config for virtualised compute hypervisors.
+switch_interface_config_vm_compute:
+  - spanning-tree portfast
+  - switchport mode general
+  # TODO: Remove this line.
+  - "switchport general allowed vlan remove {{ oc_oob_vlan }},{{ ilab_vlan }} untagged"
+  - "switchport general allowed vlan add {{ oc_provision_vlan }} untagged"
+  - "switchport general allowed vlan add {{ switch_interface_config_vm_compute_tagged_vlans | join(',') }} tagged"
+  - "switchport general pvid {{ oc_provision_vlan }}"
+
+# List of tagged VLANs to allow for virtualised compute hypervisors.
+# TODO: Add tenant network VLAN range.
+switch_interface_config_vm_compute_tagged_vlans:
+  - "{{ devops_vlan }}"
+  - "{{ internal_vlan }}"
+  - "{{ storage_vlan }}"
+
+# Interface config for bare metal compute nodes.
+switch_interface_config_bm_compute:
+  - spanning-tree portfast
+  - switchport mode access
+
+# Interface config for bare metal compute nodes during hardware discovery.
+switch_interface_config_bm_compute_discovery:
+  - "switchport access vlan {{ wl_inspection_vlan }}"

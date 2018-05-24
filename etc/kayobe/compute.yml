@@ -58,6 +58,7 @@ compute_extra_network_interfaces:
 # List of compute volume groups. See mrlesmithjr.manage-lvm role for
 # format.
 #compute_lvm_groups:
+compute_lvm_groups: []
 
 # Default list of compute volume groups. See mrlesmithjr.manage-lvm role for
 # format.

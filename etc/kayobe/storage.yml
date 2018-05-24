@@ -18,6 +18,9 @@ storage_bootstrap_user: centos
 
 # List of extra networks to which storage nodes are attached.
 #storage_extra_network_interfaces:
+# Add networks for storage nodes - devops.
+storage_extra_network_interfaces:
+  - devops
 
 ###############################################################################
 # Storage node BIOS configuration.

@@ -18,6 +18,9 @@ compute_bootstrap_user: centos
 
 # List of extra networks to which compute nodes are attached.
 #compute_extra_network_interfaces:
+# Add networks for compute nodes - devops.
+compute_extra_network_interfaces:
+  - devops
 
 ###############################################################################
 # Compute node BIOS configuration.

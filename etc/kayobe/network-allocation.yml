@@ -1,0 +1,4 @@
+ilab_ips:
+  eod-seed: 10.60.101.16
+oc_provision_ips:
+  eod-seed: 10.61.101.6

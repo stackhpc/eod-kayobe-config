@@ -5,6 +5,7 @@
 # User with which to access the seed via SSH during bootstrap, in order to
 # setup the Kayobe user account.
 #seed_bootstrap_user:
+seed_bootstrap_user: "centos"
 
 ###############################################################################
 # Network interface attachments.
@@ -17,6 +18,8 @@
 
 # List of extra networks to which seed nodes are attached.
 #seed_extra_network_interfaces:
+seed_extra_network_interfaces:
+  - ilab
 
 ###############################################################################
 # LVM configuration.
@@ -24,6 +27,7 @@
 # List of seed volume groups. See mrlesmithjr.manage-lvm role for
 # format.
 #seed_lvm_groups:
+seed_lvm_groups: []
 
 # Default list of seed volume groups. See mrlesmithjr.manage-lvm role for
 # format.

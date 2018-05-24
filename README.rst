@@ -2,6 +2,12 @@
 Kayobe Configuration
 ====================
 
+Kayobe configuration for the Evolution of Darwin system in the University of
+Cambridge's High Performance Computing Service (HPCS).
+
+Overview
+========
+
 This repository provides configuration for the `kayobe
 <https://github.com/stackhpc/kayobe>`_ project. It is intended to encourage
 version control of site configuration.

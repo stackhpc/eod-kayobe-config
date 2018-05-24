@@ -12,10 +12,12 @@
 
 # URL of Kolla source code repository if type is 'source'.
 #kolla_source_url:
+kolla_source_url: https://github.com/stackhpc/kolla
 
 # Version (branch, tag, etc.) of Kolla source code repository if type is
 # 'source'.
 #kolla_source_version:
+kolla_source_version: stackhpc/queens
 
 # Path to virtualenv in which to install kolla.
 #kolla_venv:
@@ -34,10 +36,12 @@
 
 # URL of Kolla Ansible source code repository if type is 'source'.
 #kolla_ansible_source_url:
+kolla_ansible_source_url: https://github.com/stackhpc/kolla-ansible
 
 # Version (branch, tag, etc.) of Kolla Ansible source code repository if type
 # is 'source'.
 #kolla_ansible_source_version:
+kolla_ansible_source_version: stackhpc/queens
 
 # Path to virtualenv in which to install kolla-ansible.
 #kolla_ansible_venv:
@@ -59,9 +63,11 @@
 
 # URL of docker registry to use for Kolla images.
 #kolla_docker_registry:
+kolla_docker_registry: "{{ docker_registry }}"
 
 # Docker namespace to use for Kolla images.
 #kolla_docker_namespace:
+kolla_docker_namespace: eod
 
 # Username to use to access a docker registry.
 #kolla_docker_registry_username:
@@ -71,6 +77,7 @@
 
 # Kolla OpenStack release version. This should be a Docker image tag.
 #kolla_openstack_release:
+kolla_openstack_release: "6.0.0.0"
 
 # Dict mapping names of sources to their definitions for
 # kolla_install_type=source. See kolla.common.config for details.

@@ -138,7 +138,7 @@ kolla_build_blocks:
     # Install a locally modified version of networking-mlnx with support for
     # disabling the SDN controller sync mechanism in the mlnx_sdn_assist
     # driver. This allows us to bind to flat Infiniband networks.
-    RUN pip install git+https://github.com/stackhpc/networking-mlnx@cauterise-sdn-client
+    RUN pip install git+https://github.com/stackhpc/networking-mlnx@stackhpc/queens
 
 # Dict mapping image customization variable names to their values.
 # Each variable takes the form:

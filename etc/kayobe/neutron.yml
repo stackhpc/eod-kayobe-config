@@ -27,9 +27,9 @@ kolla_neutron_ml2_mechanism_drivers:
 #kolla_neutron_ml2_network_vlan_ranges:
 kolla_neutron_ml2_network_vlan_ranges:
   - physical_network: "{{ eod_mgmt_physical_network }}"
-    range: changeme
-  - physical_network: "{{ eod_hs_eth_physical_network }}"
-    range: changeme
+    range: 1000:1999
+  #- physical_network: "{{ eod_hs_eth_physical_network }}"
+  #  range: changeme
 
 # List of Neutron ML2 extention drivers to use.
 #kolla_neutron_ml2_extension_drivers:
@@ -60,7 +60,8 @@ kolla_neutron_ml2_extension_drivers:
 # key_file: not currently supported
 # secret: not currently supported
 #kolla_neutron_ml2_generic_switch_hosts:
-kolla_neutron_ml2_generic_switch_hosts: "{{ groups['hs-eth-switches'] }}"
+# Don't manage the switches via NGS for now.
+#kolla_neutron_ml2_generic_switch_hosts: "{{ groups['hs-eth-switches'] }}"
 
 # Dict containing additional configuration for switches managed by the
 # genericswitch ML2 mechanism driver. For per-switch configuration of switches

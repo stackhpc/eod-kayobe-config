@@ -7,11 +7,11 @@
 # User to access the switch via SSH.
 ansible_user: "{{ secrets_switch_ssh_username }}"
 
-# Password to access the switch via SSH.
-ansible_ssh_pass: "{{ secrets_switch_ssh_password }}"
+# Using SSH public key authentication.
+#ansible_ssh_pass: "{{ secrets_switch_ssh_password }}"
 
-# No 'enable' password is required.
-switch_auth_pass:
+# Password authentication is after login.
+switch_auth_pass: "{{ secrets_switch_ssh_password }}"
 
 ###############################################################################
 # Global configuration.
@@ -19,7 +19,9 @@ switch_auth_pass:
 # Global configuration. List of global configuration lines.
 switch_config_all:
   - "hostname \"{{ inventory_hostname }}\""
+  - vlan database
   - "vlan {{ switch_config_vlans | join(',') }}"
+  - exit
 
 # List of VLANs configured on these switches.
 switch_config_vlans:
@@ -34,6 +36,7 @@ switch_config_vlans:
   - "{{ internal_vlan }}"
   - "{{ storage_vlan }}"
   - "{{ storagemgmt_vlan }}"
+  - "{{ switch_interface_config_tenant_vlan_range }}"
 
 ###############################################################################
 # Interface configuration.
@@ -48,69 +51,71 @@ switch_interface_config_oc_idrac:
 switch_interface_config_wl_idrac:
   - spanning-tree portfast
   - switchport mode access
-  - "switchport access vlan {{ wl_oob_vlan }}"
+  # TODO: Change back once bare metal compute BMC IPs have been reconfigured.
+  #- "switchport access vlan {{ wl_oob_vlan }}"
+  - "switchport access vlan {{ oc_oob_vlan }}"
+
+# Tenant VLAN range for this physical network.
+switch_interface_config_tenant_vlan_range: >-
+  {{ kolla_neutron_ml2_network_vlan_ranges |
+     selectattr('physical_network', 'equalto', eod_mgmt_physical_network) |
+     map(attribute='range') |
+     join(',') |
+     replace(':', '-') }}
 
 # Interface config for controllers.
 switch_interface_config_controller:
   - spanning-tree portfast
   - switchport mode general
-  # TODO: Remove this line.
-  - "switchport general allowed vlan remove {{ oc_oob_vlan }},{{ ilab_vlan }} untagged"
   - "switchport general allowed vlan add {{ oc_provision_vlan }} untagged"
-  - "switchport general allowed vlan add {{ switch_interface_config_controller_tagged_vlans | join(',') }} tagged"
+  # Current expect-based configuration mechanism requires no line wrapping, so
+  # VLANs must be configured individually.
+  - "switchport general allowed vlan add {{ ilab_vlan }} tagged"
+  - "switchport general allowed vlan add {{ devops_vlan }} tagged"
+  - "switchport general allowed vlan add {{ wl_oob_vlan }} tagged"
+  - "switchport general allowed vlan add {{ wl_provision_vlan }} tagged"
+  - "switchport general allowed vlan add {{ wl_cleaning_vlan }} tagged"
+  - "switchport general allowed vlan add {{ wl_inspection_vlan }} tagged"
+  - "switchport general allowed vlan add {{ internal_vlan }} tagged"
+  - "switchport general allowed vlan add {{ storage_vlan }} tagged"
+  - "switchport general allowed vlan add {{ switch_interface_config_tenant_vlan_range }} tagged"
   - "switchport general pvid {{ oc_provision_vlan }}"
-
-# List of tagged VLANs to allow for controllers.
-# TODO: Add tenant network VLAN range.
-switch_interface_config_controller_tagged_vlans:
-  - "{{ ilab_vlan }}"
-  - "{{ devops_vlan }}"
-  - "{{ wl_oob_vlan }}"
-  - "{{ wl_provision_vlan }}"
-  - "{{ wl_cleaning_vlan }}"
-  - "{{ wl_inspection_vlan }}"
-  - "{{ internal_vlan }}"
-  - "{{ storage_vlan }}"
+  - lldp optional-tlv port-desc sys-name
 
 # Interface config for Ceph storage nodes.
 switch_interface_config_ceph:
   - spanning-tree portfast
   - switchport mode general
-  # TODO: Remove this line.
-  - "switchport general allowed vlan remove {{ oc_oob_vlan }},{{ ilab_vlan }} untagged"
   - "switchport general allowed vlan add {{ oc_provision_vlan }} untagged"
-  - "switchport general allowed vlan add {{ switch_interface_config_ceph_tagged_vlans | join(',') }} tagged"
+  # Current expect-based configuration mechanism requires no line wrapping, so
+  # VLANs must be configured individually.
+  - "switchport general allowed vlan add {{ devops_vlan }} tagged"
+  - "switchport general allowed vlan add {{ internal_vlan }} tagged"
+  - "switchport general allowed vlan add {{ storage_vlan }} tagged"
+  - "switchport general allowed vlan add {{ storagemgmt_vlan }} tagged"
+  - "switchport general allowed vlan add {{ switch_interface_config_tenant_vlan_range }} tagged"
   - "switchport general pvid {{ oc_provision_vlan }}"
-
-# List of tagged VLANs to allow for Ceph storage nodes.
-# TODO: Add tenant network VLAN range.
-switch_interface_config_ceph_tagged_vlans:
-  - "{{ devops_vlan }}"
-  - "{{ internal_vlan }}"
-  - "{{ storage_vlan }}"
-  - "{{ storagemgmt_vlan }}"
+  - lldp optional-tlv port-desc sys-name
 
 # Interface config for virtualised compute hypervisors.
 switch_interface_config_vm_compute:
   - spanning-tree portfast
   - switchport mode general
-  # TODO: Remove this line.
-  - "switchport general allowed vlan remove {{ oc_oob_vlan }},{{ ilab_vlan }} untagged"
   - "switchport general allowed vlan add {{ oc_provision_vlan }} untagged"
-  - "switchport general allowed vlan add {{ switch_interface_config_vm_compute_tagged_vlans | join(',') }} tagged"
+  # Current expect-based configuration mechanism requires no line wrapping, so
+  # VLANs must be configured individually.
+  - "switchport general allowed vlan add {{ devops_vlan }} tagged"
+  - "switchport general allowed vlan add {{ internal_vlan }} tagged"
+  - "switchport general allowed vlan add {{ storage_vlan }} tagged"
+  - "switchport general allowed vlan add {{ switch_interface_config_tenant_vlan_range }} tagged"
   - "switchport general pvid {{ oc_provision_vlan }}"
-
-# List of tagged VLANs to allow for virtualised compute hypervisors.
-# TODO: Add tenant network VLAN range.
-switch_interface_config_vm_compute_tagged_vlans:
-  - "{{ devops_vlan }}"
-  - "{{ internal_vlan }}"
-  - "{{ storage_vlan }}"
+  - lldp optional-tlv port-desc sys-name
 
 # Interface config for bare metal compute nodes.
 switch_interface_config_bm_compute:
   - spanning-tree portfast
   - switchport mode access
+  - lldp optional-tlv port-desc sys-name
 
 # Interface config for bare metal compute nodes during hardware discovery.
 switch_interface_config_bm_compute_discovery:

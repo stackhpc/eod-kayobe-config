@@ -11,7 +11,7 @@
 ansible_host: 10.62.250.1
 
 # The type of switch used for the management network.
-switch_type: dellos6
+switch_type: dell-powerconnect
 
 ###############################################################################
 # Global configuration.
@@ -26,70 +26,70 @@ switch_config: "{{ switch_config_all }}"
 # dicts. Each dict contains a description item and a 'config' item which should
 # contain a list of per-interface configuration.
 switch_interface_config:
-  gi0/0/5:
+  gi1/0/5:
     description: sv-dr06-u5-6-idrac
     config: "{{ switch_interface_config_oc_idrac }}"
-  gi0/0/6:
+  gi1/0/6:
     description: sv-dr06-u3-4-idrac
     config: "{{ switch_interface_config_oc_idrac }}"
-  gi0/0/11:
+  gi1/0/11:
     description: svn4-dr06-u7
     config: "{{ switch_interface_config_vm_compute }}"
-  gi0/0/12:
+  gi1/0/12:
     description: svn3-dr06-u8
     config: "{{ switch_interface_config_vm_compute }}"
-  gi0/0/13:
+  gi1/0/13:
     description: svn4-dr06-u9
     config: "{{ switch_interface_config_bm_compute }}"
-  gi0/0/14:
+  gi1/0/14:
     description: svn3-dr06-u10
     config: "{{ switch_interface_config_bm_compute }}"
-  gi0/0/15:
+  gi1/0/15:
     description: svn4-dr06-u7-idrac
     config: "{{ switch_interface_config_oc_idrac }}"
-  gi0/0/16:
+  gi1/0/16:
     description: svn3-dr06-u8-idrac
     config: "{{ switch_interface_config_oc_idrac }}"
-  gi0/0/17:
+  gi1/0/17:
     description: svn4-dr06-u9-idrac
     config: "{{ switch_interface_config_wl_idrac }}"
-  gi0/0/18:
+  gi1/0/18:
     description: svn3-dr06-u10-idrac
     config: "{{ switch_interface_config_wl_idrac }}"
-  gi0/0/23:
+  gi1/0/23:
     description: ethsw-dr06-u20
     config: "{{ switch_interface_config_oc_idrac }}"
-  gi0/0/24:
+  gi1/0/24:
     description: ibsw-dr06-u19
     config: "{{ switch_interface_config_oc_idrac }}"
-  gi0/0/25:
+  gi1/0/25:
     description: sv-dr06-u5-6
     config: "{{ switch_interface_config_ceph }}"
-  gi0/0/26:
+  gi1/0/26:
     description: sv-dr06-u3-4
     config: "{{ switch_interface_config_ceph }}"
-  gi0/0/31:
+  gi1/0/31:
     description: svn2-dr06-u7
     config: "{{ switch_interface_config_vm_compute }}"
-  gi0/0/32:
+  gi1/0/32:
     description: svn1-dr06-u8
     config: "{{ switch_interface_config_controller }}"
-  gi0/0/33:
+  gi1/0/33:
     description: svn2-dr06-u9
     config: "{{ switch_interface_config_bm_compute }}"
-  gi0/0/34:
+  gi1/0/34:
     description: svn1-dr06-u10
     config: "{{ switch_interface_config_controller }}"
-  gi0/0/35:
+  gi1/0/35:
     description: svn2-dr06-u7-idrac
     config: "{{ switch_interface_config_oc_idrac }}"
-  gi0/0/36:
+  gi1/0/36:
     description: svn1-dr06-u8-idrac
     config: "{{ switch_interface_config_oc_idrac }}"
-  gi0/0/37:
+  gi1/0/37:
     description: svn2-dr06-u9-idrac
     config: "{{ switch_interface_config_wl_idrac }}"
-  gi0/0/38:
+  gi1/0/38:
     description: svn1-dr06-u10-idrac
     config: "{{ switch_interface_config_oc_idrac }}"
 
@@ -97,12 +97,12 @@ switch_interface_config:
 # the configuration of these ports. Has the same format as
 # switch_interface_config.
 switch_interface_config_discovery:
-  gi0/0/13:
+  gi1/0/13:
     description: svn4-dr06-u9
     config: "{{ switch_interface_config_bm_compute_discovery }}"
-  gi0/0/14:
+  gi1/0/14:
     description: svn3-dr06-u10
     config: "{{ switch_interface_config_bm_compute_discovery }}"
-  gi0/0/33:
+  gi1/0/33:
     description: svn2-dr06-u9
     config: "{{ switch_interface_config_bm_compute_discovery }}"

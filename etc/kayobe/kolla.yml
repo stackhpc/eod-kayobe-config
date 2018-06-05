@@ -232,7 +232,6 @@ kolla_overcloud_inventory_storage_groups: []
 #kolla_enable_horizon:
 #kolla_enable_influxdb:
 #kolla_enable_ironic:
-kolla_enable_ironic: false
 #kolla_enable_iscsid:
 #kolla_enable_karbor:
 #kolla_enable_kuryr:

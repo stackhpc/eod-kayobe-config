@@ -12,6 +12,7 @@ kolla_neutron_ml2_mechanism_drivers:
   - mlnx_sdn_assist
   - openvswitch
   - genericswitch
+  - l2population
 
 # List of Neutron ML2 type drivers to use.
 #kolla_neutron_ml2_type_drivers:

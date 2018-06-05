@@ -52,6 +52,11 @@ storage_mgmt_net_name: storagemgmt
 #inspection_net_name:
 inspection_net_name: wl_inspection
 
+# Name of the network used to perform cleaning on the bare metal workload
+# hosts
+#cleaning_net_name:
+cleaning_net_name: wl_cleaning
+
 ###############################################################################
 # Network definitions.
 

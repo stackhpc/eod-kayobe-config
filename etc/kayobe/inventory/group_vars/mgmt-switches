@@ -51,9 +51,8 @@ switch_interface_config_oc_idrac:
 switch_interface_config_wl_idrac:
   - spanning-tree portfast
   - switchport mode access
-  # TODO: Change back once bare metal compute BMC IPs have been reconfigured.
-  #- "switchport access vlan {{ wl_oob_vlan }}"
-  - "switchport access vlan {{ oc_oob_vlan }}"
+  - "switchport access vlan {{ wl_oob_vlan }}"
+
 
 # Tenant VLAN range for this physical network.
 switch_interface_config_tenant_vlan_range: >-

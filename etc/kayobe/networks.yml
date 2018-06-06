@@ -78,8 +78,9 @@ devops_cidr: 10.64.0.0/16
 # Pool for use by kayobe.
 devops_allocation_pool_start: 10.64.1.0
 devops_allocation_pool_end: 10.64.4.255
-# FIXME: This should be the default gateway, but no NAT is setup.
-#devops_gateway: 10.64.0.1
+# This is a Neutron router on the VSS OpenStack cloud, and provides external
+# network access with SNAT.
+devops_gateway: 10.64.255.1
 devops_vlan: 64
 devops_physical_network: "{{ eod_mgmt_physical_network }}"
 
@@ -101,9 +102,6 @@ oc_provision_inspection_allocation_pool_start: 10.61.1.0
 oc_provision_inspection_allocation_pool_end: 10.61.2.255
 oc_provision_vlan: 61
 oc_provision_physical_network: "{{ eod_mgmt_physical_network }}"
-# FIXME: devops should be the gateway, but is not available currently. Until
-# then, use the seed as a NAT gateway.
-oc_provision_gateway: "10.61.101.6"
 
 # Workload out of band power/management network IP information.
 wl_oob_cidr: 10.68.0.0/16

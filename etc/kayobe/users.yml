@@ -13,6 +13,7 @@ users_default:
       # Authorise all users' SSH keys for the stack user. This allows them to
       # operate kayobe.
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcgodd1.pub') }}"
+      - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_pfb29.pub') }}"
 
   - username: kolla
     name: Kolla deployment user
@@ -21,6 +22,7 @@ users_default:
       # Authorise all users' SSH keys for the kolla user. This allows them to
       # operate kolla.
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcgodd1.pub') }}"
+      - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_pfb29.pub') }}"
 
   - username: hpcgodd1
     name: Mark Goddard
@@ -29,6 +31,24 @@ users_default:
     append: True
     ssh_key:
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcgodd1.pub') }}"
+
+  - username: jrs206
+    name: Joe Stankiewicz
+    groups:
+      - wheel
+    append: True
+    ssh_key:
+      - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_jrs206-1.pub') }}"
+      - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_jrs206-2.pub') }}"
+      - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_jrs206-3.pub') }}"
+
+  - username: pfb29
+    name: Paul Browne
+    groups:
+      - wheel
+    append: True
+    ssh_key:
+      - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_pfb29.pub') }}"
 
 ###############################################################################
 # Dummy variable to allow Ansible to accept this file.

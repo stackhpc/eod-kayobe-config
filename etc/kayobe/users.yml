@@ -13,6 +13,7 @@ users_default:
       # Authorise all users' SSH keys for the stack user. This allows them to
       # operate kayobe.
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcgodd1.pub') }}"
+      - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcgodd1-2.pub') }}"
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_pfb29.pub') }}"
 
   - username: kolla
@@ -22,6 +23,7 @@ users_default:
       # Authorise all users' SSH keys for the kolla user. This allows them to
       # operate kolla.
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcgodd1.pub') }}"
+      - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcgodd1-2.pub') }}"
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_pfb29.pub') }}"
 
   - username: hpcgodd1
@@ -31,6 +33,7 @@ users_default:
     append: True
     ssh_key:
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcgodd1.pub') }}"
+      - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcgodd1-2.pub') }}"
 
   - username: jrs206
     name: Joe Stankiewicz

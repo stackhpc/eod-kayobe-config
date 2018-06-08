@@ -5,6 +5,7 @@
 # User with which to access the controllers via SSH during bootstrap, in order
 # to setup the Kayobe user account.
 #controller_bootstrap_user:
+controller_bootstrap_user: centos
 
 ###############################################################################
 # Network interface attachments.
@@ -14,9 +15,21 @@
 
 # List of default networks to which controller nodes are attached.
 #controller_default_network_interfaces:
+# Modify the default list of networks to remove storage management.
+controller_default_network_interfaces: >
+  {{ [provision_oc_net_name,
+      oob_wl_net_name,
+      provision_wl_net_name,
+      internal_net_name,
+      storage_net_name] | unique | list }}
 
 # List of extra networks to which controller nodes are attached.
 #controller_extra_network_interfaces:
+# Add networks for controllers - devops, wl_cleaning and wl_inspection.
+controller_extra_network_interfaces:
+  - devops
+  - wl_cleaning
+  - wl_inspection
 
 # List of network interfaces to which network nodes are attached.
 #controller_network_host_network_interfaces:
@@ -57,6 +70,7 @@
 # List of controller volume groups. See mrlesmithjr.manage-lvm role for
 # format.
 #controller_lvm_groups:
+controller_lvm_groups: []
 
 # Default list of controller volume groups. See mrlesmithjr.manage-lvm role for
 # format.

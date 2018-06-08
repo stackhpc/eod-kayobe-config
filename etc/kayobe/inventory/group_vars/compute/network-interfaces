@@ -1,9 +1,6 @@
 ---
 ###############################################################################
-# Network interface definitions for the controller group.
-
-# iLab external network interface.
-ilab_interface: "{{ oc_provision_interface }}.{{ ilab_vlan }}"
+# Network interface definitions for the compute group.
 
 # DevOps network interface.
 devops_interface: "{{ oc_provision_interface }}.{{ devops_vlan }}"
@@ -14,18 +11,6 @@ oc_provision_interface: breno1
 # Overcloud provisioning network tagged bridge ports.
 oc_provision_bridge_ports:
   - eno1
-
-# Workload OOB network interface.
-wl_oob_interface: "{{ oc_provision_interface }}.{{ wl_oob_vlan }}"
-
-# Workload provisioning network interface.
-wl_provision_interface: "{{ oc_provision_interface }}.{{ wl_provision_vlan }}"
-
-# Workload cleaning network interface.
-wl_cleaning_interface: "{{ oc_provision_interface }}.{{ wl_cleaning_vlan }}"
-
-# Workload inspection network interface.
-wl_inspection_interface: "{{ oc_provision_interface }}.{{ wl_inspection_vlan }}"
 
 # Internal network interface.
 internal_interface: "{{ oc_provision_interface }}.{{ internal_vlan }}"

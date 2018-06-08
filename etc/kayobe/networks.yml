@@ -7,7 +7,7 @@
 # Name of the network used by the seed to manage the bare metal overcloud
 # hosts via their out-of-band management controllers.
 #oob_oc_net_name:
-oob_oc_net_name: oc_provision
+oob_oc_net_name: oc_oob
 
 # Name of the network used by the seed to provision the bare metal overcloud
 # hosts.
@@ -17,7 +17,7 @@ provision_oc_net_name: oc_provision
 # Name of the network used by the overcloud hosts to manage the bare metal
 # compute hosts via their out-of-band management controllers.
 #oob_wl_net_name:
-oob_wl_net_name: oc_provision
+oob_wl_net_name: wl_oob
 
 # Name of the network used by the overcloud hosts to provision the bare metal
 # workload hosts.
@@ -42,80 +42,139 @@ external_net_names:
 public_net_name: ilab
 
 # Name of the network used to carry storage data traffic.
-#storage_net_name:
+storage_net_name: storage
 
 # Name of the network used to carry storage management traffic.
-#storage_mgmt_net_name:
+storage_mgmt_net_name: storagemgmt
 
 # Name of the network used to perform hardware introspection on the bare metal
 # workload hosts.
 #inspection_net_name:
-inspection_net_name: wl_provision
+inspection_net_name: wl_inspection
+
+# Name of the network used to perform cleaning on the bare metal workload
+# hosts
+#cleaning_net_name:
+cleaning_net_name: wl_cleaning
 
 ###############################################################################
 # Network definitions.
 
-# FIXME: Will the cluster be directly attached to the ilab network?
-# FIXME: Need an IP range within this subnet for kayobe & neutron.
-
 # iLab network IP information.
 ilab_cidr: 10.60.0.0/16
 # Pool for use by kayobe.
-ilab_allocation_pool_start: 10.60.102.2
-ilab_allocation_pool_end: 10.60.102.9
+ilab_allocation_pool_start: 10.60.0.2
+ilab_allocation_pool_end: 10.60.1.255
 # Pool for use by neutron.
-ilab_neutron_allocation_pool_start: 10.60.102.10
-ilab_neutron_allocation_pool_end: 10.60.102.127
-ilab_gateway: 10.60.255.1
+ilab_neutron_allocation_pool_start: 10.60.2.0
+ilab_neutron_allocation_pool_end: 10.60.5.255
 ilab_vlan: 60
-# VIP address for external API endpoints.
-ilab_vip_address: 10.60.102.1
-# Try without MTU limit.
-#ilab_mtu: 1400
+# VIP address for public API endpoints.
+ilab_vip_address: 10.60.0.1
 ilab_physical_network: "{{ eod_mgmt_physical_network }}"
 
-# FIXME: Need IP ranges within this subnet for kayobe & bifrost pools.
-
-# Provisioning network IP information.
-oc_provision_cidr: 10.61.0.0/16
+# DevOps/Admin network IP information.
+devops_cidr: 10.64.0.0/16
 # Pool for use by kayobe.
-oc_provision_allocation_pool_start: 10.61.102.1
-oc_provision_allocation_pool_end: 10.61.102.127
+devops_allocation_pool_start: 10.64.1.0
+devops_allocation_pool_end: 10.64.4.255
+# This is a Neutron router on the VSS OpenStack cloud, and provides external
+# network access with SNAT.
+devops_gateway: 10.64.255.1
+devops_vlan: 64
+devops_physical_network: "{{ eod_mgmt_physical_network }}"
+
+# Overcloud out of band power/management network IP information.
+oc_oob_cidr: 10.62.0.0/16
+oc_oob_vlan: 62
+oc_oob_physical_network: "{{ eod_mgmt_physical_network }}"
+
+# Overcloud provisioning network IP information.
+oc_provision_cidr: 10.61.0.0/16
+# TODO: Don't provide a pool for Kayobe - use the DevOps network for SSH access
+# instead.
+# FIXME: Until devops network becomes official, this is required:
+oc_provision_allocation_pool_start: 10.61.102.0
+oc_provision_allocation_pool_end: 10.61.102.255
 # Pool for use by bifrost's dnsmasq service during hardware inspection and
 # provisioning.
-oc_provision_inspection_allocation_pool_start: 10.61.102.128
-oc_provision_inspection_allocation_pool_end: 10.61.102.255
-#oc_provision_net_gateway:
+oc_provision_inspection_allocation_pool_start: 10.61.1.0
+oc_provision_inspection_allocation_pool_end: 10.61.2.255
 oc_provision_vlan: 61
 oc_provision_physical_network: "{{ eod_mgmt_physical_network }}"
 
-# FIXME: Made this one up.
+# Workload out of band power/management network IP information.
+wl_oob_cidr: 10.68.0.0/16
+# Pool for use by kayobe.
+wl_oob_allocation_pool_start: 10.68.5.0
+wl_oob_allocation_pool_end: 10.68.5.255
+wl_oob_vlan: 68
+wl_oob_physical_network: "{{ eod_mgmt_physical_network }}"
 
 # Workload provisioning network IP information.
-wl_provision_cidr: 10.0.0.0/24
+wl_provision_cidr: 10.69.0.0/16
 # Pool for use by kayobe.
-wl_provision_allocation_pool_start: 10.0.0.2
-wl_provision_allocation_pool_end: 10.0.0.9
-# Pool for use by ironic inspector during hardware inspection.
-wl_provision_inspection_allocation_pool_start: 10.0.0.10
-wl_provision_inspection_allocation_pool_end: 10.0.0.127
+wl_provision_allocation_pool_start: 10.69.0.2
+wl_provision_allocation_pool_end: 10.69.0.255
 # Pool for use by neutron during baremetal provisioning.
-wl_provision_neutron_allocation_pool_start: 10.0.0.128
-wl_provision_neutron_allocation_pool_end: 10.0.0.254
-wl_provision_vlan: 42
+wl_provision_neutron_allocation_pool_start: 10.69.1.0
+wl_provision_neutron_allocation_pool_end: 10.69.4.255
+wl_provision_neutron_gateway: 10.69.0.1
+wl_provision_vlan: 69
 wl_provision_physical_network: "{{ eod_mgmt_physical_network }}"
 
-# FIXME: Made this one up.
+# Workload cleaning network IP information.
+wl_cleaning_cidr: 10.70.0.0/16
+# Pool for use by kayobe.
+wl_cleaning_allocation_pool_start: 10.70.0.2
+wl_cleaning_allocation_pool_end: 10.70.0.255
+# Pool for use by neutron during baremetal cleaning.
+wl_cleaning_neutron_allocation_pool_start: 10.70.1.0
+wl_cleaning_neutron_allocation_pool_end: 10.70.4.255
+wl_cleaning_neutron_gateway: 10.70.0.1
+wl_cleaning_vlan: 70
+wl_cleaning_physical_network: "{{ eod_mgmt_physical_network }}"
+
+# Workload inspection network IP information.
+wl_inspection_cidr: 10.71.0.0/16
+# Pool for use by kayobe.
+wl_inspection_allocation_pool_start: 10.71.0.2
+wl_inspection_allocation_pool_end: 10.71.0.255
+# Pool for use by neutron during baremetal inspection.
+wl_inspection_inspection_allocation_pool_start: 10.71.1.0
+wl_inspection_inspection_allocation_pool_end: 10.71.4.255
+wl_inspection_inspection_gateway: 10.71.0.1
+wl_inspection_vlan: 71
+wl_inspection_physical_network: "{{ eod_mgmt_physical_network }}"
 
 # Internal network IP information.
-internal_cidr: 10.1.0.0/24
+internal_cidr: 10.65.0.0/16
 # Pool for use by kayobe.
-internal_allocation_pool_start: 10.1.0.2
-internal_allocation_pool_end: 10.1.0.255
-internal_vlan: 43
+internal_allocation_pool_start: 10.65.1.0
+internal_allocation_pool_end: 10.65.4.255
+internal_vlan: 65
 # VIP address for internal API endpoints.
-internal_vip_address: 10.1.0.1
+internal_vip_address: 10.65.0.1
+internal_wl_provision_gateway: 10.65.0.2
+internal_wl_cleaning_gateway: 10.65.0.3
+internal_wl_inspection_gateway: 10.65.0.4
 internal_physical_network: "{{ eod_mgmt_physical_network }}"
+
+# Storage network IP information.
+storage_cidr: 10.66.0.0/16
+# Pool for use by kayobe.
+storage_allocation_pool_start: 10.66.1.0
+storage_allocation_pool_end: 10.66.1.255
+storage_vlan: 66
+storage_physical_network: "{{ eod_mgmt_physical_network }}"
+
+# Storage management network IP information.
+storagemgmt_cidr: 10.67.0.0/16
+# Pool for use by kayobe.
+storagemgmt_allocation_pool_start: 10.67.1.0
+storagemgmt_allocation_pool_end: 10.67.1.255
+storagemgmt_vlan: 67
+storagemgmt_physical_network: "{{ eod_mgmt_physical_network }}"
 
 # Physical network for the 1G Ethernet management network.
 eod_mgmt_physical_network: physnet1

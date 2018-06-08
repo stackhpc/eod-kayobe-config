@@ -16,15 +16,17 @@ eod-seed
 [controllers]
 # Add controller nodes here if required. These hosts will provide the
 # OpenStack overcloud.
+# Second controller: not currently in use
+# svn1-dr06-u10 ipmi_address=10.62.0.3
 
 [baremetal-compute]
-# Add baremetal compute nodes here if required.
+# C6220s:
+svn3-dr06-u10 ipmi_address=10.68.1.0
+svn4-dr06-u9 ipmi_address=10.68.1.1
+svn2-dr06-u9 ipmi_address=10.68.1.2
 
 [mgmt-switches]
-# Add management network switches here if required.
+ethsw-dr06-u21
 
-[ctl-switches]
-# Add control and provisioning switches here if required.
-
-[hs-switches]
-# Add high speed switches here if required.
+[hs-eth-switches]
+ethsw-dr06-u20

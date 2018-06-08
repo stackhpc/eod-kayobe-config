@@ -4,6 +4,7 @@
 
 # Whether OpenSM is enabled.
 #opensm_enabled:
+opensm_enabled: True
 
 ###############################################################################
 # Dummy variable to allow Ansible to accept this file.

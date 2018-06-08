@@ -8,7 +8,7 @@
 # Switch credentials.
 
 # Host/IP on which to access the switch via SSH.
-ansible_host: 10.62.250.1
+ansible_host: 10.64.250.1
 
 # The type of switch used for the management network.
 switch_type: dell-powerconnect

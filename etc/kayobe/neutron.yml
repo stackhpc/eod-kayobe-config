@@ -61,8 +61,7 @@ kolla_neutron_ml2_extension_drivers:
 # key_file: not currently supported
 # secret: not currently supported
 #kolla_neutron_ml2_generic_switch_hosts:
-# Don't manage the switches via NGS for now.
-#kolla_neutron_ml2_generic_switch_hosts: "{{ groups['hs-eth-switches'] }}"
+kolla_neutron_ml2_generic_switch_hosts: "{{ groups['mgmt-switches'] }}"
 
 # Dict containing additional configuration for switches managed by the
 # genericswitch ML2 mechanism driver. For per-switch configuration of switches

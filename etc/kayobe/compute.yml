@@ -21,6 +21,7 @@ compute_bootstrap_user: centos
 # Add networks for compute nodes - devops.
 compute_extra_network_interfaces:
   - devops
+  - eod_hs_eth
 
 ###############################################################################
 # Compute node BIOS configuration.

@@ -29,8 +29,8 @@ kolla_neutron_ml2_mechanism_drivers:
 kolla_neutron_ml2_network_vlan_ranges:
   - physical_network: "{{ eod_mgmt_physical_network }}"
     range: 1000:1999
-  #- physical_network: "{{ eod_hs_eth_physical_network }}"
-  #  range: changeme
+  - physical_network: "{{ eod_hs_eth_physical_network }}"
+    range: 1000:1999
 
 # List of Neutron ML2 extention drivers to use.
 #kolla_neutron_ml2_extension_drivers:

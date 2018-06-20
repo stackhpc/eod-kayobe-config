@@ -178,7 +178,7 @@ kolla_build_customizations:
 # List of groups mapped to kolla storage group.
 #kolla_overcloud_inventory_storage_groups:
 # NOTE: We want to manage the storage nodes outside of kolla-ansible.
-kolla_overcloud_inventory_storage_groups: [ controllers ]
+kolla_overcloud_inventory_storage_groups: []
 
 # Dict mapping from kolla-ansible groups to kayobe groups and variables. Each
 # item is a dict with the following items:

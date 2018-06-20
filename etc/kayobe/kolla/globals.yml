@@ -2,7 +2,6 @@
 # Additional global kolla-ansible configuration.
 
 # Enable Ceph as the backend for glance image storage.
-# FIXME: Use file backend for now.
 glance_backend_ceph: "yes"
 cinder_backend_ceph: "yes"
 #nova_backend_ceph: "no"

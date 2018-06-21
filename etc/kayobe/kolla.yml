@@ -236,7 +236,7 @@ kolla_enable_cinder: True
 #kolla_enable_karbor:
 #kolla_enable_kuryr:
 #kolla_enable_magnum:
-#kolla_enable_manila:
+kolla_enable_manila: True
 #kolla_enable_manila_backend_generic:
 #kolla_enable_manila_backend_hnas:
 #kolla_enable_mistral:

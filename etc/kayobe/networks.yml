@@ -35,7 +35,8 @@ internal_net_name: internal
 # containing one item, external_net_name.
 #external_net_names:
 external_net_names:
-  - ilab
+  # FIXME: Replace with eod_mgmt when using the admin network for SSH access.
+  - oc_provision
   - eod_hs_eth
 
 # Name of the network used to expose the public OpenStack API endpoints.

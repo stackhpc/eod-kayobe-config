@@ -17,6 +17,7 @@ users_default:
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcszum2.pub') }}"
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcszum2-2.pub') }}"
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_pfb29.pub') }}"
+      - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_ed25519_hpcjone1.pub') }}"
 
   - username: kolla
     name: Kolla deployment user
@@ -29,6 +30,7 @@ users_default:
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcszum2.pub') }}"
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcszum2-2.pub') }}"
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_pfb29.pub') }}"
+      - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_ed25519_hpcjone1.pub') }}"
 
   - username: hpcgodd1
     name: Mark Goddard
@@ -65,6 +67,14 @@ users_default:
     append: True
     ssh_key:
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_pfb29.pub') }}"
+
+  - username: hpcjone1
+    name: Nick Jones
+    groups:
+      - wheel
+    append: True
+    ssh_key:
+      - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_ed25519_hpcjone1.pub') }}"
 
 ###############################################################################
 # Dummy variable to allow Ansible to accept this file.

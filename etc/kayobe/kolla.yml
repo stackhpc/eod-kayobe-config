@@ -150,7 +150,6 @@ kolla_build_blocks:
     gpgcheck=1\n\
     enabled=1\n '\
     >> /etc/yum.repos.d/ceph_mimic.repo
-    RUN cat /etc/yum.repos.d/ceph_mimic.repo
     RUN yum install -y python-ceph
 
 # Dict mapping image customization variable names to their values.

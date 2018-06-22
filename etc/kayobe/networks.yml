@@ -183,6 +183,7 @@ eod_mgmt_physical_network: physnet1
 
 # Physical network for the 40G Ethernet network.
 eod_hs_eth_physical_network: physnet2
+eod_hs_eth_mtu: 9000
 
 # Physical network for the FDR Infiniband network.
 eod_fdr_ib_physical_network: physnet3

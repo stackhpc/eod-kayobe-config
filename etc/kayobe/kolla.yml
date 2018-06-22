@@ -141,11 +141,12 @@ kolla_build_blocks:
     RUN pip install git+https://github.com/stackhpc/networking-mlnx@stackhpc/queens
   manila_base_footer: |
     # Upgrade Ceph to mimic release
-    ARG BASEURL="http://download.ceph.com/rpm-mimic/el7/$basearch"
+    ARG BASEURL="http://download.ceph.com/rpm-mimic/el7/\$basearch"
+    ARG GPGKEY="https://download.ceph.com/keys/release.asc"
     RUN echo $'[ceph_mimic]\n\
     name=Ceph Mimic repo\n\
     baseurl='$BASEURL$'\n\
-    gpgkey=https://download.ceph.com/keys/release.asc\n\
+    gpgkey='$GPGURL$'\n\
     gpgcheck=1\n\
     enabled=1\n '\
     >> /etc/yum.repos.d/ceph_mimic.repo

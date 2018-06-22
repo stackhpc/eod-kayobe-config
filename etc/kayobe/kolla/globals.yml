@@ -3,7 +3,7 @@
 
 # Enable Ceph as the backend for glance image storage.
 glance_backend_ceph: "yes"
-cinder_backend_ceph: "no"
+cinder_backend_ceph: "yes"
 nova_backend_ceph: "no"
 
 # Although Kolla-Ansible provides full support for Fernet tokens, it still

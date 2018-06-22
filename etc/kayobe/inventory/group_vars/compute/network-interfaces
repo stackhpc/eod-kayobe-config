@@ -18,6 +18,22 @@ internal_interface: "{{ oc_provision_interface }}.{{ internal_vlan }}"
 # Storage network interface.
 storage_interface: "{{ oc_provision_interface }}.{{ storage_vlan }}"
 
+# Management network interface.
+# TODO: Uncomment this when using the admin network instead of oc_provision.
+#eod_mgmt_interface: breno1
+
+# Management network tagged bridge ports.
+# TODO: Uncomment this when using the admin network instead of oc_provision.
+#eod_mgmt_bridge_ports:
+#  - eno1
+
+# High speed Ethernet network interface.
+eod_hs_eth_interface: breth0
+
+# High speed Ethernet network tagged bridge ports.
+eod_hs_eth_bridge_ports:
+  - eth0
+
 ###############################################################################
 # Dummy variable to allow Ansible to accept this file.
 workaround_ansible_issue_8743: yes

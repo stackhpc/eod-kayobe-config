@@ -153,6 +153,10 @@ kolla_build_customizations:
      - 'grafana.repo'
    influxdb_packages_override:
      - 'influxdb-0.10.3-1'
+  # Required for Keystone federation via EGI Check-in, and any other IdPs
+  # that support the OpenID Connect protocol
+   keystone_base_packages_append:
+     - 'mod_auth_openidc'
 
 ###############################################################################
 # Kolla-ansible inventory configuration.

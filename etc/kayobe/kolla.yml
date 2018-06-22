@@ -146,7 +146,7 @@ kolla_build_blocks:
     RUN echo $'[ceph_mimic]\n\
     name=Ceph Mimic repo\n\
     baseurl='$BASEURL$'\n\
-    gpgkey='$GPGURL$'\n\
+    gpgkey='$GPGKEY$'\n\
     gpgcheck=1\n\
     enabled=1\n '\
     >> /etc/yum.repos.d/ceph_mimic.repo

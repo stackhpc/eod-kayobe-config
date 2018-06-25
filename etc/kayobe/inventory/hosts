@@ -30,3 +30,6 @@ ethsw-dr06-u21
 
 [hs-eth-switches]
 ethsw-dr06-u20
+
+[ib-switches]
+ibsw-dr06-u19

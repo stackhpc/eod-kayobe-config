@@ -10,11 +10,46 @@ ansible_user: "{{ secrets_switch_ssh_username }}"
 # Password to access the switch via SSH.
 ansible_ssh_pass: "{{ secrets_switch_ssh_password }}"
 
+# Password authentication is after login.
+switch_auth_pass: "{{ secrets_switch_ssh_password }}"
+
+# Use the seed as an SSH jump host, as it has access to the OOB network.
+ansible_ssh_common_args: "-o ProxyCommand='ssh -W %h:%p -q stack@10.64.101.14'"
+
 ###############################################################################
 # Global configuration.
 
 # Global configuration. List of global configuration lines.
-switch_config_all: []
+switch_config_all:
+  - "hostname {{ inventory_hostname }}"
+  - "vlan {{ switch_interface_config_tenant_vlan_range }}"
+  - exit
+
+# Tenant VLAN range for this physical network.
+switch_interface_config_tenant_vlan_range: >-
+  {{ kolla_neutron_ml2_network_vlan_ranges |
+     selectattr('physical_network', 'equalto', eod_hs_eth_physical_network) |
+     map(attribute='range') |
+     join(',') |
+     replace(':', '-') }}
+
+###############################################################################
+# Interface configuration.
+
+# Interface config for controllers.
+switch_interface_config_controller:
+  - "mtu {{ eod_hs_eth_mtu }} force"
+  - "switchport mode trunk"
+
+# Interface config for Ceph storage nodes.
+switch_interface_config_ceph:
+  - "mtu {{ eod_hs_eth_mtu }} force"
+  - "switchport mode trunk"
+
+# Interface config for virtualised compute nodes.
+switch_interface_config_vm_compute:
+  - "mtu {{ eod_hs_eth_mtu }} force"
+  - "switchport mode trunk"
 
 ###############################################################################
 # Neutron generic switch ML2 mechanism driver configuration.

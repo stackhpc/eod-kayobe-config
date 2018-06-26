@@ -69,6 +69,10 @@ compute
 [hs-eth-switches]
 # Empty group to provide declaration of hs-eth-switches group.
 
+[ib-switches]
+# Empty group to provide declaration of ib-switches group.
+
 [switches:children]
 mgmt-switches
 hs-eth-switches
+ib-switches

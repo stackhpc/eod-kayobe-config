@@ -165,6 +165,10 @@ kolla_build_customizations:
      - 'grafana.repo'
    influxdb_packages_override:
      - 'influxdb-0.10.3-1'
+  # Required for Keystone federation via EGI Check-in, and any other IdPs
+  # that support the OpenID Connect protocol
+   keystone_base_packages_append:
+     - 'mod_auth_openidc'
 
 ###############################################################################
 # Kolla-ansible inventory configuration.
@@ -264,6 +268,7 @@ kolla_enable_manila: True
 #kolla_enable_neutron_agent_ha:
 #kolla_enable_neutron_bgp_dragent:
 #kolla_enable_neutron_provider_networks:
+kolla_enable_neutron_provider_networks: True
 #kolla_enable_nova_serialconsole_proxy:
 #kolla_enable_octavia:
 #kolla_enable_osprofiler:

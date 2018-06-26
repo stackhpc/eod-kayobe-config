@@ -35,7 +35,9 @@ internal_net_name: internal
 # containing one item, external_net_name.
 #external_net_names:
 external_net_names:
-  - ilab
+  # FIXME: Replace with eod_mgmt when using the admin network for SSH access.
+  - oc_provision
+  - eod_hs_eth
 
 # Name of the network used to expose the public OpenStack API endpoints.
 #public_net_name:
@@ -181,6 +183,7 @@ eod_mgmt_physical_network: physnet1
 
 # Physical network for the 40G Ethernet network.
 eod_hs_eth_physical_network: physnet2
+eod_hs_eth_mtu: 9000
 
 # Physical network for the FDR Infiniband network.
 eod_fdr_ib_physical_network: physnet3

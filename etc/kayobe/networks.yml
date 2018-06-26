@@ -4,6 +4,9 @@
 ###############################################################################
 # Network role to network mappings.
 
+# Name of the network used for admin access to the overcloud
+admin_oc_net_name: devops
+
 # Name of the network used by the seed to manage the bare metal overcloud
 # hosts via their out-of-band management controllers.
 #oob_oc_net_name:
@@ -35,8 +38,7 @@ internal_net_name: internal
 # containing one item, external_net_name.
 #external_net_names:
 external_net_names:
-  # FIXME: Replace with eod_mgmt when using the admin network for SSH access.
-  - oc_provision
+  - eod_mgmt
   - eod_hs_eth
 
 # Name of the network used to expose the public OpenStack API endpoints.
@@ -93,11 +95,6 @@ oc_oob_physical_network: "{{ eod_mgmt_physical_network }}"
 
 # Overcloud provisioning network IP information.
 oc_provision_cidr: 10.61.0.0/16
-# TODO: Don't provide a pool for Kayobe - use the DevOps network for SSH access
-# instead.
-# FIXME: Until devops network becomes official, this is required:
-oc_provision_allocation_pool_start: 10.61.102.0
-oc_provision_allocation_pool_end: 10.61.102.255
 # Pool for use by bifrost's dnsmasq service during hardware inspection and
 # provisioning.
 oc_provision_inspection_allocation_pool_start: 10.61.1.0

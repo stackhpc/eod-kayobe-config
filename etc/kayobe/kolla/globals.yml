@@ -5,6 +5,7 @@
 glance_backend_ceph: "yes"
 cinder_backend_ceph: "yes"
 nova_backend_ceph: "no"
+enable_manila_backend_cephfs_native: "yes"
 
 # Although Kolla-Ansible provides full support for Fernet tokens, it still
 # defaults to UUID.  This setting overrides K-A and brings it in-line with

@@ -139,6 +139,18 @@ kolla_build_blocks:
     # disabling the SDN controller sync mechanism in the mlnx_sdn_assist
     # driver. This allows us to bind to flat Infiniband networks.
     RUN pip install git+https://github.com/stackhpc/networking-mlnx@stackhpc/queens
+  manila_base_footer: |
+    # Upgrade Ceph to mimic release
+    ARG BASEURL="http://download.ceph.com/rpm-mimic/el7/\$basearch"
+    ARG GPGKEY="https://download.ceph.com/keys/release.asc"
+    RUN echo $'[ceph_mimic]\n\
+    name=Ceph Mimic repo\n\
+    baseurl='$BASEURL$'\n\
+    gpgkey='$GPGKEY$'\n\
+    gpgcheck=1\n\
+    enabled=1\n '\
+    >> /etc/yum.repos.d/ceph_mimic.repo
+    RUN yum install -y python-ceph
 
 # Dict mapping image customization variable names to their values.
 # Each variable takes the form:
@@ -240,7 +252,7 @@ kolla_enable_cinder: True
 #kolla_enable_karbor:
 #kolla_enable_kuryr:
 #kolla_enable_magnum:
-#kolla_enable_manila:
+kolla_enable_manila: True
 #kolla_enable_manila_backend_generic:
 #kolla_enable_manila_backend_hnas:
 #kolla_enable_mistral:

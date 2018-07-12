@@ -17,14 +17,6 @@ internal_ips:
   svn4-dr06-u7: 10.65.1.3
 oc_oob_ips:
   eod-seed: 10.62.101.12
-oc_provision_ips:
-  eod-seed: 10.61.101.6
-  sv-dr06-u3-4: 10.61.102.6
-  sv-dr06-u5-6: 10.61.102.5
-  svn1-dr06-u8: 10.61.102.0
-  svn2-dr06-u7: 10.61.102.2
-  svn3-dr06-u8: 10.61.102.3
-  svn4-dr06-u7: 10.61.102.4
 storage_ips:
   sv-dr06-u3-4: 10.66.1.6
   sv-dr06-u5-6: 10.66.1.5

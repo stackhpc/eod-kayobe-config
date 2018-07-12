@@ -3,19 +3,19 @@
 # Network interface definitions for the storage group.
 
 # DevOps network interface.
-devops_interface: "{{ oc_provision_interface }}.{{ devops_vlan }}"
+devops_interface: "{{ eod_mgmt_interface }}.{{ devops_vlan }}"
 
-# Overcloud provisioning network interface.
-oc_provision_interface: eno1
+# Management network interface.
+eod_mgmt_interface: eno1
 
 # Internal network interface.
-internal_interface: "{{ oc_provision_interface }}.{{ internal_vlan }}"
+internal_interface: "{{ eod_mgmt_interface }}.{{ internal_vlan }}"
 
 # Storage network interface.
-storage_interface: "{{ oc_provision_interface }}.{{ storage_vlan }}"
+storage_interface: "{{ eod_mgmt_interface }}.{{ storage_vlan }}"
 
 # Storage management network interface.
-storagemgmt_interface: "{{ oc_provision_interface }}.{{ storagemgmt_vlan }}"
+storagemgmt_interface: "{{ eod_mgmt_interface }}.{{ storagemgmt_vlan }}"
 
 ###############################################################################
 # Dummy variable to allow Ansible to accept this file.

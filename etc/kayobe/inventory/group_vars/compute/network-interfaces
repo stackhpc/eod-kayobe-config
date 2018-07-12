@@ -3,20 +3,13 @@
 # Network interface definitions for the compute group.
 
 # DevOps network interface.
-devops_interface: "{{ oc_provision_interface }}.{{ devops_vlan }}"
-
-# Overcloud provisioning network interface.
-oc_provision_interface: breno1
-
-# Overcloud provisioning network tagged bridge ports.
-oc_provision_bridge_ports:
-  - eno1
+devops_interface: "{{ eod_mgmt_interface }}.{{ devops_vlan }}"
 
 # Internal network interface.
-internal_interface: "{{ oc_provision_interface }}.{{ internal_vlan }}"
+internal_interface: "{{ eod_mgmt_interface }}.{{ internal_vlan }}"
 
 # Storage network interface.
-storage_interface: "{{ oc_provision_interface }}.{{ storage_vlan }}"
+storage_interface: "{{ eod_mgmt_interface }}.{{ storage_vlan }}"
 
 # Management network interface.
 eod_mgmt_interface: breno1

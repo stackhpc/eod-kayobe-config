@@ -25,9 +25,8 @@ docker_storage_driver: overlay
 
 # URL of docker registry
 #docker_registry:
-# This a private docker registry running on the seed, accessed via overcloud
-# provisioning network.
-# TODO: Use a more sensible network, e.g. devops.
+# This a private docker registry running on the seed, accessed via the devops
+# network.
 docker_registry: "10.64.1.0:5000"
 
 # CA of docker registry

@@ -27,7 +27,7 @@ docker_storage_driver: overlay
 #docker_registry:
 # This a private docker registry running on the seed, accessed via the devops
 # network.
-docker_registry: "10.64.1.0:5000"
+docker_registry: "10.64.101.14:5000"
 
 # CA of docker registry
 #docker_registry_ca:

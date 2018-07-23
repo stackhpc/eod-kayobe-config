@@ -239,7 +239,7 @@ kolla_enable_cinder: True
 #kolla_enable_cloudkitty:
 #kolla_enable_congress:
 #kolla_enable_designate:
-#kolla_enable_etcd:
+kolla_enable_etcd: True
 #kolla_enable_freezer:
 #kolla_enable_gnocchi:
 #kolla_enable_grafana:

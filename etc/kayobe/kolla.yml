@@ -108,17 +108,17 @@ kolla_build_blocks:
   #      && gem install fluentd-monasca-output-0.0.1.gem \
   #      && fluent-gem install fluentd-monasca-output-0.0.1.gem \
   #      && rm -rf /fluentd-monasca
-  grafana_footer: |
-    # TODO: Re-enable the official plugin when #450868 is merged upstream. For now we will
-    # manually install it from git
-    # RUN grafana-cli plugins install monasca-datasource
-    RUN mkdir -p /var/lib/grafana/plugins/monasca-datasource \
-        && curl -Lo tmp.tgz https://github.com/stackhpc/monasca-grafana-datasource/tarball/log-query-api \
-        && tar zxvf tmp.tgz -C /var/lib/grafana/plugins/monasca-datasource --strip-components=1 \
-        && rm tmp.tgz
-    # Install plugin for Gantt charts
-    RUN grafana-cli plugins install natel-discrete-panel
-    RUN grafana-cli plugins install vonage-status-panel
+  #grafana_footer: |
+  #  # TODO: Re-enable the official plugin when #450868 is merged upstream. For now we will
+  #  # manually install it from git
+  #  # RUN grafana-cli plugins install monasca-datasource
+  #  RUN mkdir -p /var/lib/grafana/plugins/monasca-datasource \
+  #      && curl -Lo tmp.tgz https://github.com/stackhpc/monasca-grafana-datasource/tarball/log-query-api \
+  #      && tar zxvf tmp.tgz -C /var/lib/grafana/plugins/monasca-datasource --strip-components=1 \
+  #      && rm tmp.tgz
+  #  # Install plugin for Gantt charts
+  #  RUN grafana-cli plugins install natel-discrete-panel
+  #  RUN grafana-cli plugins install vonage-status-panel
   ironic_inspector_footer: |
     # Install our custom inspector plugins.
     RUN pip install stackhpc-inspector-plugins
@@ -161,8 +161,8 @@ kolla_build_blocks:
 #kolla_build_customizations:
 kolla_build_customizations:
    # Use our own repo server to install the monasca-grafana fork
-   base_yum_repo_files_remove:
-     - 'grafana.repo'
+   #base_yum_repo_files_remove:
+   #  - 'grafana.repo'
    influxdb_packages_override:
      - 'influxdb-0.10.3-1'
   # Required for Keystone federation via EGI Check-in, and any other IdPs
@@ -228,6 +228,7 @@ kolla_overcloud_inventory_storage_groups: []
 #kolla_enable_cadf_notifications:
 #kolla_enable_ceilometer:
 #kolla_enable_central_logging:
+kolla_enable_central_logging: True
 kolla_enable_ceph: False
 #kolla_enable_ceph_rgw:
 kolla_enable_cinder: True
@@ -243,6 +244,7 @@ kolla_enable_cinder: True
 #kolla_enable_freezer:
 #kolla_enable_gnocchi:
 #kolla_enable_grafana:
+kolla_enable_grafana: True
 #kolla_enable_haproxy:
 #kolla_enable_heat:
 #kolla_enable_horizon:
@@ -273,6 +275,8 @@ kolla_enable_neutron_provider_networks: True
 #kolla_enable_octavia:
 #kolla_enable_osprofiler:
 #kolla_enable_panko:
+#kolla_enable_prometheus:
+kolla_enable_prometheus: True
 #kolla_enable_rally:
 #kolla_enable_sahara:
 #kolla_enable_searchlight:

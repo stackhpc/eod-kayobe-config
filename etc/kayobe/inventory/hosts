@@ -19,14 +19,101 @@ eod-seed
 # Second controller: not currently in use
 # svn1-dr06-u10 ipmi_address=10.62.0.3
 
-[baremetal-compute]
+[baremetal-compute-dr06]
 # C6220s:
 svn3-dr06-u10 ipmi_address=10.68.1.0
 svn4-dr06-u9 ipmi_address=10.68.1.1
 svn2-dr06-u9 ipmi_address=10.68.1.2
 
+[baremetal-compute-dr08]
+sand-6-1 ipmi_address=10.68.6.1
+sand-6-2 ipmi_address=10.68.6.2
+sand-6-3 ipmi_address=10.68.6.3
+sand-6-4 ipmi_address=10.68.6.4
+sand-6-5 ipmi_address=10.68.6.5
+sand-6-6 ipmi_address=10.68.6.6
+sand-6-7 ipmi_address=10.68.6.7
+sand-6-8 ipmi_address=10.68.6.8
+sand-6-9 ipmi_address=10.68.6.9
+sand-6-10 ipmi_address=10.68.6.10
+sand-6-11 ipmi_address=10.68.6.11
+sand-6-12 ipmi_address=10.68.6.12
+sand-6-13 ipmi_address=10.68.6.13
+sand-6-14 ipmi_address=10.68.6.14
+sand-6-15 ipmi_address=10.68.6.15
+sand-6-16 ipmi_address=10.68.6.16
+sand-6-17 ipmi_address=10.68.6.17
+sand-6-18 ipmi_address=10.68.6.18
+sand-6-19 ipmi_address=10.68.6.19
+sand-6-20 ipmi_address=10.68.6.20
+sand-6-21 ipmi_address=10.68.6.21
+sand-6-22 ipmi_address=10.68.6.22
+sand-6-23 ipmi_address=10.68.6.23
+sand-6-24 ipmi_address=10.68.6.24
+sand-6-25 ipmi_address=10.68.6.25
+sand-6-26 ipmi_address=10.68.6.26
+sand-6-27 ipmi_address=10.68.6.27
+sand-6-28 ipmi_address=10.68.6.28
+sand-6-29 ipmi_address=10.68.6.29
+sand-6-30 ipmi_address=10.68.6.30
+sand-6-31 ipmi_address=10.68.6.31
+sand-6-32 ipmi_address=10.68.6.32
+sand-6-33 ipmi_address=10.68.6.33
+sand-6-34 ipmi_address=10.68.6.34
+sand-6-35 ipmi_address=10.68.6.35
+sand-6-36 ipmi_address=10.68.6.36
+sand-6-37 ipmi_address=10.68.6.37
+sand-6-38 ipmi_address=10.68.6.38
+sand-6-39 ipmi_address=10.68.6.39
+sand-6-40 ipmi_address=10.68.6.40
+sand-6-41 ipmi_address=10.68.6.41
+sand-6-42 ipmi_address=10.68.6.42
+sand-6-43 ipmi_address=10.68.6.43
+sand-6-44 ipmi_address=10.68.6.44
+sand-6-45 ipmi_address=10.68.6.45
+sand-6-46 ipmi_address=10.68.6.46
+sand-6-47 ipmi_address=10.68.6.47
+sand-6-48 ipmi_address=10.68.6.48
+sand-6-49 ipmi_address=10.68.6.49
+sand-6-50 ipmi_address=10.68.6.50
+sand-6-51 ipmi_address=10.68.6.51
+sand-6-52 ipmi_address=10.68.6.52
+sand-6-53 ipmi_address=10.68.6.53
+sand-6-54 ipmi_address=10.68.6.54
+sand-6-55 ipmi_address=10.68.6.55
+sand-6-56 ipmi_address=10.68.6.56
+sand-6-57 ipmi_address=10.68.6.57
+sand-6-58 ipmi_address=10.68.6.58
+sand-6-59 ipmi_address=10.68.6.59
+sand-6-60 ipmi_address=10.68.6.60
+sand-6-61 ipmi_address=10.68.6.61
+sand-6-62 ipmi_address=10.68.6.62
+sand-6-63 ipmi_address=10.68.6.63
+sand-6-64 ipmi_address=10.68.6.64
+sand-6-65 ipmi_address=10.68.6.65
+sand-6-66 ipmi_address=10.68.6.66
+sand-6-67 ipmi_address=10.68.6.67
+sand-6-68 ipmi_address=10.68.6.68
+sand-6-69 ipmi_address=10.68.6.69
+sand-6-70 ipmi_address=10.68.6.70
+sand-6-71 ipmi_address=10.68.6.71
+sand-6-72 ipmi_address=10.68.6.72
+sand-6-73 ipmi_address=10.68.6.73
+sand-6-74 ipmi_address=10.68.6.74
+sand-6-75 ipmi_address=10.68.6.75
+sand-6-76 ipmi_address=10.68.6.76
+sand-6-77 ipmi_address=10.68.6.77
+sand-6-78 ipmi_address=10.68.6.78
+sand-6-79 ipmi_address=10.68.6.79
+sand-6-80 ipmi_address=10.68.6.80
+
+[baremetal-compute:children]
+baremetal-compute-dr06
+baremetal-compute-dr08
+
 [mgmt-switches]
 ethsw-dr06-u21
+ethsw-dr08-u21
 
 [hs-eth-switches]
 ethsw-dr06-u20

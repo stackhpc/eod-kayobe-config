@@ -13,6 +13,9 @@ ansible_ssh_pass: "{{ secrets_switch_ssh_password }}"
 # Password authentication is after login.
 switch_auth_pass: "{{ secrets_switch_ssh_password }}"
 
+# Use the seed as an SSH jump host, as it has access to the OOB network.
+ansible_ssh_common_args: "-o ProxyCommand='ssh -W %h:%p -q stack@10.64.101.14'"
+
 ###############################################################################
 # Global configuration.
 
@@ -119,6 +122,19 @@ switch_interface_config_bm_compute:
 # Interface config for bare metal compute nodes during hardware discovery.
 switch_interface_config_bm_compute_discovery:
   - "switchport access vlan {{ wl_inspection_vlan }}"
+
+# Interface config for bare metal compute nodes with shared BMC.
+switch_interface_config_bm_compute_shared_bmc:
+  - spanning-tree portfast
+  - switchport access vlan none
+  - switchport mode general
+  - switchport general allowed vlan add {{ wl_oob_vlan }} untagged #FIXME: this should be tagged when set tag on BMC
+  - lldp optional-tlv port-desc sys-name
+
+# Interface config for bare metal compute nodes during hardware discovery.
+switch_interface_config_bm_compute_shared_bmc_discovery:
+  - "switchport general allowed vlan {{ wl_inspection_vlan }} untagged"
+
 
 ###############################################################################
 # Neutron generic switch ML2 mechanism driver configuration.

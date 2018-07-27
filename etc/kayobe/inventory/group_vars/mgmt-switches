@@ -113,12 +113,14 @@ switch_interface_config_vm_compute:
 # Interface config for bare metal compute nodes.
 switch_interface_config_bm_compute:
   - spanning-tree portfast
-  - switchport mode access
+  - no switchport access vlan
+  - switchport mode general
   - lldp optional-tlv port-desc sys-name
 
 # Interface config for bare metal compute nodes during hardware discovery.
 switch_interface_config_bm_compute_discovery:
-  - "switchport access vlan {{ wl_inspection_vlan }}"
+  - "switchport general allowed vlan add {{ wl_inspection_vlan }} untagged"
+  - "switchport general pvid {{ wl_inspection_vlan }}"
 
 # Interface config for bare metal compute nodes with shared BMC.
 switch_interface_config_bm_compute_shared_bmc:

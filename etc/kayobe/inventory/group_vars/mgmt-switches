@@ -120,6 +120,20 @@ switch_interface_config_bm_compute:
 switch_interface_config_bm_compute_discovery:
   - "switchport access vlan {{ wl_inspection_vlan }}"
 
+# Interface config for bare metal compute nodes with shared BMC.
+switch_interface_config_bm_compute_shared_bmc:
+  - spanning-tree portfast
+  - no switchport access vlan
+  - switchport mode general
+  - switchport general allowed vlan add {{ wl_oob_vlan }} tagged
+  - lldp optional-tlv port-desc sys-name
+
+# Interface config for bare metal compute nodes during hardware discovery.
+switch_interface_config_bm_compute_shared_bmc_discovery:
+  - "switchport general allowed vlan add {{ wl_inspection_vlan }} untagged"
+  - "switchport general pvid {{ wl_inspection_vlan }}"
+
+
 ###############################################################################
 # Neutron generic switch ML2 mechanism driver configuration.
 

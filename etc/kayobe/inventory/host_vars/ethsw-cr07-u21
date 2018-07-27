@@ -26,167 +26,167 @@ switch_config: "{{ switch_config_all }}"
 # dicts. Each dict contains a description item and a 'config' item which should
 # contain a list of per-interface configuration.
 switch_interface_config:
- gi1/0/4:
+  gi1/0/4:
     description: gi1/0/4
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/5:
+  gi1/0/5:
     description: sand-7-44
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/6:
+  gi1/0/6:
     description: sand-7-43
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/7:
+  gi1/0/7:
     description: sand-7-48
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/8:
+  gi1/0/8:
     description: sand-7-47
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/9:
+  gi1/0/9:
     description: sand-7-52
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/10:
+  gi1/0/10:
     description: sand-7-51
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/11:
+  gi1/0/11:
     description: sand-7-56
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/12:
+  gi1/0/12:
     description: sand-7-55
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/13:
+  gi1/0/13:
     description: sand-7-60
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/14:
+  gi1/0/14:
     description: sand-7-59
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/15:
+  gi1/0/15:
     description: sand-7-64
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/16:
+  gi1/0/16:
     description: sand-7-63
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/17:
+  gi1/0/17:
     description: sand-7-68
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/18:
+  gi1/0/18:
     description: sand-7-67
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/19:
+  gi1/0/19:
     description: sand-7-72
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/20:
+  gi1/0/20:
     description: sand-7-71
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/21:
+  gi1/0/21:
     description: sand-7-76
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/22:
+  gi1/0/22:
     description: sand-7-75
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/23:
+  gi1/0/23:
     description: sand-7-80
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/24:
+  gi1/0/24:
     description: sand-7-79
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/25:
+  gi1/0/25:
     description: sand-7-42
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/26:
+  gi1/0/26:
     description: sand-7-41
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/27:
+  gi1/0/27:
     description: sand-7-46
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/28:
+  gi1/0/28:
     description: sand-7-45
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/29:
+  gi1/0/29:
     description: sand-7-50
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/30:
+  gi1/0/30:
     description: sand-7-49
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/31:
+  gi1/0/31:
     description: sand-7-54
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/32:
+  gi1/0/32:
     description: sand-7-53
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/33:
+  gi1/0/33:
     description: sand-7-58
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/34:
+  gi1/0/34:
     description: sand-7-57
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/35:
+  gi1/0/35:
     description: sand-7-62
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/36:
+  gi1/0/36:
     description: sand-7-61
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/37:
+  gi1/0/37:
     description: sand-7-66
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/38:
+  gi1/0/38:
     description: sand-7-65
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/39:
+  gi1/0/39:
     description: sand-7-70
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/40:
+  gi1/0/40:
     description: sand-7-69
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/41:
+  gi1/0/41:
     description: sand-7-74
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/42:
+  gi1/0/42:
     description: sand-7-73
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/43:
+  gi1/0/43:
     description: sand-7-78
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
- gi1/0/44:
+  gi1/0/44:
     description: sand-7-77
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 

@@ -13,9 +13,6 @@ ansible_ssh_pass: "{{ secrets_switch_ssh_password }}"
 # Password authentication is after login.
 switch_auth_pass: "{{ secrets_switch_ssh_password }}"
 
-# Use the seed as an SSH jump host, as it has access to the OOB network.
-ansible_ssh_common_args: "-o ProxyCommand='ssh -q stack@10.64.101.14 nc %h %p'"
-
 ###############################################################################
 # Global configuration.
 

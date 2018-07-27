@@ -26,3 +26,8 @@ keystone_token_provider: 'fernet'
 # - Deletion of ports.
 haproxy_client_timeout: 5m30
 haproxy_server_timeout: 5m30
+
+# Inspector iptables PXE filter does not scale well.
+# See: https://storyboard.openstack.org/#!/story/1737947
+# Use the dnsmasq filter instead.
+ironic_inspector_pxe_filter: dnsmasq

@@ -130,3 +130,12 @@ switch_interface_config_bm_compute_discovery:
 kolla_neutron_ml2_generic_switch_extra:
   # The physical networks to which this switch is mapped.
   ngs_physical_networks: "{{ eod_mgmt_physical_network }}"
+  # Limit the number of concurrent connections to the switch to 5. This setting
+  # aims to provide a trade off between the potential for failures during
+  # concurrent configuration and excessive serialisation of operations that
+  # already take a long time (~20 seconds per port plug/unplug).
+  ngs_max_connections: 5
+  # The baremetal compute nodes use a shared 1G link for the BMC and server.
+  # We put the switch port into general mode, with tagged membership of the
+  # workload BMC network.
+  ngs_switchport_mode: general

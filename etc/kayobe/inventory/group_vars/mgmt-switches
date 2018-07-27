@@ -135,3 +135,7 @@ kolla_neutron_ml2_generic_switch_extra:
   # concurrent configuration and excessive serialisation of operations that
   # already take a long time (~20 seconds per port plug/unplug).
   ngs_max_connections: 5
+  # The baremetal compute nodes use a shared 1G link for the BMC and server.
+  # We put the switch port into general mode, with tagged membership of the
+  # workload BMC network.
+  ngs_switchport_mode: general

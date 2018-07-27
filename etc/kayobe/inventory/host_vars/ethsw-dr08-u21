@@ -26,18 +26,6 @@ switch_config: "{{ switch_config_all }}"
 # dicts. Each dict contains a description item and a 'config' item which should
 # contain a list of per-interface configuration.
 switch_interface_config:
- gi1/0/1:
-    description: gi1/0/1
-    config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
-
- gi1/0/2:
-    description: gi1/0/2
-    config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
-
- gi1/0/3:
-    description: gi1/0/3
-    config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
-
  gi1/0/4:
     description: gi1/0/4
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
@@ -200,18 +188,6 @@ switch_interface_config:
 
  gi1/0/44:
     description: sand-6-77
-    config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
-
-  gi2/0/1:
-    description: gi2/0/1
-    config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
-
-  gi2/0/2:
-    description: gi2/0/2
-    config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
-
-  gi2/0/3:
-    description: gi2/0/3
     config: "{{ switch_interface_config_bm_compute_shared_bmc }}"
 
   gi2/0/4:
@@ -383,18 +359,6 @@ switch_interface_config:
 # the configuration of these ports. Has the same format as
 # switch_interface_config.
 switch_interface_config_discovery:
-  gi1/0/1:
-    description: gi1/0/1
-    config: "{{ switch_interface_config_bm_compute_shared_bmc_discovery }}"
-
-  gi1/0/2:
-    description: gi1/0/2
-    config: "{{ switch_interface_config_bm_compute_shared_bmc_discovery }}"
-
-  gi1/0/3:
-    description: gi1/0/3
-    config: "{{ switch_interface_config_bm_compute_shared_bmc_discovery }}"
-
   gi1/0/4:
     description: gi1/0/4
     config: "{{ switch_interface_config_bm_compute_shared_bmc_discovery }}"
@@ -557,18 +521,6 @@ switch_interface_config_discovery:
 
   gi1/0/44:
     description: sand-6-77
-    config: "{{ switch_interface_config_bm_compute_shared_bmc_discovery }}"
-
-  gi2/0/1:
-    description: gi2/0/1
-    config: "{{ switch_interface_config_bm_compute_shared_bmc_discovery }}"
-
-  gi2/0/2:
-    description: gi2/0/2
-    config: "{{ switch_interface_config_bm_compute_shared_bmc_discovery }}"
-
-  gi2/0/3:
-    description: gi2/0/3
     config: "{{ switch_interface_config_bm_compute_shared_bmc_discovery }}"
 
   gi2/0/4:

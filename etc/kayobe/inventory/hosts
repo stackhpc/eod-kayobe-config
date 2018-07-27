@@ -19,11 +19,339 @@ eod-seed
 # Second controller: not currently in use
 # svn1-dr06-u10 ipmi_address=10.62.0.3
 
+[baremetal-compute-cr06]
+sand-4-1 ipmi_address=10.68.4.1
+sand-4-2 ipmi_address=10.68.4.2
+sand-4-3 ipmi_address=10.68.4.3
+sand-4-4 ipmi_address=10.68.4.4
+sand-4-5 ipmi_address=10.68.4.5
+sand-4-6 ipmi_address=10.68.4.6
+sand-4-7 ipmi_address=10.68.4.7
+sand-4-8 ipmi_address=10.68.4.8
+sand-4-9 ipmi_address=10.68.4.9
+sand-4-10 ipmi_address=10.68.4.10
+sand-4-11 ipmi_address=10.68.4.11
+sand-4-12 ipmi_address=10.68.4.12
+sand-4-13 ipmi_address=10.68.4.13
+sand-4-14 ipmi_address=10.68.4.14
+sand-4-15 ipmi_address=10.68.4.15
+sand-4-16 ipmi_address=10.68.4.16
+sand-4-17 ipmi_address=10.68.4.17
+sand-4-18 ipmi_address=10.68.4.18
+sand-4-19 ipmi_address=10.68.4.19
+sand-4-20 ipmi_address=10.68.4.20
+sand-4-21 ipmi_address=10.68.4.21
+sand-4-22 ipmi_address=10.68.4.22
+sand-4-23 ipmi_address=10.68.4.23
+sand-4-24 ipmi_address=10.68.4.24
+sand-4-25 ipmi_address=10.68.4.25
+sand-4-26 ipmi_address=10.68.4.26
+sand-4-27 ipmi_address=10.68.4.27
+sand-4-28 ipmi_address=10.68.4.28
+sand-4-29 ipmi_address=10.68.4.29
+sand-4-30 ipmi_address=10.68.4.30
+sand-4-31 ipmi_address=10.68.4.31
+sand-4-32 ipmi_address=10.68.4.32
+sand-4-33 ipmi_address=10.68.4.33
+sand-4-34 ipmi_address=10.68.4.34
+sand-4-35 ipmi_address=10.68.4.35
+sand-4-36 ipmi_address=10.68.4.36
+sand-4-37 ipmi_address=10.68.4.37
+sand-4-38 ipmi_address=10.68.4.38
+sand-4-39 ipmi_address=10.68.4.39
+sand-4-40 ipmi_address=10.68.4.40
+sand-4-41 ipmi_address=10.68.4.41
+sand-4-42 ipmi_address=10.68.4.42
+sand-4-43 ipmi_address=10.68.4.43
+sand-4-44 ipmi_address=10.68.4.44
+sand-4-45 ipmi_address=10.68.4.45
+sand-4-46 ipmi_address=10.68.4.46
+sand-4-47 ipmi_address=10.68.4.47
+sand-4-48 ipmi_address=10.68.4.48
+sand-4-49 ipmi_address=10.68.4.49
+sand-4-50 ipmi_address=10.68.4.50
+sand-4-51 ipmi_address=10.68.4.51
+sand-4-52 ipmi_address=10.68.4.52
+sand-4-53 ipmi_address=10.68.4.53
+sand-4-54 ipmi_address=10.68.4.54
+sand-4-55 ipmi_address=10.68.4.55
+sand-4-56 ipmi_address=10.68.4.56
+sand-4-57 ipmi_address=10.68.4.57
+sand-4-58 ipmi_address=10.68.4.58
+sand-4-59 ipmi_address=10.68.4.59
+sand-4-60 ipmi_address=10.68.4.60
+sand-4-61 ipmi_address=10.68.4.61
+sand-4-62 ipmi_address=10.68.4.62
+sand-4-63 ipmi_address=10.68.4.63
+sand-4-64 ipmi_address=10.68.4.64
+sand-4-65 ipmi_address=10.68.4.65
+sand-4-66 ipmi_address=10.68.4.66
+sand-4-67 ipmi_address=10.68.4.67
+sand-4-68 ipmi_address=10.68.4.68
+sand-4-69 ipmi_address=10.68.4.69
+sand-4-70 ipmi_address=10.68.4.70
+sand-4-71 ipmi_address=10.68.4.71
+sand-4-72 ipmi_address=10.68.4.72
+sand-4-73 ipmi_address=10.68.4.73
+sand-4-74 ipmi_address=10.68.4.74
+sand-4-75 ipmi_address=10.68.4.75
+sand-4-76 ipmi_address=10.68.4.76
+sand-4-77 ipmi_address=10.68.4.77
+sand-4-78 ipmi_address=10.68.4.78
+sand-4-79 ipmi_address=10.68.4.79
+sand-4-80 ipmi_address=10.68.4.80
+
+[baremetal-compute-cr07]
+sand-7-1 old_ipmi_address=10.62.7.1 ipmi_address=10.68.7.1
+sand-7-2 old_ipmi_address=10.62.7.2 ipmi_address=10.68.7.2
+sand-7-3 old_ipmi_address=10.62.7.3 ipmi_address=10.68.7.3
+sand-7-4 old_ipmi_address=10.62.7.4 ipmi_address=10.68.7.4
+sand-7-5 old_ipmi_address=10.62.7.5 ipmi_address=10.68.7.5
+sand-7-6 old_ipmi_address=10.62.7.6 ipmi_address=10.68.7.6
+sand-7-7 old_ipmi_address=10.62.7.7 ipmi_address=10.68.7.7
+sand-7-8 old_ipmi_address=10.62.7.8 ipmi_address=10.68.7.8
+sand-7-9 old_ipmi_address=10.62.7.9 ipmi_address=10.68.7.9
+sand-7-10 old_ipmi_address=10.62.7.10 ipmi_address=10.68.7.10
+sand-7-11 old_ipmi_address=10.62.7.11 ipmi_address=10.68.7.11
+sand-7-12 old_ipmi_address=10.62.7.12 ipmi_address=10.68.7.12
+sand-7-13 old_ipmi_address=10.62.7.13 ipmi_address=10.68.7.13
+sand-7-14 old_ipmi_address=10.62.7.14 ipmi_address=10.68.7.14
+sand-7-15 old_ipmi_address=10.62.7.15 ipmi_address=10.68.7.15
+sand-7-16 old_ipmi_address=10.62.7.16 ipmi_address=10.68.7.16
+sand-7-17 old_ipmi_address=10.62.7.17 ipmi_address=10.68.7.17
+sand-7-18 old_ipmi_address=10.62.7.18 ipmi_address=10.68.7.18
+sand-7-19 old_ipmi_address=10.62.7.19 ipmi_address=10.68.7.19
+sand-7-20 old_ipmi_address=10.62.7.20 ipmi_address=10.68.7.20
+sand-7-21 old_ipmi_address=10.62.7.21 ipmi_address=10.68.7.21
+sand-7-22 old_ipmi_address=10.62.7.22 ipmi_address=10.68.7.22
+sand-7-23 old_ipmi_address=10.62.7.23 ipmi_address=10.68.7.23
+sand-7-24 old_ipmi_address=10.62.7.24 ipmi_address=10.68.7.24
+sand-7-25 old_ipmi_address=10.62.7.25 ipmi_address=10.68.7.25
+sand-7-26 old_ipmi_address=10.62.7.26 ipmi_address=10.68.7.26
+sand-7-27 old_ipmi_address=10.62.7.27 ipmi_address=10.68.7.27
+sand-7-28 old_ipmi_address=10.62.7.28 ipmi_address=10.68.7.28
+sand-7-29 old_ipmi_address=10.62.7.29 ipmi_address=10.68.7.29
+sand-7-30 old_ipmi_address=10.62.7.30 ipmi_address=10.68.7.30
+sand-7-31 old_ipmi_address=10.62.7.31 ipmi_address=10.68.7.31
+sand-7-32 old_ipmi_address=10.62.7.32 ipmi_address=10.68.7.32
+sand-7-33 old_ipmi_address=10.62.7.33 ipmi_address=10.68.7.33
+sand-7-34 old_ipmi_address=10.62.7.34 ipmi_address=10.68.7.34
+sand-7-35 old_ipmi_address=10.62.7.35 ipmi_address=10.68.7.35
+sand-7-36 old_ipmi_address=10.62.7.36 ipmi_address=10.68.7.36
+sand-7-37 old_ipmi_address=10.62.7.37 ipmi_address=10.68.7.37
+sand-7-38 old_ipmi_address=10.62.7.38 ipmi_address=10.68.7.38
+sand-7-39 old_ipmi_address=10.62.7.39 ipmi_address=10.68.7.39
+sand-7-40 old_ipmi_address=10.62.7.40 ipmi_address=10.68.7.40
+sand-7-41 old_ipmi_address=10.62.7.41 ipmi_address=10.68.7.41
+sand-7-42 old_ipmi_address=10.62.7.42 ipmi_address=10.68.7.42
+sand-7-43 old_ipmi_address=10.62.7.43 ipmi_address=10.68.7.43
+sand-7-44 old_ipmi_address=10.62.7.44 ipmi_address=10.68.7.44
+sand-7-45 old_ipmi_address=10.62.7.45 ipmi_address=10.68.7.45
+sand-7-46 old_ipmi_address=10.62.7.46 ipmi_address=10.68.7.46
+sand-7-47 old_ipmi_address=10.62.7.47 ipmi_address=10.68.7.47
+sand-7-48 old_ipmi_address=10.62.7.48 ipmi_address=10.68.7.48
+sand-7-49 old_ipmi_address=10.62.7.49 ipmi_address=10.68.7.49
+sand-7-50 old_ipmi_address=10.62.7.50 ipmi_address=10.68.7.50
+sand-7-51 old_ipmi_address=10.62.7.51 ipmi_address=10.68.7.51
+sand-7-52 old_ipmi_address=10.62.7.52 ipmi_address=10.68.7.52
+sand-7-53 old_ipmi_address=10.62.7.53 ipmi_address=10.68.7.53
+sand-7-54 old_ipmi_address=10.62.7.54 ipmi_address=10.68.7.54
+sand-7-55 old_ipmi_address=10.62.7.55 ipmi_address=10.68.7.55
+sand-7-56 old_ipmi_address=10.62.7.56 ipmi_address=10.68.7.56
+sand-7-57 old_ipmi_address=10.62.7.57 ipmi_address=10.68.7.57
+sand-7-58 old_ipmi_address=10.62.7.58 ipmi_address=10.68.7.58
+sand-7-59 old_ipmi_address=10.62.7.59 ipmi_address=10.68.7.59
+sand-7-60 old_ipmi_address=10.62.7.60 ipmi_address=10.68.7.60
+sand-7-61 old_ipmi_address=10.62.7.61 ipmi_address=10.68.7.61
+sand-7-62 old_ipmi_address=10.62.7.62 ipmi_address=10.68.7.62
+sand-7-63 old_ipmi_address=10.62.7.63 ipmi_address=10.68.7.63
+sand-7-64 old_ipmi_address=10.62.7.64 ipmi_address=10.68.7.64
+sand-7-65 old_ipmi_address=10.62.7.65 ipmi_address=10.68.7.65
+sand-7-66 old_ipmi_address=10.62.7.66 ipmi_address=10.68.7.66
+sand-7-67 old_ipmi_address=10.62.7.67 ipmi_address=10.68.7.67
+sand-7-68 old_ipmi_address=10.62.7.68 ipmi_address=10.68.7.68
+sand-7-69 old_ipmi_address=10.62.7.69 ipmi_address=10.68.7.69
+sand-7-70 old_ipmi_address=10.62.7.70 ipmi_address=10.68.7.70
+sand-7-71 old_ipmi_address=10.62.7.71 ipmi_address=10.68.7.71
+sand-7-72 old_ipmi_address=10.62.7.72 ipmi_address=10.68.7.72
+sand-7-73 old_ipmi_address=10.62.7.73 ipmi_address=10.68.7.73
+sand-7-74 old_ipmi_address=10.62.7.74 ipmi_address=10.68.7.74
+sand-7-75 old_ipmi_address=10.62.7.75 ipmi_address=10.68.7.75
+sand-7-76 old_ipmi_address=10.62.7.76 ipmi_address=10.68.7.76
+sand-7-77 old_ipmi_address=10.62.7.77 ipmi_address=10.68.7.77
+sand-7-78 old_ipmi_address=10.62.7.78 ipmi_address=10.68.7.78
+sand-7-79 old_ipmi_address=10.62.7.79 ipmi_address=10.68.7.79
+sand-7-80 old_ipmi_address=10.62.7.80 ipmi_address=10.68.7.80
+
+[baremetal-compute-cr08]
+sand-3-1 old_ipmi_address=10.62.3.1 ipmi_address=10.68.3.1
+sand-3-2 old_ipmi_address=10.62.3.2 ipmi_address=10.68.3.2
+sand-3-3 old_ipmi_address=10.62.3.3 ipmi_address=10.68.3.3
+sand-3-4 old_ipmi_address=10.62.3.4 ipmi_address=10.68.3.4
+sand-3-5 old_ipmi_address=10.62.3.5 ipmi_address=10.68.3.5
+sand-3-6 old_ipmi_address=10.62.3.6 ipmi_address=10.68.3.6
+sand-3-7 old_ipmi_address=10.62.3.7 ipmi_address=10.68.3.7
+sand-3-8 old_ipmi_address=10.62.3.8 ipmi_address=10.68.3.8
+sand-3-9 old_ipmi_address=10.62.3.9 ipmi_address=10.68.3.9
+sand-3-10 old_ipmi_address=10.62.3.10 ipmi_address=10.68.3.10
+sand-3-11 old_ipmi_address=10.62.3.11 ipmi_address=10.68.3.11
+sand-3-12 old_ipmi_address=10.62.3.12 ipmi_address=10.68.3.12
+sand-3-13 old_ipmi_address=10.62.3.13 ipmi_address=10.68.3.13
+sand-3-14 old_ipmi_address=10.62.3.14 ipmi_address=10.68.3.14
+sand-3-15 old_ipmi_address=10.62.3.15 ipmi_address=10.68.3.15
+sand-3-16 old_ipmi_address=10.62.3.16 ipmi_address=10.68.3.16
+sand-3-17 old_ipmi_address=10.62.3.17 ipmi_address=10.68.3.17
+sand-3-18 old_ipmi_address=10.62.3.18 ipmi_address=10.68.3.18
+sand-3-19 old_ipmi_address=10.62.3.19 ipmi_address=10.68.3.19
+sand-3-20 old_ipmi_address=10.62.3.20 ipmi_address=10.68.3.20
+sand-3-21 old_ipmi_address=10.62.3.21 ipmi_address=10.68.3.21
+sand-3-22 old_ipmi_address=10.62.3.22 ipmi_address=10.68.3.22
+sand-3-23 old_ipmi_address=10.62.3.23 ipmi_address=10.68.3.23
+sand-3-24 old_ipmi_address=10.62.3.24 ipmi_address=10.68.3.24
+sand-3-25 old_ipmi_address=10.62.3.25 ipmi_address=10.68.3.25
+sand-3-26 old_ipmi_address=10.62.3.26 ipmi_address=10.68.3.26
+sand-3-27 old_ipmi_address=10.62.3.27 ipmi_address=10.68.3.27
+sand-3-28 old_ipmi_address=10.62.3.28 ipmi_address=10.68.3.28
+sand-3-29 old_ipmi_address=10.62.3.29 ipmi_address=10.68.3.29
+sand-3-30 old_ipmi_address=10.62.3.30 ipmi_address=10.68.3.30
+sand-3-31 old_ipmi_address=10.62.3.31 ipmi_address=10.68.3.31
+sand-3-32 old_ipmi_address=10.62.3.32 ipmi_address=10.68.3.32
+sand-3-33 old_ipmi_address=10.62.3.33 ipmi_address=10.68.3.33
+sand-3-34 old_ipmi_address=10.62.3.34 ipmi_address=10.68.3.34
+sand-3-35 old_ipmi_address=10.62.3.35 ipmi_address=10.68.3.35
+sand-3-36 old_ipmi_address=10.62.3.36 ipmi_address=10.68.3.36
+sand-3-37 old_ipmi_address=10.62.3.37 ipmi_address=10.68.3.37
+sand-3-38 old_ipmi_address=10.62.3.38 ipmi_address=10.68.3.38
+sand-3-39 old_ipmi_address=10.62.3.39 ipmi_address=10.68.3.39
+sand-3-40 old_ipmi_address=10.62.3.40 ipmi_address=10.68.3.40
+sand-3-41 old_ipmi_address=10.62.3.41 ipmi_address=10.68.3.41
+sand-3-42 old_ipmi_address=10.62.3.42 ipmi_address=10.68.3.42
+sand-3-43 old_ipmi_address=10.62.3.43 ipmi_address=10.68.3.43
+sand-3-44 old_ipmi_address=10.62.3.44 ipmi_address=10.68.3.44
+sand-3-45 old_ipmi_address=10.62.3.45 ipmi_address=10.68.3.45
+sand-3-46 old_ipmi_address=10.62.3.46 ipmi_address=10.68.3.46
+sand-3-47 old_ipmi_address=10.62.3.47 ipmi_address=10.68.3.47
+sand-3-48 old_ipmi_address=10.62.3.48 ipmi_address=10.68.3.48
+sand-3-49 old_ipmi_address=10.62.3.49 ipmi_address=10.68.3.49
+sand-3-50 old_ipmi_address=10.62.3.50 ipmi_address=10.68.3.50
+sand-3-51 old_ipmi_address=10.62.3.51 ipmi_address=10.68.3.51
+sand-3-52 old_ipmi_address=10.62.3.52 ipmi_address=10.68.3.52
+sand-3-53 old_ipmi_address=10.62.3.53 ipmi_address=10.68.3.53
+sand-3-54 old_ipmi_address=10.62.3.54 ipmi_address=10.68.3.54
+sand-3-55 old_ipmi_address=10.62.3.55 ipmi_address=10.68.3.55
+sand-3-56 old_ipmi_address=10.62.3.56 ipmi_address=10.68.3.56
+sand-3-57 old_ipmi_address=10.62.3.57 ipmi_address=10.68.3.57
+sand-3-58 old_ipmi_address=10.62.3.58 ipmi_address=10.68.3.58
+sand-3-59 old_ipmi_address=10.62.3.59 ipmi_address=10.68.3.59
+sand-3-60 old_ipmi_address=10.62.3.60 ipmi_address=10.68.3.60
+sand-3-61 old_ipmi_address=10.62.3.61 ipmi_address=10.68.3.61
+sand-3-62 old_ipmi_address=10.62.3.62 ipmi_address=10.68.3.62
+sand-3-63 old_ipmi_address=10.62.3.63 ipmi_address=10.68.3.63
+sand-3-64 old_ipmi_address=10.62.3.64 ipmi_address=10.68.3.64
+sand-3-65 old_ipmi_address=10.62.3.65 ipmi_address=10.68.3.65
+sand-3-66 old_ipmi_address=10.62.3.66 ipmi_address=10.68.3.66
+sand-3-67 old_ipmi_address=10.62.3.67 ipmi_address=10.68.3.67
+sand-3-68 old_ipmi_address=10.62.3.68 ipmi_address=10.68.3.68
+sand-3-69 old_ipmi_address=10.62.3.69 ipmi_address=10.68.3.69
+sand-3-70 old_ipmi_address=10.62.3.70 ipmi_address=10.68.3.70
+sand-3-71 old_ipmi_address=10.62.3.71 ipmi_address=10.68.3.71
+sand-3-72 old_ipmi_address=10.62.3.72 ipmi_address=10.68.3.72
+sand-3-73 old_ipmi_address=10.62.3.73 ipmi_address=10.68.3.73
+sand-3-74 old_ipmi_address=10.62.3.74 ipmi_address=10.68.3.74
+sand-3-75 old_ipmi_address=10.62.3.75 ipmi_address=10.68.3.75
+sand-3-76 old_ipmi_address=10.62.3.76 ipmi_address=10.68.3.76
+sand-3-77 old_ipmi_address=10.62.3.77 ipmi_address=10.68.3.77
+sand-3-78 old_ipmi_address=10.62.3.78 ipmi_address=10.68.3.78
+sand-3-79 old_ipmi_address=10.62.3.79 ipmi_address=10.68.3.79
+sand-3-80 old_ipmi_address=10.62.3.80 ipmi_address=10.68.3.80
+
 [baremetal-compute-dr06]
 # C6220s:
 svn3-dr06-u10 ipmi_address=10.68.1.0
 svn4-dr06-u9 ipmi_address=10.68.1.1
 svn2-dr06-u9 ipmi_address=10.68.1.2
+
+[baremetal-compute-dr07]
+sand-2-1 old_ipmi_address=10.62.2.1 ipmi_address=10.68.2.1
+sand-2-2 old_ipmi_address=10.62.2.2 ipmi_address=10.68.2.2
+sand-2-3 old_ipmi_address=10.62.2.3 ipmi_address=10.68.2.3
+sand-2-4 old_ipmi_address=10.62.2.4 ipmi_address=10.68.2.4
+sand-2-5 old_ipmi_address=10.62.2.5 ipmi_address=10.68.2.5
+sand-2-6 old_ipmi_address=10.62.2.6 ipmi_address=10.68.2.6
+sand-2-7 old_ipmi_address=10.62.2.7 ipmi_address=10.68.2.7
+sand-2-8 old_ipmi_address=10.62.2.8 ipmi_address=10.68.2.8
+sand-2-9 old_ipmi_address=10.62.2.9 ipmi_address=10.68.2.9
+sand-2-10 old_ipmi_address=10.62.2.10 ipmi_address=10.68.2.10
+sand-2-11 old_ipmi_address=10.62.2.11 ipmi_address=10.68.2.11
+sand-2-12 old_ipmi_address=10.62.2.12 ipmi_address=10.68.2.12
+sand-2-13 old_ipmi_address=10.62.2.13 ipmi_address=10.68.2.13
+sand-2-14 old_ipmi_address=10.62.2.14 ipmi_address=10.68.2.14
+sand-2-15 old_ipmi_address=10.62.2.15 ipmi_address=10.68.2.15
+sand-2-16 old_ipmi_address=10.62.2.16 ipmi_address=10.68.2.16
+sand-2-17 old_ipmi_address=10.62.2.17 ipmi_address=10.68.2.17
+sand-2-18 old_ipmi_address=10.62.2.18 ipmi_address=10.68.2.18
+sand-2-19 old_ipmi_address=10.62.2.19 ipmi_address=10.68.2.19
+sand-2-20 old_ipmi_address=10.62.2.20 ipmi_address=10.68.2.20
+sand-2-21 old_ipmi_address=10.62.2.21 ipmi_address=10.68.2.21
+sand-2-22 old_ipmi_address=10.62.2.22 ipmi_address=10.68.2.22
+sand-2-23 old_ipmi_address=10.62.2.23 ipmi_address=10.68.2.23
+sand-2-24 old_ipmi_address=10.62.2.24 ipmi_address=10.68.2.24
+sand-2-25 old_ipmi_address=10.62.2.25 ipmi_address=10.68.2.25
+sand-2-26 old_ipmi_address=10.62.2.26 ipmi_address=10.68.2.26
+sand-2-27 old_ipmi_address=10.62.2.27 ipmi_address=10.68.2.27
+sand-2-28 old_ipmi_address=10.62.2.28 ipmi_address=10.68.2.28
+sand-2-29 old_ipmi_address=10.62.2.29 ipmi_address=10.68.2.29
+sand-2-30 old_ipmi_address=10.62.2.30 ipmi_address=10.68.2.30
+sand-2-31 old_ipmi_address=10.62.2.31 ipmi_address=10.68.2.31
+sand-2-32 old_ipmi_address=10.62.2.32 ipmi_address=10.68.2.32
+sand-2-33 old_ipmi_address=10.62.2.33 ipmi_address=10.68.2.33
+sand-2-34 old_ipmi_address=10.62.2.34 ipmi_address=10.68.2.34
+sand-2-35 old_ipmi_address=10.62.2.35 ipmi_address=10.68.2.35
+sand-2-36 old_ipmi_address=10.62.2.36 ipmi_address=10.68.2.36
+sand-2-37 old_ipmi_address=10.62.2.37 ipmi_address=10.68.2.37
+sand-2-38 old_ipmi_address=10.62.2.38 ipmi_address=10.68.2.38
+sand-2-39 old_ipmi_address=10.62.2.39 ipmi_address=10.68.2.39
+sand-2-40 old_ipmi_address=10.62.2.40 ipmi_address=10.68.2.40
+sand-2-41 old_ipmi_address=10.62.2.41 ipmi_address=10.68.2.41
+sand-2-42 old_ipmi_address=10.62.2.42 ipmi_address=10.68.2.42
+sand-2-43 old_ipmi_address=10.62.2.43 ipmi_address=10.68.2.43
+sand-2-44 old_ipmi_address=10.62.2.44 ipmi_address=10.68.2.44
+sand-2-45 old_ipmi_address=10.62.2.45 ipmi_address=10.68.2.45
+sand-2-46 old_ipmi_address=10.62.2.46 ipmi_address=10.68.2.46
+sand-2-47 old_ipmi_address=10.62.2.47 ipmi_address=10.68.2.47
+sand-2-48 old_ipmi_address=10.62.2.48 ipmi_address=10.68.2.48
+sand-2-49 old_ipmi_address=10.62.2.49 ipmi_address=10.68.2.49
+sand-2-50 old_ipmi_address=10.62.2.50 ipmi_address=10.68.2.50
+sand-2-51 old_ipmi_address=10.62.2.51 ipmi_address=10.68.2.51
+sand-2-52 old_ipmi_address=10.62.2.52 ipmi_address=10.68.2.52
+sand-2-53 old_ipmi_address=10.62.2.53 ipmi_address=10.68.2.53
+sand-2-54 old_ipmi_address=10.62.2.54 ipmi_address=10.68.2.54
+sand-2-55 old_ipmi_address=10.62.2.55 ipmi_address=10.68.2.55
+sand-2-56 old_ipmi_address=10.62.2.56 ipmi_address=10.68.2.56
+sand-2-57 old_ipmi_address=10.62.2.57 ipmi_address=10.68.2.57
+sand-2-58 old_ipmi_address=10.62.2.58 ipmi_address=10.68.2.58
+sand-2-59 old_ipmi_address=10.62.2.59 ipmi_address=10.68.2.59
+sand-2-60 old_ipmi_address=10.62.2.60 ipmi_address=10.68.2.60
+sand-2-61 old_ipmi_address=10.62.2.61 ipmi_address=10.68.2.61
+sand-2-62 old_ipmi_address=10.62.2.62 ipmi_address=10.68.2.62
+sand-2-63 old_ipmi_address=10.62.2.63 ipmi_address=10.68.2.63
+sand-2-64 old_ipmi_address=10.62.2.64 ipmi_address=10.68.2.64
+sand-2-65 old_ipmi_address=10.62.2.65 ipmi_address=10.68.2.65
+sand-2-66 old_ipmi_address=10.62.2.66 ipmi_address=10.68.2.66
+sand-2-67 old_ipmi_address=10.62.2.67 ipmi_address=10.68.2.67
+sand-2-68 old_ipmi_address=10.62.2.68 ipmi_address=10.68.2.68
+sand-2-69 old_ipmi_address=10.62.2.69 ipmi_address=10.68.2.69
+sand-2-70 old_ipmi_address=10.62.2.70 ipmi_address=10.68.2.70
+sand-2-71 old_ipmi_address=10.62.2.71 ipmi_address=10.68.2.71
+sand-2-72 old_ipmi_address=10.62.2.72 ipmi_address=10.68.2.72
+sand-2-73 old_ipmi_address=10.62.2.73 ipmi_address=10.68.2.73
+sand-2-74 old_ipmi_address=10.62.2.74 ipmi_address=10.68.2.74
+sand-2-75 old_ipmi_address=10.62.2.75 ipmi_address=10.68.2.75
+sand-2-76 old_ipmi_address=10.62.2.76 ipmi_address=10.68.2.76
+sand-2-77 old_ipmi_address=10.62.2.77 ipmi_address=10.68.2.77
+sand-2-78 old_ipmi_address=10.62.2.78 ipmi_address=10.68.2.78
+sand-2-79 old_ipmi_address=10.62.2.79 ipmi_address=10.68.2.79
+sand-2-80 old_ipmi_address=10.62.2.80 ipmi_address=10.68.2.80
 
 [baremetal-compute-dr08]
 sand-6-1 ipmi_address=10.68.6.1
@@ -107,94 +435,20 @@ sand-6-78 ipmi_address=10.68.6.78
 sand-6-79 ipmi_address=10.68.6.79
 sand-6-80 ipmi_address=10.68.6.80
 
-[baremetal-compute-cr06]
-sand-4-1 ipmi_address=10.68.4.1
-sand-4-2 ipmi_address=10.68.4.2
-sand-4-3 ipmi_address=10.68.4.3
-sand-4-4 ipmi_address=10.68.4.4
-sand-4-5 ipmi_address=10.68.4.5
-sand-4-6 ipmi_address=10.68.4.6
-sand-4-7 ipmi_address=10.68.4.7
-sand-4-8 ipmi_address=10.68.4.8
-sand-4-9 ipmi_address=10.68.4.9
-sand-4-10 ipmi_address=10.68.4.10
-sand-4-11 ipmi_address=10.68.4.11
-sand-4-12 ipmi_address=10.68.4.12
-sand-4-13 ipmi_address=10.68.4.13
-sand-4-14 ipmi_address=10.68.4.14
-sand-4-15 ipmi_address=10.68.4.15
-sand-4-16 ipmi_address=10.68.4.16
-sand-4-17 ipmi_address=10.68.4.17
-sand-4-18 ipmi_address=10.68.4.18
-sand-4-19 ipmi_address=10.68.4.19
-sand-4-20 ipmi_address=10.68.4.20
-sand-4-21 ipmi_address=10.68.4.21
-sand-4-22 ipmi_address=10.68.4.22
-sand-4-23 ipmi_address=10.68.4.23
-sand-4-24 ipmi_address=10.68.4.24
-sand-4-25 ipmi_address=10.68.4.25
-sand-4-26 ipmi_address=10.68.4.26
-sand-4-27 ipmi_address=10.68.4.27
-sand-4-28 ipmi_address=10.68.4.28
-sand-4-29 ipmi_address=10.68.4.29
-sand-4-30 ipmi_address=10.68.4.30
-sand-4-31 ipmi_address=10.68.4.31
-sand-4-32 ipmi_address=10.68.4.32
-sand-4-33 ipmi_address=10.68.4.33
-sand-4-34 ipmi_address=10.68.4.34
-sand-4-35 ipmi_address=10.68.4.35
-sand-4-36 ipmi_address=10.68.4.36
-sand-4-37 ipmi_address=10.68.4.37
-sand-4-38 ipmi_address=10.68.4.38
-sand-4-39 ipmi_address=10.68.4.39
-sand-4-40 ipmi_address=10.68.4.40
-sand-4-41 ipmi_address=10.68.4.41
-sand-4-42 ipmi_address=10.68.4.42
-sand-4-43 ipmi_address=10.68.4.43
-sand-4-44 ipmi_address=10.68.4.44
-sand-4-45 ipmi_address=10.68.4.45
-sand-4-46 ipmi_address=10.68.4.46
-sand-4-47 ipmi_address=10.68.4.47
-sand-4-48 ipmi_address=10.68.4.48
-sand-4-49 ipmi_address=10.68.4.49
-sand-4-50 ipmi_address=10.68.4.50
-sand-4-51 ipmi_address=10.68.4.51
-sand-4-52 ipmi_address=10.68.4.52
-sand-4-53 ipmi_address=10.68.4.53
-sand-4-54 ipmi_address=10.68.4.54
-sand-4-55 ipmi_address=10.68.4.55
-sand-4-56 ipmi_address=10.68.4.56
-sand-4-57 ipmi_address=10.68.4.57
-sand-4-58 ipmi_address=10.68.4.58
-sand-4-59 ipmi_address=10.68.4.59
-sand-4-60 ipmi_address=10.68.4.60
-sand-4-61 ipmi_address=10.68.4.61
-sand-4-62 ipmi_address=10.68.4.62
-sand-4-63 ipmi_address=10.68.4.63
-sand-4-64 ipmi_address=10.68.4.64
-sand-4-65 ipmi_address=10.68.4.65
-sand-4-66 ipmi_address=10.68.4.66
-sand-4-67 ipmi_address=10.68.4.67
-sand-4-68 ipmi_address=10.68.4.68
-sand-4-69 ipmi_address=10.68.4.69
-sand-4-70 ipmi_address=10.68.4.70
-sand-4-71 ipmi_address=10.68.4.71
-sand-4-72 ipmi_address=10.68.4.72
-sand-4-73 ipmi_address=10.68.4.73
-sand-4-74 ipmi_address=10.68.4.74
-sand-4-75 ipmi_address=10.68.4.75
-sand-4-76 ipmi_address=10.68.4.76
-sand-4-77 ipmi_address=10.68.4.77
-sand-4-78 ipmi_address=10.68.4.78
-sand-4-79 ipmi_address=10.68.4.79
-sand-4-80 ipmi_address=10.68.4.80
-
 [baremetal-compute:children]
+baremetal-compute-cr06
+baremetal-compute-cr07
+baremetal-compute-cr08
 baremetal-compute-dr06
+baremetal-compute-dr07
 baremetal-compute-dr08
 
 [mgmt-switches]
+ethsw-cr06-u21
+ethsw-cr07-u21
+ethsw-cr08-u21
 ethsw-dr06-u21
+ethsw-dr07-u21
 ethsw-dr08-u21
 
 [hs-eth-switches]

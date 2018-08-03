@@ -12,7 +12,7 @@ svn3-dr06-u8 ipmi_address=10.62.0.5 bmc_type=idrac
 svn1-dr06-u8 ipmi_address=10.62.0.7 bmc_type=idrac
 
 [monitoring]
-svn1-dr06-u8 ipmi_address=10.62.0.7 bmc_type=idrac
+svn1-dr06-u10 ipmi_address=10.62.0.3 bmc_type=idrac
 
 [storage]
 sv-dr06-u3-4 ipmi_address=10.62.254.2 bmc_type=idrac

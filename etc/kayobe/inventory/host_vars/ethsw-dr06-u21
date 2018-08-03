@@ -79,7 +79,7 @@ switch_interface_config:
     config: "{{ switch_interface_config_bm_compute }}"
   gi1/0/34:
     description: svn1-dr06-u10
-    config: "{{ switch_interface_config_controller }}"
+    config: "{{ switch_interface_config_monitoring }}"
   gi1/0/35:
     description: svn2-dr06-u7-idrac
     config: "{{ switch_interface_config_oc_idrac }}"

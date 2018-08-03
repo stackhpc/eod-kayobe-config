@@ -21,6 +21,7 @@ switch_config_all:
   - "hostname \"{{ inventory_hostname }}\""
   - vlan database
   - "vlan {{ switch_config_vlans | join(',') }}"
+  - "vlan {{ switch_config_vlans2 | join(',') }}"
   - exit
 
 # List of VLANs configured on these switches.
@@ -36,7 +37,12 @@ switch_config_vlans:
   - "{{ internal_vlan }}"
   - "{{ storage_vlan }}"
   - "{{ storagemgmt_vlan }}"
+
+# The ansible role does not handle long lines well, do break the VLAN
+# definition up.
+switch_config_vlans2:
   - "{{ switch_interface_config_tenant_vlan_range }}"
+  - "{{ switch_interface_config_provider_vlan_range }}"
 
 ###############################################################################
 # Interface configuration.
@@ -62,6 +68,9 @@ switch_interface_config_tenant_vlan_range: >-
      join(',') |
      replace(':', '-') }}
 
+# Provider VLAN range for this physical network.
+switch_interface_config_provider_vlan_range: 100-199
+
 # Interface config for controllers.
 switch_interface_config_controller:
   - spanning-tree portfast
@@ -78,6 +87,7 @@ switch_interface_config_controller:
   - "switchport general allowed vlan add {{ internal_vlan }} tagged"
   - "switchport general allowed vlan add {{ storage_vlan }} tagged"
   - "switchport general allowed vlan add {{ switch_interface_config_tenant_vlan_range }} tagged"
+  - "switchport general allowed vlan add {{ switch_interface_config_provider_vlan_range }} tagged"
   - "switchport general pvid {{ oc_provision_vlan }}"
   - lldp optional-tlv port-desc sys-name
 
@@ -92,7 +102,6 @@ switch_interface_config_ceph:
   - "switchport general allowed vlan add {{ internal_vlan }} tagged"
   - "switchport general allowed vlan add {{ storage_vlan }} tagged"
   - "switchport general allowed vlan add {{ storagemgmt_vlan }} tagged"
-  - "switchport general allowed vlan add {{ switch_interface_config_tenant_vlan_range }} tagged"
   - "switchport general pvid {{ oc_provision_vlan }}"
   - lldp optional-tlv port-desc sys-name
 
@@ -103,10 +112,12 @@ switch_interface_config_vm_compute:
   - "switchport general allowed vlan add {{ oc_provision_vlan }} untagged"
   # Current expect-based configuration mechanism requires no line wrapping, so
   # VLANs must be configured individually.
+  - "switchport general allowed vlan add {{ ilab_vlan }} tagged"
   - "switchport general allowed vlan add {{ devops_vlan }} tagged"
   - "switchport general allowed vlan add {{ internal_vlan }} tagged"
   - "switchport general allowed vlan add {{ storage_vlan }} tagged"
   - "switchport general allowed vlan add {{ switch_interface_config_tenant_vlan_range }} tagged"
+  - "switchport general allowed vlan add {{ switch_interface_config_provider_vlan_range }} tagged"
   - "switchport general pvid {{ oc_provision_vlan }}"
   - lldp optional-tlv port-desc sys-name
 

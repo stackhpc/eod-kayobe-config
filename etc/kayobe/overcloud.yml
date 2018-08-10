@@ -15,15 +15,15 @@ overcloud_group_default: compute
 #overcloud_group_hosts_map:
 overcloud_group_hosts_map:
   controllers:
-    # Virt cluster controller.
+    # Single controller node.
     - svn1-dr06-u8
+  monitoring:
+    # Monitoring node.
+    - svn1-dr06-u10
   storage:
     # Ceph storage nodes.
     - sv-dr06-u5-6
     - sv-dr06-u3-4
-  ignore:
-    # Bare metal cluster controller.
-    - svn1-dr06-u10
 
 # To prevent some network issues you can choose to disable cloud-init
 #disable_cloud_init:

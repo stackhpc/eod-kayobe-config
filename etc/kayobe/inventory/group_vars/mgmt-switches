@@ -91,6 +91,18 @@ switch_interface_config_controller:
   - "switchport general pvid {{ oc_provision_vlan }}"
   - lldp optional-tlv port-desc sys-name
 
+# Interface config for monitoring nodes.
+switch_interface_config_monitoring:
+  - spanning-tree portfast
+  - switchport mode general
+  - "switchport general allowed vlan add {{ oc_provision_vlan }} untagged"
+  # Current expect-based configuration mechanism requires no line wrapping, so
+  # VLANs must be configured individually.
+  - "switchport general allowed vlan add {{ devops_vlan }} tagged"
+  - "switchport general allowed vlan add {{ internal_vlan }} tagged"
+  - "switchport general pvid {{ oc_provision_vlan }}"
+  - lldp optional-tlv port-desc sys-name
+
 # Interface config for Ceph storage nodes.
 switch_interface_config_ceph:
   - spanning-tree portfast

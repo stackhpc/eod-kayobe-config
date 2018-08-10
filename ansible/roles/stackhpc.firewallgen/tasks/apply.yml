@@ -14,8 +14,9 @@
   become: True
 
 - name: load firewall rules
+  # -n option will not flush existing rules
   shell:
-    iptables-restore < "{{ firewallgen_rules_path }}"
+    iptables-restore -n < "{{ firewallgen_rules_path }}"
   become: True
 
 - include_tasks: persist.yml

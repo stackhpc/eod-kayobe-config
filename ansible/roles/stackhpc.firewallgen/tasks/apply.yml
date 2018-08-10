@@ -14,7 +14,8 @@
   become: True
 
 - name: load firewall rules
-  shell: echo iptables-restore < "{{ firewallgen_rules_path }}"
+  shell:
+    iptables-restore < "{{ firewallgen_rules_path }}"
   become: True
 
 - include_tasks: persist.yml

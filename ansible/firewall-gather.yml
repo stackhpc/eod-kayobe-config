@@ -1,7 +1,0 @@
-- name: gather firewall rules
-  hosts: all
-  roles:
-    - name: stackhpc.firewallgen
-  vars:
-    firewall_action: "gather"
- 

@@ -5,7 +5,6 @@ from firewallgen import dockerutils
 from firewallgen import utils
 from firewallgen import firewallgen
 from firewallgen.firewallgen import (UDPDataCollector, TCPDataCollector, collect_open_sockets)
-from jinja2 import Template
 
 ANSIBLE_METADATA = {
     'metadata_version': '1.0',
@@ -36,17 +35,6 @@ class AnsibleTCPCollector(TCPDataCollector, AnsibleVersionMixin):
     def get_ss_output(self):
         _, out, _ = self.module.run_command(["ss", "-nlpt", self.get_version_flag()])
         return out
-
-def transform_network_allocation(allocation):
-    map = {}
-    for label, host_to_ips in allocation.items():
-        # strip off _ips suffix
-        interface = "{}_interface".format(label[0:-4])
-        for host, ip in host_to_ips.items():
-            map[ip] = interface
-
-    map['127.0.0.1'] = 'lo'
-    return map
 
 def process_to_dict(process):
     return vars(process)

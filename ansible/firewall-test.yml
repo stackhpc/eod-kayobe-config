@@ -1,0 +1,6 @@
+- name: apply firewall
+  hosts: all
+  roles:
+    - name: stackhpc.firewallgen
+  vars:
+    firewall_action: test

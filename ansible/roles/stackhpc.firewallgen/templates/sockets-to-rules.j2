@@ -1,0 +1,11 @@
+#jinja2: trim_blocks: "false", lstrip_blocks: "false"
+firewallgen_ipv4_input_allow_rules:
+{% for rule in firewall_rules %}
+  - interface: "{{ rule.interface }}"
+    port: {{ rule.port }}
+    proto: {{ rule.proto }}
+{%+ if rule.ip %}
+    destination: {{ rule.ip }}
+{% endif %}
+    comment: "hint: used by '{{ rule.processes[0].name }}'{% if rule.processes[0].docker_hint %} in docker container '{{ rule.processes[0].docker_hint }}'{% endif %}" 
+{% endfor %}

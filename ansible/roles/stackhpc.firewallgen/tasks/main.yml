@@ -1,0 +1,12 @@
+---
+# tasks file for stackhpc.firewallgen
+
+- include_tasks: apply.yml
+  when:
+    - when: firewallgen_enable_firewall
+    - firewall_action == "apply" or firewall_action == "test"
+  tags: always
+
+- include_tasks: gather.yml
+  when: firewall_action == "gather"
+

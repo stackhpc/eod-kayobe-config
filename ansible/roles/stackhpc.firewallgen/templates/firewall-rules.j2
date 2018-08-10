@@ -1,0 +1,53 @@
+#jinja2: trim_blocks: "false", lstrip_blocks: "false"
+
+*security
+:INPUT ACCEPT [41038:91486707]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [38900:3472439]
+COMMIT
+
+*raw
+:PREROUTING ACCEPT [42165:91702795]
+:OUTPUT ACCEPT [38900:3472439]
+COMMIT
+
+*mangle
+:PREROUTING ACCEPT [42165:91702795]
+:INPUT ACCEPT [41038:91486707]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [38900:3472439]
+:POSTROUTING ACCEPT [38900:3472439]
+COMMIT
+
+*nat
+:PREROUTING ACCEPT [3196:340764]
+:INPUT ACCEPT [2069:124676]
+:OUTPUT ACCEPT [2205:151652]
+:POSTROUTING ACCEPT [2205:151652]
+COMMIT
+
+*filter
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT ACCEPT [1317:125243]
+:TCP - [0:0]
+:UDP - [0:0]
+-A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -m conntrack --ctstate INVALID -j DROP
+-A INPUT -p icmp -m icmp --icmp-type 8 -m conntrack --ctstate NEW -j ACCEPT
+-A INPUT -p udp -m conntrack --ctstate NEW -j UDP
+-A INPUT -p tcp -m tcp --tcp-flags FIN,SYN,RST,ACK SYN -m conntrack --ctstate NEW -j TCP
+-A INPUT -p udp -j REJECT --reject-with icmp-port-unreachable
+-A INPUT -p tcp -j REJECT --reject-with tcp-reset
+-A INPUT -j REJECT --reject-with icmp-proto-unreachable
+{%+ for rule in firewallgen_ipv4_input_allow_rules %}
+{% if rule.proto == "tcp" %}
+-A TCP -p tcp -m tcp --dport {{ rule.port }} -j ACCEPT{% if rule.interface | default(False) and rule.interface != "all" %} -i {{ rule.interface }}{% endif %}
+{% endif %}
+{% if rule.proto == "udp" %}
+-A UDP -p udp -m udp --dport {{ rule.port }} -j ACCEPT{% if rule.interface | default(False) and rule.interface != "all" %} -i {{ rule.interface }}{% endif %}
+{% endif %}
+
+{% endfor %}
+COMMIT

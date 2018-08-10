@@ -1,0 +1,12 @@
+---
+# defaults file for stackhpc.firewallgen
+
+firewallgen_ipv4_input_allow_rules: []
+
+firewallgen_output_path: "{{ kayobe_config_path | dirname ~ '/firewallgen' }}" 
+
+firewallgen_rules_path: /tmp/firewallgen-iptables.rules
+
+firewallgen_backup_path: /tmp/firewallgen-iptables.save
+
+firewallgen_enable_firewall: False

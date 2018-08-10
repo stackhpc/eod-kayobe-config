@@ -1,0 +1,7 @@
+- name: apply firewall
+  hosts: all
+  roles:
+    - name: stackhpc.firewallgen
+  vars:
+    firewall_action: apply
+  when: "{{ firewall_gen_enable_firewall }}"

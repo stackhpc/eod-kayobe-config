@@ -1,0 +1,22 @@
+---
+# tasks file for stackhpc.firewallgen
+
+- name: gen firewall
+  template:
+    src: firewall-rules.j2
+    dest: "{{ firewallgen_rules_path }}"
+  tags: template
+
+- name: backup original rules
+  shell: iptables-save > "{{ firewallgen_backup_path }}"
+  args:
+    creates: "{{ firewallgen_backup_path }}"
+  become: True
+
+- name: load firewall rules
+  shell: echo iptables-restore < "{{ firewallgen_rules_path }}"
+  become: True
+
+- include_tasks: persist.yml
+  when: firewall_action == "apply"
+  become: True

@@ -1,0 +1,448 @@
+firewallgen_enable_firewall: True
+
+firewallgen_ipv4_input_allow_rules:
+  - interface: "{{ internal_interface }}"
+    port: 35357
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'httpd' in docker container 'keystone'" 
+  - interface: "breno1.65"
+    port: 35357
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "{{ internal_interface }}"
+    port: 9150
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'memcached_expor' in docker container 'prometheus_memcached_exporter'" 
+  - interface: "all"
+    port: 6783
+    proto: tcp
+    comment: "hint: used by 'alertmanager' in docker container 'prometheus_alertmanager'" 
+  - interface: "{{ internal_interface }}"
+    port: 8000
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'heat-api-cfn' in docker container 'heat_api_cfn'" 
+  - interface: "{{ internal_interface }}"
+    port: 9696
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'neutron-server' in docker container 'neutron_server'" 
+  - interface: "{{ internal_interface }}"
+    port: 6080
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'nova-novncproxy' in docker container 'nova_novncproxy'" 
+  - interface: "breno1.60"
+    port: 8000
+    proto: tcp
+    destination: 10.60.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 8000
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.60"
+    port: 9696
+    proto: tcp
+    destination: 10.60.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 9696
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.60"
+    port: 6080
+    proto: tcp
+    destination: 10.60.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 6080
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "{{ internal_interface }}"
+    port: 1984
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "{{ internal_interface }}"
+    port: 5601
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'node' in docker container 'kibana'" 
+  - interface: "breno1.60"
+    port: 5601
+    proto: tcp
+    destination: 10.60.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 5601
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "{{ internal_interface }}"
+    port: 9091
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'prometheus' in docker container 'prometheus_server'" 
+  - interface: "breno1.65"
+    port: 9091
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "{{ internal_interface }}"
+    port: 8004
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'heat-api' in docker container 'heat_api'" 
+  - interface: "breno1.60"
+    port: 8004
+    proto: tcp
+    destination: 10.60.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 8004
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "{{ internal_interface }}"
+    port: 9093
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'alertmanager' in docker container 'prometheus_alertmanager'" 
+  - interface: "breno1.60"
+    port: 9093
+    proto: tcp
+    destination: 10.60.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 9093
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "{{ internal_interface }}"
+    port: 8774
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'nova-api' in docker container 'nova_api'" 
+  - interface: "breno1.60"
+    port: 8774
+    proto: tcp
+    destination: 10.60.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 8774
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "{{ internal_interface }}"
+    port: 8775
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'nova-api' in docker container 'nova_api'" 
+  - interface: "{{ internal_interface }}"
+    port: 9191
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'glance-registry' in docker container 'glance_registry'" 
+  - interface: "breno1.60"
+    port: 8775
+    proto: tcp
+    destination: 10.60.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 8775
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 9191
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "{{ internal_interface }}"
+    port: 5672
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'beam.smp' in docker container 'rabbitmq'" 
+  - interface: "{{ internal_interface }}"
+    port: 25672
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'beam.smp' in docker container 'rabbitmq'" 
+  - interface: "{{ internal_interface }}"
+    port: 5000
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'httpd' in docker container 'keystone'" 
+  - interface: "{{ internal_interface }}"
+    port: 8776
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'httpd' in docker container 'cinder_api'" 
+  - interface: "breno1.60"
+    port: 8776
+    proto: tcp
+    destination: 10.60.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 8776
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.60"
+    port: 5000
+    proto: tcp
+    destination: 10.60.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 5000
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "lo"
+    port: 6633
+    proto: tcp
+    destination: 127.0.0.1
+    comment: "hint: used by 'neutron-openvsw' in docker container 'neutron_openvswitch_agent'" 
+  - interface: "{{ internal_interface }}"
+    port: 3306
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'mysqld' in docker container 'mariadb'" 
+  - interface: "breno1.65"
+    port: 3306
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "{{ internal_interface }}"
+    port: 2379
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'etcd' in docker container 'etcd'" 
+  - interface: "{{ internal_interface }}"
+    port: 11211
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'memcached' in docker container 'memcached'" 
+  - interface: "breno1.65"
+    port: 11211
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "{{ internal_interface }}"
+    port: 9292
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'glance-api' in docker container 'glance_api'" 
+  - interface: "{{ internal_interface }}"
+    port: 2380
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'etcd' in docker container 'etcd'" 
+  - interface: "{{ internal_interface }}"
+    port: 9100
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'node_exporter' in docker container 'prometheus_node_exporter'" 
+  - interface: "{{ internal_interface }}"
+    port: 8780
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'httpd' in docker container 'placement_api'" 
+  - interface: "breno1.60"
+    port: 8780
+    proto: tcp
+    destination: 10.60.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 8780
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.60"
+    port: 9292
+    proto: tcp
+    destination: 10.60.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 9292
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "{{ internal_interface }}"
+    port: 9101
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'haproxy_exporte' in docker container 'prometheus_haproxy_exporter'" 
+  - interface: "all"
+    port: 111
+    proto: tcp
+    comment: "hint: used by 'rpcbind'" 
+  - interface: "{{ internal_interface }}"
+    port: 80
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'httpd' in docker container 'horizon'" 
+  - interface: "all"
+    port: 8080
+    proto: tcp
+    comment: "hint: used by 'nginx' in docker container 'inspection_store'" 
+  - interface: "{{ internal_interface }}"
+    port: 9104
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'mysqld_exporter' in docker container 'prometheus_mysqld_exporter'" 
+  - interface: "lo"
+    port: 6640
+    proto: tcp
+    destination: 127.0.0.1
+    comment: "hint: used by 'ovsdb-server' in docker container 'openvswitch_db'" 
+  - interface: "breno1.65"
+    port: 9200
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.60"
+    port: 80
+    proto: tcp
+    destination: 10.60.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 80
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "{{ internal_interface }}"
+    port: 6385
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'ironic-api' in docker container 'ironic_api'" 
+  - interface: "all"
+    port: 4369
+    proto: tcp
+    comment: "hint: used by 'epmd' in docker container 'rabbitmq'" 
+  - interface: "breno1.60"
+    port: 6385
+    proto: tcp
+    destination: 10.60.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 6385
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "{{ internal_interface }}"
+    port: 8786
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'manila-api' in docker container 'manila_api'" 
+  - interface: "breno1.60"
+    port: 8786
+    proto: tcp
+    destination: 10.60.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 8786
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "all"
+    port: 22
+    proto: tcp
+    comment: "hint: used by 'sshd'" 
+  - interface: "{{ internal_interface }}"
+    port: 4567
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'mysqld' in docker container 'mariadb'" 
+  - interface: "{{ internal_interface }}"
+    port: 8023
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'sshd' in docker container 'keystone_ssh'" 
+  - interface: "{{ internal_interface }}"
+    port: 15672
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'beam.smp' in docker container 'rabbitmq'" 
+  - interface: "{{ internal_interface }}"
+    port: 3000
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'grafana-server' in docker container 'grafana'" 
+  - interface: "breno1.60"
+    port: 3000
+    proto: tcp
+    destination: 10.60.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 3000
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 15672
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "{{ internal_interface }}"
+    port: 8089
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'httpd' in docker container 'ironic_ipxe'" 
+  - interface: "lo"
+    port: 25
+    proto: tcp
+    destination: 127.0.0.1
+    comment: "hint: used by 'master'" 
+  - interface: "{{ internal_interface }}"
+    port: 5050
+    proto: tcp
+    destination: 10.65.1.0
+    comment: "hint: used by 'ironic-inspecto' in docker container 'ironic_inspector'" 
+  - interface: "breno1.60"
+    port: 5050
+    proto: tcp
+    destination: 10.60.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "breno1.65"
+    port: 5050
+    proto: tcp
+    destination: 10.65.0.1
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "all"
+    port: 67
+    proto: udp
+    comment: "hint: used by 'dnsmasq' in docker container 'ironic_dnsmasq'" 
+  - interface: "all"
+    port: 69
+    proto: udp
+    comment: "hint: used by 'in.tftpd' in docker container 'ironic_pxe'" 
+  - interface: "all"
+    port: 111
+    proto: udp
+    comment: "hint: used by 'rpcbind'" 
+  - interface: "lo"
+    port: 323
+    proto: udp
+    destination: 127.0.0.1
+    comment: "hint: used by 'chronyd'" 
+  - interface: "all"
+    port: 804
+    proto: udp
+    comment: "hint: used by 'rpcbind'" 
+  - interface: "all"
+    port: 34051
+    proto: udp
+    comment: "hint: used by 'haproxy' in docker container 'haproxy'" 
+  - interface: "{{ internal_interface }}"
+    port: 5140
+    proto: udp
+    destination: 10.65.1.0
+    comment: "hint: used by 'fluentd' in docker container 'fluentd'" 

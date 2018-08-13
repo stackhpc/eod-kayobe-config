@@ -119,6 +119,10 @@ kolla_build_blocks:
   #  # Install plugin for Gantt charts
   #  RUN grafana-cli plugins install natel-discrete-panel
   #  RUN grafana-cli plugins install vonage-status-panel
+  heat_base_footer: |
+    # Install from the stable/queens branch to pull in a fix for
+    # https://storyboard.openstack.org/#!/story/2003015.
+    RUN pip install -U --no-deps git+https://github.com/openstack/heat@stable/queens
   ironic_inspector_footer: |
     # Install our custom inspector plugins.
     RUN pip install stackhpc-inspector-plugins

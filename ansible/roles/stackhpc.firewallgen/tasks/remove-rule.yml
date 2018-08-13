@@ -1,0 +1,5 @@
+---
+- name: Remove rule
+  shell: iptables -D {{ chain }} {{ item }}
+  with_items: "{{ stale_rules }}"
+  become: True

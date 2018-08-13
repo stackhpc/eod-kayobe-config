@@ -13,6 +13,9 @@
     creates: "{{ firewallgen_backup_path }}"
   become: True
 
+- name: clean up old rules
+  include_tasks: delete.yml
+
 - name: load firewall rules
   # -n option will not flush existing rules
   shell:

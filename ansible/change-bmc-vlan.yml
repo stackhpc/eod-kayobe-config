@@ -1,0 +1,21 @@
+---
+- name: Change bmc vlan
+  hosts: baremetal-compute
+  gather_facts: False
+  vars:
+    controller_host: "{{ groups['controllers'][0] }}"
+  tasks:
+    - name: Set BMC vlan
+      command: >
+        ipmitool -U "{{ ipmitool_user }}" -P "{{ ipmitool_pass }}"
+        -H "{{ ipmitool_target }}" -I lanplus lan set 1 vlan id
+        "{{ ipmitool_target_vlan }}"
+      delegate_to: "{{ controller_host }}"
+      vars:
+        # NOTE: Without this, the controller's ansible_host variable will not
+        # be respected when using delegate_to.
+        ansible_host: "{{ hostvars[controller_host].ansible_host | default(controller_host) }}"
+        ipmitool_target: "{{ hostvars[inventory_hostname].ipmi_address }}"
+        ipmitool_target_vlan: "{{ wl_oob_vlan }}"
+        ipmitool_user: "{{ secrets_ipmi_username }}"
+        ipmitool_pass: "{{ secrets_ipmi_password }}"

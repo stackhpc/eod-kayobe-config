@@ -43,10 +43,10 @@ COMMIT
 -A INPUT -j REJECT --reject-with icmp-proto-unreachable -m comment --comment "FIREWALLGEN"
 {%+ for rule in firewallgen_ipv4_input_allow_rules %}
 {% if rule.proto == "tcp" %}
--A TCP -p tcp -m tcp --dport {{ rule.port }} -j ACCEPT{% if rule.interface | default(False) and rule.interface != "all" %} -i {{ rule.interface }}{% endif %}{% if rule.destination | default(False) %} -d {{ rule.destination }}{% endif %} -m comment --comment {{ "FIREWALLGEN" ~ ": " if rule.comment ~ rule.comment | default("") }}
+-A TCP -p tcp -m tcp --dport {{ rule.port }} -j ACCEPT{% if rule.interface | default(False) and rule.interface != "all" %} -i {{ rule.interface }}{% endif %}{% if rule.destination | default(False) %} -d {{ rule.destination }}{% endif %} -m comment --comment "{{ "FIREWALLGEN" ~ (': ' if rule.comment else '') ~ (rule.comment | default('')) }}"
 {% endif %}
 {% if rule.proto == "udp" %}
--A UDP -p udp -m udp --dport {{ rule.port }} -j ACCEPT{% if rule.interface | default(False) and rule.interface != "all" %} -i {{ rule.interface }}{% endif %}{% if rule.destination | default(False) %} -d {{ rule.destination }}{% endif %} -m comment --comment {{ "FIREWALLGEN" ~ ": " if rule.comment ~ rule.comment | default("") }}
+-A UDP -p udp -m udp --dport {{ rule.port }} -j ACCEPT{% if rule.interface | default(False) and rule.interface != "all" %} -i {{ rule.interface }}{% endif %}{% if rule.destination | default(False) %} -d {{ rule.destination }}{% endif %} -m comment --comment "{{ "FIREWALLGEN" ~ (': ' if rule.comment else '') ~ (rule.comment | default('')) }}"
 {% endif %}
 
 {% endfor %}

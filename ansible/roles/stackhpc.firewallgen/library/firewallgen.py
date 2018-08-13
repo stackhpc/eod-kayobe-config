@@ -5,6 +5,7 @@ from firewallgen import dockerutils
 from firewallgen import utils
 from firewallgen import firewallgen
 from firewallgen.firewallgen import (UDPDataCollector, TCPDataCollector, collect_open_sockets)
+from operator import itemgetter
 
 ANSIBLE_METADATA = {
     'metadata_version': '1.0',
@@ -73,7 +74,9 @@ def run_module():
     udp = collect_open_sockets(AnsibleUDPCollector(module),
                                module.params['ip_to_interface_map'])
 
-    result['sockets'] = map(opensocket_to_dict, (tcp + udp))
+    allsockets= map(opensocket_to_dict, (tcp + udp))
+
+    result['sockets'] = sorted(allsockets, key = itemgetter('proto', 'interface', 'port', 'ip'))
 
     module.exit_json(**result)
 

@@ -1,7 +1,7 @@
 firewallgen_enable_firewall: True
 
 firewallgen_ipv4_input_allow_rewrite_rules:
-  - '. |= map( if .processes[].name == "epmd" and .processes[].docker_hint == "rabbit_mq" then .interface = "{% raw %}{{ internal_interface }}{% endraw %}" else . end)'
+  - '. |= map( if .processes[].name == "epmd" and .processes[].docker_hint == "rabbitmq" then .interface = "{% raw %}{{ internal_interface }}{% endraw %}" else . end)'
   - '. |= map( if .processes[].name == "nginx" and .processes[].docker_hint == "inspection_store" then .interface = "{% raw %}{{ internal_interface }}{% endraw %}" else . end)'
   - '. |= map( if .processes[].name == "sshd" then .interface = "{% raw %}{{ devops_interface }}{% endraw %}" else . end)'
   - '. |= map( if .processes[].name == "dnsmasq" and .processes[].docker_hint == "ironic_dnsmasq" then .interface = "{% raw %}{{ inspection_interface }}{% endraw %}" else . end)'

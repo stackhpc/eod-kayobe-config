@@ -19,6 +19,18 @@
     default_network_map:
       '127.0.0.1': 'lo'
 
+- name: get virtual interfaces address map
+  set_fact:
+    vip_addresses:  "{{ vip_addresses | default({}) | combine({ vip: '{{ ' ~ item ~ '_interface }}'}) }}"
+  vars:
+    vip: "{{ item | net_vip_address }}"
+  when: vip | default(False, True)
+  with_items: "{{ network_interfaces }}"
+
+- name: Combine virtual and default maps
+  set_fact:
+    default_network_map: "{{ default_network_map | combine(vip_addresses) }}" 
+
 - name: network_interface_map
   set_fact:
     ip_map: "{{ ip_map | default(default_network_map) | combine({item | net_ip : '{{ ' ~ item ~ '_interface }}'})}}"

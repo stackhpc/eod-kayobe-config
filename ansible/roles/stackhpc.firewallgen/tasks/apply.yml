@@ -14,7 +14,7 @@
   become: True
 
 - name: clean up old rules
-  include_tasks: delete.yml
+  import_playbook: delete.yml
 
 - name: load firewall rules
   # -n option will not flush existing rules

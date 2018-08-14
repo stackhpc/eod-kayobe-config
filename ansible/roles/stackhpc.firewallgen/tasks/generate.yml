@@ -54,9 +54,35 @@
     state: directory
   delegate_to: localhost
 
+- name: set initial value for sockets_rewrite
+  # need to set this in case of no rewrite rules
+  set_fact:
+    sockets_rewrite: "{{ firewallgen.sockets }}"
+
+- name: rewrite sockets
+  set_fact:
+    sockets_rewrite: "{{ sockets_rewrite | to_json | jq(item) }}"
+  with_items: "{{ firewallgen_ipv4_input_allow_rewrite_rules }}"
+
+- name: write out sockets before rewriting 
+  shell:
+    cmd: |
+      cat <<EOF > /tmp/firewallgen-sockets
+      {{ firewallgen.sockets | to_json }}
+      EOF
+  when: debug | default(False)
+
+- name: write out sockets after rewriting
+  shell:
+    cmd: |
+      cat <<EOF > /tmp/firewallgen-sockets-rewrite
+      {{ sockets_rewrite | to_json }}
+      EOF
+  when: debug | default(False)
+
 - name: output template
   vars:
-    firewall_rules: "{{ firewallgen.sockets }}"
+    firewall_rules: "{{ sockets_rewrite }}"
   template:
     src: sockets-to-rules.j2
     dest: "{{ firewallgen_output_path ~ '/' ~ inventory_hostname }}"

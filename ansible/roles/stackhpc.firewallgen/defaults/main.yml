@@ -10,3 +10,5 @@ firewallgen_rules_path: /tmp/firewallgen-iptables.rules
 firewallgen_backup_path: /tmp/firewallgen-iptables.save
 
 firewallgen_enable_firewall: False
+
+firewallgen_ipv4_input_allow_rewrite_rules: []

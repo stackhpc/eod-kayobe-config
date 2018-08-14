@@ -82,7 +82,7 @@
 
 - name: output template
   vars:
-    firewall_rules: "{{ sockets_rewrite }}"
+    firewall_rules: "{{ sockets_rewrite | sort_multi('proto', 'interface', 'port', 'ip') }}"
   template:
     src: sockets-to-rules.j2
     dest: "{{ firewallgen_output_path ~ '/' ~ inventory_hostname }}"

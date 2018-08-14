@@ -4,7 +4,7 @@ firewallgen_ipv4_input_allow_rewrite_rules:
   - '. |= map( if .processes[].name == "epmd" and .processes[].docker_hint == "rabbitmq" then .interface = "{% raw %}{{ internal_interface }}{% endraw %}" else . end)'
   - '. |= map( if .processes[].name == "nginx" and .processes[].docker_hint == "inspection_store" then .interface = "{% raw %}{{ internal_interface }}{% endraw %}" else . end)'
   - '. |= map( if .processes[].name == "sshd" then .interface = "{% raw %}{{ devops_interface }}{% endraw %}" else . end)'
-  - '. |= map( if .processes[].name == "dnsmasq" and .processes[].docker_hint == "ironic_dnsmasq" then .interface = "{% raw %}{{ inspection_interface }}{% endraw %}" else . end)'
+  - '. |= map( if .processes[].name == "dnsmasq" and .processes[].docker_hint == "ironic_dnsmasq" then .interface = "{% raw %}{{ wl_inspection_interface }}{% endraw %}" else . end)'
   - '. |= map( if .processes[].docker_hint == "ironic_pxe" then .interface = "{% raw %}{{ internal_interface }}{% endraw %}" else . end)'
   - '. | map(select(.processes[].name != "rpcbind"))'
 
@@ -429,7 +429,7 @@ firewallgen_ipv4_input_allow_rules:
     proto: udp
     destination: 127.0.0.1
     comment: "hint: used by 'chronyd'" 
-  - interface: "{{ inspection_interface }}"
+  - interface: "{{ wl_inspection_interface }}"
     port: 67
     proto: udp
     comment: "hint: used by 'dnsmasq' in docker container 'ironic_dnsmasq'" 

@@ -3,11 +3,17 @@
 
 firewallgen_ipv4_input_allow_rules: []
 
+firewallgen_ipv6_input_allow_rules: []
+
 firewallgen_output_path: "{{ kayobe_config_path | dirname ~ '/firewallgen' }}" 
 
 firewallgen_rules_path: /tmp/firewallgen-iptables.rules
 
 firewallgen_backup_path: /tmp/firewallgen-iptables.save
+
+firewallgen_ipv6_rules_path: /tmp/firewallgen-ip6tables.rules
+
+firewallgen_ipv6_backup_path: /tmp/firewallgen-ip6tables.save
 
 firewallgen_enable_firewall: False
 

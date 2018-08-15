@@ -5,13 +5,27 @@
     package:
       name: iptables-services
 
-  - name: enable service to load iptables rules on boot
+  - name: enable service to load iptables rules on boot (iptables)
     service:
-      name:  iptables
+      name: iptables 
       state: started
       enabled: True
+    tags: iptables
 
-  - name: persist the rules
+  - name: enable service to load iptables rules on boot
+    service:
+      name: ip6tables 
+      state: started
+      enabled: True
+    tags: ip6tables
+
+  - name: persist the rules (iptables)
     command: /usr/libexec/iptables/iptables.init save
+    tags: iptables
+
+  - name: persist the rules (ip6tables)
+    command: /usr/libexec/iptables/ip6tables.init save
+    tags: ip6tables
+
   become: True
   when: ansible_os_family == "RedHat"

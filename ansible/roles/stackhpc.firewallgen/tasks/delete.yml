@@ -26,4 +26,5 @@
     loop_control:
       loop_var: table
   become: True
+  tags: delete
 

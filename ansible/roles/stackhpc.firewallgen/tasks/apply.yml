@@ -15,7 +15,7 @@
 
 - name: clean up old rules
   include_tasks: delete.yml
-  tags: delete
+  tags: always
 
 - name: load firewall rules
   # -n option will not flush existing rules

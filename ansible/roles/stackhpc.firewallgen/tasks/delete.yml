@@ -1,5 +1,7 @@
 ---
 # This will set the default policy of the INPUT and OUTPUT Chains to ACCEPT
+# TODO: This would be better implemented by doing an iptables-save and removing all
+# of the FIREWALLGEN rules and restoring in one go
 
 - block:
   - name: Get list of chains for a given table

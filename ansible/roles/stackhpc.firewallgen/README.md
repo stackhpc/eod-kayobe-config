@@ -1,38 +1,61 @@
-Role Name
-=========
+stackhpc.firewallgen
+=========================
 
-A brief description of the role goes here.
+Generates an iptables firewall by inspecting the target host for any open sockets
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
-
+- `kayobe` is required for it's filters and variables
+- `jq` is required for firewall rule rewriting
+ 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+    # list of rules to accept in the filter chain
+    firewallgen_ipv4_input_allow_rules: []
+    
+    # where to output the generated firewall rules
+    firewallgen_output_path: "{{ kayobe_config_path | dirname ~ '/firewallgen' }}" 
+    
+    # location where the iptables-restore file is outputed prior to being loaded
+    firewallgen_rules_path: /tmp/firewallgen-iptables.rules
+    
+    # where, on the target host, to output a backup of the iptables rules
+    firewallgen_backup_path: /tmp/firewallgen-iptables.save
+    
+    # firewall must be explicitly enabled to be applied
+    firewallgen_enable_firewall: False
+    
+    # modify the generated rules with `jq` expressions:
+    # e.g to remove the rule generated for the process, `rpcbind`, you 
+    # could use: '. | map(select(.processes[].name != "rpcbind"))'
+    firewallgen_ipv4_input_allow_rewrite_rules: []
+
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+No current dependencies.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+To generate a firewall:
 
-    - hosts: servers
+    - name: gather firewall rules
+      hosts: all
       roles:
-         - { role: username.rolename, x: 42 }
+        - name: stackhpc.firewallgen
+      vars:
+        firewall_action: "generate"
 
 License
 -------
 
-BSD
+GPLv3
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+- Will Szumski (<will@stackhpc.com>)

@@ -24,4 +24,3 @@
 
 - include_tasks: persist.yml
   when: firewall_action == "apply"
-  become: True

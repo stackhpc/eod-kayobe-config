@@ -4,16 +4,14 @@
   - name: install package for persistent iptables
     package:
       name: iptables-services
-    when: ansible_os_family == "RedHat"
 
   - name: enable service to load iptables rules on boot
     service:
       name:  iptables
       state: started
       enabled: True
-    when: ansible_os_family == "RedHat"
 
   - name: persist the rules
     command: /usr/libexec/iptables/iptables.init save
-    when: ansible_os_family == "RedHat"
   become: True
+  when: ansible_os_family == "RedHat"

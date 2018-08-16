@@ -1,0 +1,19 @@
+---
+
+firewallgen_ip_map:
+  - {key: "{{ oob_oc_net_name | net_ip }}", value: "oob_oc_net_name"}
+  - {key: "{{ provision_oc_net_name | net_ip }}", value: "provision_oc_net_name"}
+  - {key: "{{ oob_wl_net_name | net_ip }}", value: "oob_wl_net_name"}
+  - {key: "{{ provision_wl_net_name | net_ip }}", value: "provision_wl_net_name"}
+  - {key: "{{ internal_net_name | net_ip }}", value: "internal_net_name"}
+  - {key: "{{ public_net_name | net_ip }}", value: "public_net_name"}
+  - {key: "{{ inspection_net_name | net_ip }}", value: "inspection_net_name"}
+  - {key: "{{ cleaning_net_name | net_ip }}", value: "cleaning_net_name"}
+  - {key: "{{ storage_net_name | net_ip }}", value: "storage_net_name"}
+  - {key: "{{ storage_mgmt_net_name | net_ip }}", value: "storage_mgmt_net_name"}
+  - {key: "{{ 'devops' | net_ip }}", value: "'devops'"}
+  # external networks
+  - {key: "{{ 'oc_provision' | net_ip }}", value: "'oc_provision'"}
+  - {key: "{{ 'eod_hs_eth' | net_ip }}", value: "'eod_hs_eth'"}
+
+

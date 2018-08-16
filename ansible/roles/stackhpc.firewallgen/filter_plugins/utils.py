@@ -9,10 +9,18 @@ def sort_multi(data, *args):
     '''
     return sorted(data, key = itemgetter(*args))
 
+def keyvalue_dict(data):
+    result = {}
+    for item in data:
+        if item["key"]:
+            result[item["key"]] = item["value"]
+    return result
+
 class FilterModule(object):
     ''' Query filter '''
 
     def filters(self):
         return {
-            'sort_multi': sort_multi
+            'sort_multi': sort_multi,
+            'keyvalue_dict': keyvalue_dict,
         }

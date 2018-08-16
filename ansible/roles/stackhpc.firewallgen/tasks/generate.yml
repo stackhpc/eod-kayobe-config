@@ -44,12 +44,20 @@
   set_fact:
     network_allocations: "{{ vip_addresses | combine(ip_map) }}" 
 
+- name: ip_reverse_map
+  set_fact:
+    ip_reverse_map: "{{ firewallgen_ip_map | keyvalue_dict }}"
+    
 - debug:
     msg: "{{ network_allocations }}"
 
 - name: vip reverse map
   debug:
     msg: "{{ firewallgen_vip_map }}"
+
+- name: ip reverse map
+  debug:
+    msg: "{{ ip_reverse_map }}"
 
 - name: run firewallgen
   vars:
@@ -98,7 +106,7 @@
   vars:
     dest: "{{ item['ip'] }}"
     interface: "{% if dest in network_allocations %}{{ '{{ ' ~ network_allocations[dest] ~ '_interface }}'}}{% else %}{{item['interface']}}{% endif %}"
-    network_ip: "{% if dest in ip_map %}{{ '{{ ' ~ ip_map[dest] ~ '_net_name | net_ip }}'}}{% elif dest in vip_reverse_map %}{{ '{{ ' ~ vip_reverse_map[dest] ~ ' | net_vip_address }}'}}{% else %}{{ dest }}{% endif %}"
+    network_ip: "{% if dest in ip_reverse_map %}{{ '{{ ' ~ ip_reverse_map[dest] ~ ' | net_ip }}' }}{% elif dest in vip_reverse_map %}{{ '{{ ' ~ vip_reverse_map[dest] ~ ' | net_vip_address }}'}}{% else %}{{ dest }}{% endif %}"
   when: dest != None
   with_items: "{{ sockets_rewrite }}"
 

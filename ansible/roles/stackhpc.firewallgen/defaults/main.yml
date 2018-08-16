@@ -18,3 +18,6 @@ firewallgen_ipv6_backup_path: /tmp/firewallgen-ip6tables.save
 firewallgen_enable_firewall: False
 
 firewallgen_ipv4_input_allow_rewrite_rules: []
+
+# map vip address to jinja expr that produces it
+firewallgen_vip_map: {}

@@ -27,9 +27,13 @@
   when: vip | default(False, True)
   with_items: "{{ network_interfaces }}"
 
+- name: register vip_reverse_map default value
+  set_fact:
+    vip_reverse_map: {}
+
 - name: register vip_reverse_map
   set_fact:
-    vip_reverse_map:  "{{ vip_reverse_map | default({}) | combine({ vip: value }) }}"
+    vip_reverse_map:  "{{ vip_reverse_map  | combine({ vip: value }) }}"
   vars:
     vip: "{{ item.key }}"
     value: "{{ item.value }}"
@@ -47,13 +51,13 @@
 - name: ip_reverse_map
   set_fact:
     ip_reverse_map: "{{ firewallgen_ip_map | keyvalue_dict }}"
-    
+
 - debug:
     msg: "{{ network_allocations }}"
 
 - name: vip reverse map
   debug:
-    msg: "{{ firewallgen_vip_map }}"
+    msg: "{{ vip_reverse_map }}"
 
 - name: ip reverse map
   debug:

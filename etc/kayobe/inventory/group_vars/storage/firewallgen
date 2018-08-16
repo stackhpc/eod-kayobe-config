@@ -1,0 +1,5 @@
+---
+
+firewallgen_ipv4_input_allow_rewrite_rules:
+  # rpcbind is using ephemeral port
+  - '. | map(select(.processes[].name != "rpcbind"))'

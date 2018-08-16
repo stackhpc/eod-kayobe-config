@@ -33,9 +33,10 @@
 
 - name: register vip_reverse_map
   set_fact:
-    vip_reverse_map:  "{{ vip_reverse_map  | combine({ vip: item }) }}"
+    vip_reverse_map:  "{{ vip_reverse_map  | combine({ vip: value }) }}"
   vars:
     vip: "{{ hostvars[inventory_hostname][item] | net_vip_address if item in hostvars[inventory_hostname] else item | net_vip_address }}"
+    value: "{{ item if item in hostvars[inventory_hostname] else item | single_quote }}"
   when: vip | default(False, True)
   with_items: "{{ firewallgen_networks }}"
 
@@ -45,9 +46,10 @@
 
 - name: register ip_reverse_map
   set_fact:
-    ip_reverse_map:  "{{ ip_reverse_map  | combine({ ip: item }) }}"
+    ip_reverse_map:  "{{ ip_reverse_map  | combine({ ip: value }) }}"
   vars:
     ip: "{{ hostvars[inventory_hostname][item] | net_ip if item in hostvars[inventory_hostname] else item | net_ip }}"
+    value: "{{ item if item in hostvars[inventory_hostname] else item | single_quote }}"
   when: ip | default(False, True)
   with_items: "{{ firewallgen_networks }}"
 

@@ -16,6 +16,9 @@ def keyvalue_dict(data):
             result[item["key"]] = item["value"]
     return result
 
+def single_quote(string):
+    return "'" + string + "'"
+
 class FilterModule(object):
     ''' Query filter '''
 
@@ -23,4 +26,5 @@ class FilterModule(object):
         return {
             'sort_multi': sort_multi,
             'keyvalue_dict': keyvalue_dict,
+            'single_quote': single_quote
         }

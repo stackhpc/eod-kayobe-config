@@ -12,7 +12,7 @@ firewallgen_networks:
 - "storage_net_name"
 - "storage_mgmt_net_name"
 # networks without an associated name
-- "'devops'"
+- "devops"
 # external networks
-- "'oc_provision'"
-- "'eod_hs_eth'"
+- "oc_provision"
+- "eod_hs_eth"

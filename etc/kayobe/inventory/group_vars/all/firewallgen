@@ -15,5 +15,3 @@ firewallgen_ip_map:
   # external networks
   - {key: "{{ 'oc_provision' | net_ip }}", value: "'oc_provision'"}
   - {key: "{{ 'eod_hs_eth' | net_ip }}", value: "'eod_hs_eth'"}
-
-

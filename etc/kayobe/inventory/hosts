@@ -265,11 +265,94 @@ sand-3-78 ipmi_address=10.68.3.78
 sand-3-79 ipmi_address=10.68.3.79
 sand-3-80 ipmi_address=10.68.3.80
 
+[baremetal-compute-dr05]
+sand-1-41 ipmi_address=10.68.1.41
+sand-1-42 ipmi_address=10.68.1.42
+sand-1-43 ipmi_address=10.68.1.43
+sand-1-44 ipmi_address=10.68.1.44
+sand-1-45 ipmi_address=10.68.1.45
+sand-1-46 ipmi_address=10.68.1.46
+sand-1-47 ipmi_address=10.68.1.47
+#sand-1-48 ipmi_address=10.68.1.48
+sand-1-49 ipmi_address=10.68.1.49
+sand-1-50 ipmi_address=10.68.1.50
+sand-1-51 ipmi_address=10.68.1.51
+sand-1-52 ipmi_address=10.68.1.52
+sand-1-53 ipmi_address=10.68.1.53
+sand-1-54 ipmi_address=10.68.1.54
+#sand-1-55 ipmi_address=10.68.1.55
+sand-1-56 ipmi_address=10.68.1.56
+#sand-1-57 ipmi_address=10.68.1.57
+#sand-1-58 ipmi_address=10.68.1.58
+#sand-1-59 ipmi_address=10.68.1.59
+#sand-1-60 ipmi_address=10.68.1.60
+#sand-1-61 ipmi_address=10.68.1.61
+#sand-1-62 ipmi_address=10.68.1.62
+#sand-1-63 ipmi_address=10.68.1.63
+#sand-1-64 ipmi_address=10.68.1.64
+sand-1-65 ipmi_address=10.68.1.65
+sand-1-66 ipmi_address=10.68.1.66
+sand-1-67 ipmi_address=10.68.1.67
+sand-1-68 ipmi_address=10.68.1.68
+sand-1-69 ipmi_address=10.68.1.69
+sand-1-70 ipmi_address=10.68.1.70
+sand-1-71 ipmi_address=10.68.1.71
+sand-1-72 ipmi_address=10.68.1.72
+sand-1-73 ipmi_address=10.68.1.73
+sand-1-74 ipmi_address=10.68.1.74
+sand-1-75 ipmi_address=10.68.1.75
+sand-1-76 ipmi_address=10.68.1.76
+sand-1-77 ipmi_address=10.68.1.77
+sand-1-78 ipmi_address=10.68.1.78
+sand-1-79 ipmi_address=10.68.1.79
+sand-1-80 ipmi_address=10.68.1.80
+
 [baremetal-compute-dr06]
-# C6220s:
+# Original proof of concept bare metal nodes:
 svn3-dr06-u10 ipmi_address=10.68.1.0
 svn4-dr06-u9 ipmi_address=10.68.1.1
 svn2-dr06-u9 ipmi_address=10.68.1.2
+
+sand-5-41 ipmi_address=10.68.5.41
+sand-5-42 ipmi_address=10.68.5.42
+sand-5-43 ipmi_address=10.68.5.43
+sand-5-44 ipmi_address=10.68.5.44
+sand-5-45 ipmi_address=10.68.5.45
+sand-5-46 ipmi_address=10.68.5.46
+sand-5-47 ipmi_address=10.68.5.47
+sand-5-48 ipmi_address=10.68.5.48
+sand-5-49 ipmi_address=10.68.5.49
+sand-5-50 ipmi_address=10.68.5.50
+sand-5-51 ipmi_address=10.68.5.51
+sand-5-52 ipmi_address=10.68.5.52
+sand-5-53 ipmi_address=10.68.5.53
+sand-5-54 ipmi_address=10.68.5.54
+sand-5-55 ipmi_address=10.68.5.55
+sand-5-56 ipmi_address=10.68.5.56
+sand-5-57 ipmi_address=10.68.5.57
+sand-5-58 ipmi_address=10.68.5.58
+sand-5-59 ipmi_address=10.68.5.59
+sand-5-60 ipmi_address=10.68.5.60
+sand-5-61 ipmi_address=10.68.5.61
+sand-5-62 ipmi_address=10.68.5.62
+sand-5-63 ipmi_address=10.68.5.63
+sand-5-64 ipmi_address=10.68.5.64
+sand-5-65 ipmi_address=10.68.5.65
+sand-5-66 ipmi_address=10.68.5.66
+sand-5-67 ipmi_address=10.68.5.67
+sand-5-68 ipmi_address=10.68.5.68
+sand-5-69 ipmi_address=10.68.5.69
+sand-5-70 ipmi_address=10.68.5.70
+sand-5-71 ipmi_address=10.68.5.71
+sand-5-72 ipmi_address=10.68.5.72
+sand-5-73 ipmi_address=10.68.5.73
+sand-5-74 ipmi_address=10.68.5.74
+sand-5-75 ipmi_address=10.68.5.75
+sand-5-76 ipmi_address=10.68.5.76
+sand-5-77 ipmi_address=10.68.5.77
+sand-5-78 ipmi_address=10.68.5.78
+sand-5-79 ipmi_address=10.68.5.79
+sand-5-80 ipmi_address=10.68.5.80
 
 [baremetal-compute-dr07]
 sand-2-1 ipmi_address=10.68.2.1
@@ -439,6 +522,7 @@ sand-6-80 ipmi_address=10.68.6.80
 baremetal-compute-cr06
 baremetal-compute-cr07
 baremetal-compute-cr08
+baremetal-compute-dr05
 baremetal-compute-dr06
 baremetal-compute-dr07
 baremetal-compute-dr08
@@ -447,7 +531,9 @@ baremetal-compute-dr08
 ethsw-cr06-u21
 ethsw-cr07-u21
 ethsw-cr08-u21
+ethsw-dr05-u22
 ethsw-dr06-u21
+ethsw-dr06-u22
 ethsw-dr07-u21
 ethsw-dr08-u21
 

@@ -1,7 +1,0 @@
----
-
-firewallgen_vip_map:
-  - key: "{{ public_net_name | net_vip_address }}"
-    value: 'public_net_name'
-  - key: "{{ internal_net_name | net_vip_address }}"
-    value: 'internal_net_name'

@@ -19,8 +19,9 @@ firewallgen_enable_firewall: False
 
 firewallgen_ipv4_input_allow_rewrite_rules: []
 
-# we need to know how the vip derived from `net_name | net_vip_address` was produced
-firewallgen_vip_map: []
+# list of network names to perform `net_name | net_vip_address`
+# and `net_name | net_vip_address` lookups against. If the
+# network_name doesn't refer to a variable it will be interpretted
+# as a string literal.
+firewallgen_networks: []
 
-# we need to know how the ip derived from `net_name | net_ip` was produced
-firewallgen_ip_map: []

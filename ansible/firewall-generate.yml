@@ -1,3 +1,5 @@
+---
+
 - name: gather firewall rules
   hosts: overcloud:seed
   roles:

@@ -20,11 +20,25 @@
     tags: ip6tables
 
   - name: persist the rules (iptables)
-    command: /usr/libexec/iptables/iptables.init save
+    copy:
+      src: "{{ firewallgen_rules_path }}"
+      dest: /etc/sysconfig/iptables
+      owner: root
+      remote_src: True
+      group: root
+      mode: 0600
+      backup: True
     tags: iptables
 
   - name: persist the rules (ip6tables)
-    command: /usr/libexec/iptables/ip6tables.init save
+    copy:
+      src: "{{ firewallgen_ipv6_rules_path }}"
+      dest: /etc/sysconfig/ip6tables
+      owner: root
+      remote_src: True
+      group: root
+      mode: 0600
+      backup: True
     tags: ip6tables
 
   become: True

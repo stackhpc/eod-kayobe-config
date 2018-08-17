@@ -10,7 +10,7 @@
 - name: Set up virtualenv
   pip:
     name:
-      - git+https://github.com/jovial/firewallgen
+      - git+https://github.com/stackhpc/firewallgen
       - jinja2 
     virtualenv: /tmp/venv/firewallgen
 

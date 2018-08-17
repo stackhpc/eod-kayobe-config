@@ -1,0 +1,10 @@
+---
+
+firewallgen_ipv4_input_allow_rewrite_rules:
+#  - '. |= map( if .processes[].name == "epmd" and .processes[].docker_hint == "bifrost_deploy" then .interface = "{% raw %}{{ internal_interface }}{% endraw %}" else . end)'
+# TODO: enable when devops is offfical
+#  - '. |= map( if .processes[].name == "sshd" then .interface = "{% raw %}{{ devops_interface }}{% endraw %}" else . end)'
+# Xvnc is accessed via ssh
+  - '. |= map( if .processes[].name == "Xvnc" then .interface = "lo" else . end)'
+# this is systemd which will start rpcbind
+  - '. | map(select(.port != 111))'

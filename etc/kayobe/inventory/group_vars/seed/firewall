@@ -8,9 +8,9 @@ firewallgen_ipv4_input_allow_rules:
     proto: tcp
     comment: "hint: used by 'sshd'"
   - interface: "all"
-    port: 111
+    port: 4369
     proto: tcp
-    comment: "hint: used by 'systemd' in docker container 'bifrost_deploy'"
+    comment: "hint: used by 'epmd' in docker container 'bifrost_deploy'"
   - interface: "all"
     port: 4369
     proto: tcp
@@ -19,30 +19,6 @@ firewallgen_ipv4_input_allow_rules:
     port: 5050
     proto: tcp
     comment: "hint: used by 'ironic-inspecto' in docker container 'bifrost_deploy'"
-  - interface: "all"
-    port: 5901
-    proto: tcp
-    comment: "hint: used by 'Xvnc'"
-  - interface: "all"
-    port: 5902
-    proto: tcp
-    comment: "hint: used by 'Xvnc'"
-  - interface: "all"
-    port: 5954
-    proto: tcp
-    comment: "hint: used by 'Xvnc'"
-  - interface: "all"
-    port: 6001
-    proto: tcp
-    comment: "hint: used by 'Xvnc'"
-  - interface: "all"
-    port: 6002
-    proto: tcp
-    comment: "hint: used by 'Xvnc'"
-  - interface: "all"
-    port: 6054
-    proto: tcp
-    comment: "hint: used by 'Xvnc'"
   - interface: "all"
     port: 6385
     proto: tcp
@@ -75,6 +51,30 @@ firewallgen_ipv4_input_allow_rules:
     proto: tcp
     destination: "127.0.0.1"
     comment: "hint: used by 'ssh'"
+  - interface: "lo"
+    port: 5901
+    proto: tcp
+    comment: "hint: used by 'Xvnc'"
+  - interface: "lo"
+    port: 5902
+    proto: tcp
+    comment: "hint: used by 'Xvnc'"
+  - interface: "lo"
+    port: 5954
+    proto: tcp
+    comment: "hint: used by 'Xvnc'"
+  - interface: "lo"
+    port: 6001
+    proto: tcp
+    comment: "hint: used by 'Xvnc'"
+  - interface: "lo"
+    port: 6002
+    proto: tcp
+    comment: "hint: used by 'Xvnc'"
+  - interface: "lo"
+    port: 6054
+    proto: tcp
+    comment: "hint: used by 'Xvnc'"
   - interface: "{{ oc_provision_interface }}"
     port: 53
     proto: tcp

@@ -135,7 +135,7 @@
 
 - name: output template
   vars:
-    firewall_rules: "{{ firewallgen_rules | sort_multi('proto', 'interface', 'port', 'destination') }}"
+    firewall_rules: "{{ firewallgen_rules | unique | sort_multi('proto', 'interface', 'port', 'destination') }}"
   template:
     src: rules-to-config.j2
     dest: "{{ firewallgen_output_path ~ '/' ~ inventory_hostname }}"

@@ -1,5 +1,5 @@
 - name: gather firewall rules
-  hosts: all
+  hosts: overcloud:seed
   roles:
     - name: stackhpc.firewallgen
   vars:

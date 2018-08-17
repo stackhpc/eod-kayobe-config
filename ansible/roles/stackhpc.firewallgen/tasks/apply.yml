@@ -35,17 +35,9 @@
   become: True
   tags: ip6tables
 
-- name: Rename old chains (iptables)
-  include_tasks: rename.yml
+- name: include rename-existing
+  include_tasks: rename-existing.yml
   tags: always
-  vars:
-    iptables_cmd: iptables
-
-- name: Rename old rules (ip6tables)
-  include_tasks: rename.yml
-  tags: always
-  vars:
-    iptables_cmd: ip6tables
 
 - name: load firewall rules
   # -n option will not flush existing rules
@@ -61,20 +53,9 @@
   become: True
   tags: ip6tables
 
-- name: delete old chains (iptables)
-  # if this was tagged with delete you'd lock yourself out if you
-  # ran with --tags delete, as INPUT chain policy is DROP by default
-  # TODO: add logic to set policy to accept iff new rules weren't loaded
-  shell:
-    iptables-save | grep -v "delete_me_" | iptables-restore
-  become: True
-  tags: iptables
-
-- name: delete old chains (ip6tables)
-  shell:
-    ip6tables-save | grep -v "delete_me_" | ip6tables-restore
-  become: True
-  tags: ip6tables
+- name: include delete-renamed
+  include_tasks: delete-renamed.yml
+  tags: always
 
 - include_tasks: persist.yml
   when: firewall_action == "apply"

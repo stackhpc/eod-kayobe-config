@@ -1,0 +1,8 @@
+---
+
+- name: delete the firewall
+  hosts: overcloud:seed
+  roles:
+    - name: stackhpc.firewallgen
+  vars:
+    firewall_action: remove

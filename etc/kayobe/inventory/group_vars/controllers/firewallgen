@@ -1,11 +1,4 @@
-
 ---
-
-firewallgen_vip_map:
-  - key: "{{ public_net_name | net_vip_address }}"
-    value: 'public_net_name'
-  - key: "{{ internal_net_name | net_vip_address }}"
-    value: 'internal_net_name'
 
 firewallgen_ipv4_input_allow_rewrite_rules:
   - '. |= map( if .processes[].name == "epmd" and .processes[].docker_hint == "rabbitmq" then .interface = "{% raw %}{{ internal_interface }}{% endraw %}" else . end)'

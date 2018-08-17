@@ -14,6 +14,7 @@ users_default:
       # operate kayobe.
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcgodd1.pub') }}"
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcgodd1-2.pub') }}"
+      - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcszum1.pub') }}"
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcszum2.pub') }}"
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcszum2-2.pub') }}"
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_pfb29.pub') }}"
@@ -27,6 +28,7 @@ users_default:
       # operate kolla.
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcgodd1.pub') }}"
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcgodd1-2.pub') }}"
+      - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcszum1.pub') }}"
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcszum2.pub') }}"
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcszum2-2.pub') }}"
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_pfb29.pub') }}"
@@ -40,6 +42,14 @@ users_default:
     ssh_key:
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcgodd1.pub') }}"
       - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcgodd1-2.pub') }}"
+
+  - username: hpcszum1
+    name: Doug Szumski
+    groups:
+      - wheel
+    append: True
+    ssh_key:
+      - "{{ lookup('file', kayobe_config_path ~ '/ssh-keys/id_rsa_hpcszum1.pub') }}"
 
   - username: hpcszum2
     name: Will Szumski

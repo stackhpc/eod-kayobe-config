@@ -1,0 +1,117 @@
+---
+
+firewallgen_enable_firewall: True
+
+firewallgen_ipv4_input_allow_rules:
+  - interface: "all"
+    port: 22
+    proto: tcp
+    comment: "hint: used by 'sshd'"
+  - interface: "lo"
+    port: 25
+    proto: tcp
+    destination: "127.0.0.1"
+    comment: "hint: used by 'master'"
+  - interface: "lo"
+    port: 53
+    proto: tcp
+    destination: "127.0.0.1"
+    comment: "hint: used by 'dnsmasq' in docker container 'bifrost_deploy'"
+  - interface: "lo"
+    port: 631
+    proto: tcp
+    destination: "127.0.0.1"
+    comment: "hint: used by 'cupsd'"
+  - interface: "lo"
+    port: 1234
+    proto: tcp
+    destination: "127.0.0.1"
+    comment: "hint: used by 'ssh'"
+  - interface: "lo"
+    port: 4369
+    proto: tcp
+    comment: "hint: used by 'epmd' in docker container 'bifrost_deploy'"
+  - interface: "lo"
+    port: 5050
+    proto: tcp
+    comment: "hint: used by 'ironic-inspecto' in docker container 'bifrost_deploy'"
+  - interface: "lo"
+    port: 5901
+    proto: tcp
+    comment: "hint: used by 'Xvnc'"
+  - interface: "lo"
+    port: 5902
+    proto: tcp
+    comment: "hint: used by 'Xvnc'"
+  - interface: "lo"
+    port: 5954
+    proto: tcp
+    comment: "hint: used by 'Xvnc'"
+  - interface: "lo"
+    port: 6001
+    proto: tcp
+    comment: "hint: used by 'Xvnc'"
+  - interface: "lo"
+    port: 6002
+    proto: tcp
+    comment: "hint: used by 'Xvnc'"
+  - interface: "lo"
+    port: 6054
+    proto: tcp
+    comment: "hint: used by 'Xvnc'"
+  - interface: "lo"
+    port: 25672
+    proto: tcp
+    comment: "hint: used by 'beam.smp' in docker container 'bifrost_deploy'"
+  - interface: "{{ oc_provision_interface }}"
+    port: 53
+    proto: tcp
+    destination: "{{ 'oc_provision' | net_ip }}"
+    comment: "hint: used by 'dnsmasq' in docker container 'bifrost_deploy'"
+  - interface: "{{ oc_provision_interface }}"
+    port: 5000
+    proto: tcp
+    destination: "{{ 'oc_provision' | net_ip }}"
+  - interface: "{{ oc_provision_interface }}"
+    port: 6385
+    proto: tcp
+    comment: "hint: used by 'ironic-api' in docker container 'bifrost_deploy'"
+  - interface: "{{ oc_provision_interface }}"
+    port: 8080
+    proto: tcp
+    comment: "hint: used by 'nginx' in docker container 'bifrost_deploy'"
+  - interface: "all"
+    port: 68
+    proto: udp
+    comment: "hint: used by 'dhclient'"
+  - interface: "all"
+    port: 5353
+    proto: udp
+    comment: "hint: used by 'avahi-daemon'"
+  - interface: "all"
+    port: 48136
+    proto: udp
+    comment: "hint: used by 'avahi-daemon'"
+  - interface: "lo"
+    port: 53
+    proto: udp
+    destination: "127.0.0.1"
+    comment: "hint: used by 'dnsmasq' in docker container 'bifrost_deploy'"
+  - interface: "lo"
+    port: 323
+    proto: udp
+    destination: "127.0.0.1"
+    comment: "hint: used by 'chronyd'"
+  - interface: "{{ oc_provision_interface }}"
+    port: 53
+    proto: udp
+    destination: "{{ 'oc_provision' | net_ip }}"
+    comment: "hint: used by 'dnsmasq' in docker container 'bifrost_deploy'"
+  - interface: "{{ oc_provision_interface }}"
+    port: 67
+    proto: udp
+    comment: "hint: used by 'dnsmasq' in docker container 'bifrost_deploy'"
+  - interface: "{{ oc_provision_interface }}"
+    port: 69
+    proto: udp
+    comment: "hint: used by 'xinetd' in docker container 'bifrost_deploy'"

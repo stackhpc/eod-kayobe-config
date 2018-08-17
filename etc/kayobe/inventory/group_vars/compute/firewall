@@ -1,0 +1,88 @@
+---
+
+firewallgen_enable_firewall: True
+
+firewallgen_ipv4_input_allow_rules:
+  - interface: "all"
+    port: 22
+    proto: tcp
+    comment: "hint: used by 'sshd'"
+  - interface: "lo"
+    port: 25
+    proto: tcp
+    destination: "127.0.0.1"
+    comment: "hint: used by 'master'"
+  - interface: "lo"
+    port: 6633
+    proto: tcp
+    destination: "127.0.0.1"
+    comment: "hint: used by 'neutron-openvsw' in docker container 'neutron_openvswitch_agent'"
+  - interface: "lo"
+    port: 6640
+    proto: tcp
+    destination: "127.0.0.1"
+    comment: "hint: used by 'ovsdb-server' in docker container 'openvswitch_db'"
+  - interface: "{{ internal_interface }}"
+    port: 5900
+    proto: tcp
+    destination: "{{ internal_net_name | net_ip }}"
+    comment: "hint: used by 'qemu-kvm' in docker container 'nova_libvirt'"
+  - interface: "{{ internal_interface }}"
+    port: 5901
+    proto: tcp
+    destination: "{{ internal_net_name | net_ip }}"
+    comment: "hint: used by 'qemu-kvm' in docker container 'nova_libvirt'"
+  - interface: "{{ internal_interface }}"
+    port: 8022
+    proto: tcp
+    destination: "{{ internal_net_name | net_ip }}"
+    comment: "hint: used by 'sshd' in docker container 'nova_ssh'"
+  - interface: "{{ internal_interface }}"
+    port: 9100
+    proto: tcp
+    destination: "{{ internal_net_name | net_ip }}"
+    comment: "hint: used by 'node_exporter' in docker container 'prometheus_node_exporter'"
+  - interface: "{{ internal_interface }}"
+    port: 16509
+    proto: tcp
+    destination: "{{ internal_net_name | net_ip }}"
+    comment: "hint: used by 'libvirtd' in docker container 'nova_libvirt'"
+  - interface: "all"
+    port: 123
+    proto: udp
+    comment: "hint: used by 'ntpd'"
+  - interface: "docker0"
+    port: 123
+    proto: udp
+    destination: "172.17.0.1"
+    comment: "hint: used by 'ntpd'"
+  - interface: "lo"
+    port: 123
+    proto: udp
+    destination: "127.0.0.1"
+    comment: "hint: used by 'ntpd'"
+  - interface: "{{ devops_interface }}"
+    port: 123
+    proto: udp
+    destination: "{{ 'devops' | net_ip }}"
+    comment: "hint: used by 'ntpd'"
+  - interface: "{{ internal_interface }}"
+    port: 123
+    proto: udp
+    destination: "{{ internal_net_name | net_ip }}"
+    comment: "hint: used by 'ntpd'"
+  - interface: "{{ internal_interface }}"
+    port: 5140
+    proto: udp
+    destination: "{{ internal_net_name | net_ip }}"
+    comment: "hint: used by 'fluentd' in docker container 'fluentd'"
+  - interface: "{{ oc_provision_interface }}"
+    port: 123
+    proto: udp
+    destination: "{{ 'oc_provision' | net_ip }}"
+    comment: "hint: used by 'ntpd'"
+  - interface: "{{ storage_interface }}"
+    port: 123
+    proto: udp
+    destination: "{{ storage_net_name | net_ip }}"
+    comment: "hint: used by 'ntpd'"

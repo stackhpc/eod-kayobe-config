@@ -1,0 +1,154 @@
+---
+
+firewallgen_enable_firewall: True
+
+firewallgen_ipv4_input_allow_rules:
+  - interface: "all"
+    port: 22
+    proto: tcp
+    comment: "hint: used by 'sshd'"
+  - interface: "lo"
+    port: 25
+    proto: tcp
+    destination: "127.0.0.1"
+    comment: "hint: used by 'master'"
+  - interface: "{{ storage_interface }}"
+    port: 6789
+    proto: tcp
+    destination: "{{ storage_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-mon'"
+  - interface: "{{ storage_interface }}"
+    port: 6800
+    proto: tcp
+    destination: "{{ storage_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-mds'"
+  - interface: "{{ storage_interface }}"
+    port: 6801
+    proto: tcp
+    destination: "{{ storage_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storage_interface }}"
+    port: 6802
+    proto: tcp
+    destination: "{{ storage_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storage_interface }}"
+    port: 6803
+    proto: tcp
+    destination: "{{ storage_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storage_interface }}"
+    port: 6804
+    proto: tcp
+    destination: "{{ storage_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storage_interface }}"
+    port: 6805
+    proto: tcp
+    destination: "{{ storage_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storage_interface }}"
+    port: 6806
+    proto: tcp
+    destination: "{{ storage_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storage_interface }}"
+    port: 6807
+    proto: tcp
+    destination: "{{ storage_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storage_interface }}"
+    port: 6808
+    proto: tcp
+    destination: "{{ storage_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storage_interface }}"
+    port: 6809
+    proto: tcp
+    destination: "{{ storage_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storage_interface }}"
+    port: 6810
+    proto: tcp
+    destination: "{{ storage_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storage_interface }}"
+    port: 6811
+    proto: tcp
+    destination: "{{ storage_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storage_interface }}"
+    port: 6812
+    proto: tcp
+    destination: "{{ storage_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storage_interface }}"
+    port: 6813
+    proto: tcp
+    destination: "{{ storage_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-mgr'"
+  - interface: "{{ storagemgmt_interface }}"
+    port: 6800
+    proto: tcp
+    destination: "{{ storage_mgmt_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storagemgmt_interface }}"
+    port: 6801
+    proto: tcp
+    destination: "{{ storage_mgmt_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storagemgmt_interface }}"
+    port: 6802
+    proto: tcp
+    destination: "{{ storage_mgmt_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storagemgmt_interface }}"
+    port: 6803
+    proto: tcp
+    destination: "{{ storage_mgmt_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storagemgmt_interface }}"
+    port: 6804
+    proto: tcp
+    destination: "{{ storage_mgmt_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storagemgmt_interface }}"
+    port: 6805
+    proto: tcp
+    destination: "{{ storage_mgmt_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storagemgmt_interface }}"
+    port: 6806
+    proto: tcp
+    destination: "{{ storage_mgmt_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storagemgmt_interface }}"
+    port: 6807
+    proto: tcp
+    destination: "{{ storage_mgmt_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storagemgmt_interface }}"
+    port: 6808
+    proto: tcp
+    destination: "{{ storage_mgmt_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storagemgmt_interface }}"
+    port: 6809
+    proto: tcp
+    destination: "{{ storage_mgmt_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storagemgmt_interface }}"
+    port: 6810
+    proto: tcp
+    destination: "{{ storage_mgmt_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "{{ storagemgmt_interface }}"
+    port: 6811
+    proto: tcp
+    destination: "{{ storage_mgmt_net_name | net_ip }}"
+    comment: "hint: used by 'ceph-osd'"
+  - interface: "lo"
+    port: 323
+    proto: udp
+    destination: "127.0.0.1"
+    comment: "hint: used by 'chronyd'"

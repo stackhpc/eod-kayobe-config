@@ -1,0 +1,31 @@
+---
+
+firewallgen_ipv4_input_allow_rewrite_rules:
+# TODO: enable when devops is offfical
+#  - '. |= map( if .processes[].name == "sshd" then .interface = "{% raw %}{{ devops_interface }}{% endraw %}" else . end)'
+# Xvnc is accessed via ssh
+  - '. |= map( if .processes[].name == "Xvnc" then .interface = "lo" else . end)'
+# this is systemd which will start rpcbind
+  - '. | map(select(.port != 111))'
+# ipxe server
+  - '. |= map( if .port == 8080 and .proto == "tcp"  then .interface = "{% raw %}{{ oc_provision_interface }}{% endraw %}" else . end)'
+# tftp
+  - '. |= map( if .port == 69 and .proto == "udp" then .interface = "{% raw %}{{ oc_provision_interface }}{% endraw %}" else . end)'
+# ironic-api
+  - '. |= map( if .processes[].name == "ironic-api" then .interface = "{% raw %}{{ oc_provision_interface }}{% endraw %}" else . end)'
+# dhcp
+  - '. |= map( if .port == 67 and .proto == "udp" then .interface = "{% raw %}{{ oc_provision_interface }}{% endraw %}" else . end)'
+# ironic-inspector
+  - '. |= map( if .port == 5050 and .proto == "tcp"  then .interface = "lo" else . end)'
+# erlang port mapper daemon
+  - '. |= map( if .port == 4369 and .proto == "tcp"  then .interface = "lo" else . end)'
+# rabbit (doesn't seem to referenced in any config file)
+  - '. |= map( if .port == 25672 and .proto == "tcp"  then .interface = "lo" else . end)'
+
+firewallgen_ipv4_input_allow_custom_rules:
+  # docker registry - ss doesn't show docker forwarded ports unless
+  # EXPOSE is set: https://stackoverflow.com/questions/36454955/docker-and-netstat-netstat-is-not-showing-ports-exposed-by-docker-containers
+  - interface: "{% raw %}{{ oc_provision_interface }}{% endraw %}"
+    port: 5000
+    proto: tcp
+    destination: "{% raw %}{{ 'oc_provision' | net_ip }}{% endraw %}"

@@ -1,0 +1,10 @@
+---
+
+firewallgen_ipv4_input_allow_rewrite_rules:
+  - '. |= map( if .processes[].name == "epmd" and .processes[].docker_hint == "rabbitmq" then .interface = "{% raw %}{{ internal_interface }}{% endraw %}" else . end)'
+  - '. |= map( if .processes[].name == "nginx" and .processes[].docker_hint == "inspection_store" then .interface = "{% raw %}{{ internal_interface }}{% endraw %}" else . end)'
+# TODO: enable when we have switched the controllers over to the admin network
+#  - '. |= map( if .processes[].name == "sshd" then .interface = "{% raw %}{{ devops_interface }}{% endraw %}" else . end)'
+  - '. |= map( if .processes[].name == "dnsmasq" and .processes[].docker_hint == "ironic_dnsmasq" then .interface = "{% raw %}{{ wl_inspection_interface }}{% endraw %}" else . end)'
+  - '. |= map( if .processes[].docker_hint == "ironic_pxe" then .interface = "{% raw %}{{ internal_interface }}{% endraw %}" else . end)'
+  - '. | map(select(.processes[].name != "rpcbind"))'

@@ -1,0 +1,8 @@
+---
+
+- name: apply firewall
+  hosts: overcloud:seed
+  roles:
+    - name: stackhpc.firewallgen
+  vars:
+    firewall_action: test

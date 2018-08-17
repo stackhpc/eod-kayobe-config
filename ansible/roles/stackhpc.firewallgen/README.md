@@ -31,31 +31,34 @@ Role Variables
     # e.g to remove the rule generated for the process, `rpcbind`, you 
     # could use: '. | map(select(.processes[].name != "rpcbind"))'
     firewallgen_ipv4_input_allow_rewrite_rules: []
+    
+    # list of network names to perform `net_name | net_vip_address`
+    # and `net_name | net_vip_address` lookups against. If the
+    # network_name doesn't refer to a variable it will be interpretted
+    # as a string literal, e.g:
+    firewallgen_networks:
+      - "oob_oc_net_name"
+      - "provision_oc_net_name"
+      - "oob_wl_net_name"
+      - "provision_wl_net_name"
+      - "internal_net_name"
+      - "public_net_name"
+      - "inspection_net_name"
+      - "cleaning_net_name"
+      - "storage_net_name"
+      - "storage_mgmt_net_name"
+      # networks without an associated name
+      - "devops"
+      # external networks
+      - "oc_provision"
+      - "eod_hs_eth"
 
+    # any custom rules not picked up by firewallgen, e.g:
+    firewallgen_ipv4_input_allow_custom_rules:
+      # docker registry - ss doesn't show docker forwarded ports unless
+      # EXPOSE is set: https://stackoverflow.com/questions/36454955/docker-and-netstat-netstat-is-not-showing-ports-exposed-by-docker-containers
+    - interface: "{% raw %}{{ oc_provision_interface }}{% endraw %}"
+      port: 5000
+      proto: tcp
+      destination: "{% raw %}{{ 'oc_provision' | net_ip }}{% endraw %}"
 
-Dependencies
-------------
-
-No current dependencies.
-
-Example Playbook
-----------------
-
-To generate a firewall:
-
-    - name: gather firewall rules
-      hosts: all
-      roles:
-        - name: stackhpc.firewallgen
-      vars:
-        firewall_action: "generate"
-
-License
--------
-
-GPLv3
-
-Author Information
-------------------
-
-- Will Szumski (<will@stackhpc.com>)

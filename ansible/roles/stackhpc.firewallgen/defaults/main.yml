@@ -25,3 +25,6 @@ firewallgen_ipv4_input_allow_rewrite_rules: []
 # as a string literal.
 firewallgen_networks: []
 
+# any custom rules not picked up by firewallgen
+firewallgen_ipv4_input_allow_custom_rules: []
+

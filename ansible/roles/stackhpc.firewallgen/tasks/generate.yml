@@ -124,11 +124,20 @@
   when: dest != None
   with_items: "{{ sockets_rewrite }}"
 
+- name: transform opensockets to rules
+  set_fact:
+    firewallgen_rules: "{{ (sockets_network_rewrite | firewallgen_rules) + firewallgen_ipv4_input_allow_custom_rules }}"
+
+- name: debug custom rules
+  debug:
+    msg: "{{ firewallgen_ipv4_input_allow_custom_rules }}"
+  when: debug | default(False)
+
 - name: output template
   vars:
-    firewall_rules: "{{ sockets_network_rewrite | sort_multi('proto', 'interface', 'port', 'ip') }}"
+    firewall_rules: "{{ firewallgen_rules | sort_multi('proto', 'interface', 'port', 'destination') }}"
   template:
-    src: sockets-to-rules.j2
+    src: rules-to-config.j2
     dest: "{{ firewallgen_output_path ~ '/' ~ inventory_hostname }}"
   delegate_to: localhost
 

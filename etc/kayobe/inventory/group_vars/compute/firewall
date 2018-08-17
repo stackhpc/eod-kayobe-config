@@ -64,7 +64,7 @@ firewallgen_ipv4_input_allow_rules:
   - interface: "{{ devops_interface }}"
     port: 123
     proto: udp
-    destination: "{{ devops_net_name | net_ip }}"
+    destination: "{{ 'devops' | net_ip }}"
     comment: "hint: used by 'ntpd'"
   - interface: "{{ internal_interface }}"
     port: 123
@@ -79,7 +79,7 @@ firewallgen_ipv4_input_allow_rules:
   - interface: "{{ oc_provision_interface }}"
     port: 123
     proto: udp
-    destination: "{{ oc_provision_net_name | net_ip }}"
+    destination: "{{ 'oc_provision' | net_ip }}"
     comment: "hint: used by 'ntpd'"
   - interface: "{{ storage_interface }}"
     port: 123
